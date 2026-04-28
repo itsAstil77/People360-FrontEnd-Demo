@@ -108,7 +108,7 @@ newAccess: any = {
 };
 
 onCreateGroup() {
-  this.showAddAccessPopup = true;
+this.showAddGroupPopup = true;
 }
 
 closeAddAccessPopup(event: MouseEvent) {
@@ -176,7 +176,7 @@ newGroup: any = {
 };
 
 onCreateAccess() {
-  this.showAddGroupPopup = true;
+   this.showAddAccessPopup = true;
 }
 
 closeAddGroupPopup(event: MouseEvent) {
