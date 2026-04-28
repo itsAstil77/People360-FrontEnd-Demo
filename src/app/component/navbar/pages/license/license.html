@@ -1,0 +1,96 @@
+
+
+
+<div class="main-content">
+
+    <div class="activation-row">
+  <div class="res-input-group">
+    <label>Customer Id</label>
+    <input type="text" placeholder="Enter Customer ID">
+  </div>
+  <div class="res-input-group">
+    <label>License Id</label>
+    <input type="text" placeholder="Enter License ID">
+  </div>
+  <div class="res-input-group">
+    <label>Description</label>
+    <input type="text" placeholder="Enter description">
+  </div>
+  <div class="btn-container">
+    <button class="res-btn-save">Activate License</button>
+  </div>
+</div>
+  <div class="events-card">
+    <div class="table-header">
+      <h2 class="header">License Management</h2>
+      <div class="search-container">
+        <div class="search-box">
+          <img src="assets/search.png" alt="search" class="search-icon">
+          <input type="text" placeholder="Search Licenses">
+        </div>
+      </div>
+      <div class="action-icons">
+        <button class="icon-btn needs-circle"><img src="assets/download1.png"></button>
+        <button class="icon-btn"><img src="assets/reloading.png"></button>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Current State</th>
+            <th>License Id</th>
+            <th>License Type</th>
+            <th>ACT</th>
+            <th>PSM</th>
+            <th>VEM</th>
+            <th>CAM</th>
+            <th>ATM</th>
+            <th>MEM</th>
+            <th>MOO</th>
+            <th>SMA</th>
+            <th>CMM</th>
+            <th>MRE</th>
+            <th>DAE</th>
+            <th>PPE</th>
+            <th>Sub End Date</th>
+            <th>Supp End Date</th>
+            <th>Act Date</th>
+            <th>Description</th>
+            <th class="text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let lic of licenseData">
+            <td><span class="status-pill" [class.active]="lic.state === 'Active'">{{ lic.state }}</span></td>
+            <td>{{ lic.id }}</td>
+            <td>{{ lic.type }}</td>
+            <td>{{ lic.act }}</td>
+            <td>{{ lic.psm }}</td>
+            <td>{{ lic.vem }}</td>
+            <td>{{ lic.cam }}</td>
+            <td>{{ lic.atm }}</td>
+            <td>{{ lic.mem }}</td>
+            <td>{{ lic.moo }}</td>
+            <td>{{ lic.sma }}</td>
+            <td>{{ lic.cmm }}</td>
+            <td>{{ lic.mre }}</td>
+            <td>{{ lic.dae }}</td>
+            <td>{{ lic.ppe }}</td>
+            <td>{{ lic.subEnd }}</td>
+            <td>{{ lic.suppEnd }}</td>
+            <td>{{ lic.actDate }}</td>
+            <td>{{ lic.desc }}</td>
+            <td class="action-cell">
+              <div class="action-wrapper">
+
+                <img src="assets/del.png" class="table-icon" title="Delete">
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,339 @@
+.report-container {
+  background: #ffff;
+  padding: 20px;
+  border-radius: 20px;
+  font-family: 'Red Hat Display', sans-serif;
+  min-height: calc(100vh - 80px);
+  width: 100%;              /* ✅ full available space */
+  max-width: 100%;          /* ✅ prevent overflow */
+  box-sizing: border-box;   /* ✅ include padding */
+   border: 1px solid #d4d6da;
+  
+}
+
+
+
+
+
+
+.tracking-layout {
+    display: flex;
+    gap: 20px;
+    height: 90vh;
+    padding: 20px;
+    margin-top: -20px;
+}
+
+.hierarchy-card {
+    width: 320px;
+    background: #fff;
+    border-radius: 21px;
+    padding: 24px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    overflow-y: auto;
+}
+
+.card-title {
+    font-size: 17px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.tree-list {
+    list-style: none;
+    padding-left: 12px;
+    font-size: 13px;
+}
+
+.tree-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    margin: 4px 0;
+    border-radius: 25px;
+    /* Rounded pill shape */
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.item-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.item-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.item-name {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Active Highlight (The light purple pill) */
+.active-pill {
+    background-color: #DCD0FF !important;
+}
+
+.active-pill .item-name {
+    color: #7030A0;
+    font-weight: 600;
+}
+
+/* Dropdown Arrow Animation */
+.arrow-icon {
+    width: 12px;
+    transition: transform 0.3s ease;
+}
+
+.arrow-icon.rotated {
+    transform: rotate(180deg);
+}
+
+.nested-wrapper {
+    border-left: 1px solid #eee;
+    /* Optional: visual line for nesting */
+    margin-left: 10px;
+}
+
+/* .map-card {
+  flex: 1;
+  background: #fff;
+  border-radius: 21px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+} */
+
+.full-map {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+#map {
+    width: 100%;
+    height: 100%;
+    /* Or a fixed height like 600px */
+    min-height: 500px;
+    display: block;
+}
+
+/* Ensure the parent card also has a height */
+.map-card {
+    flex: 1;
+    height: 100%;
+    min-height: 500px;
+    background: #fff;
+    border-radius: 21px;
+    overflow: hidden;
+}
+
+.tree-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Add indentation for each level */
+.nested-level {
+    padding-left: 20px;
+}
+
+.tree-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 2px 0;
+    transition: background 0.2s ease;
+}
+
+/* The Highlight for the selected item */
+.active-pill {
+    background-color: #DCD0FF !important;
+    color: #7030A0 !important;
+    font-weight: 600;
+}
+
+.item-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.node-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.arrow {
+    width: 12px;
+    transition: transform 0.3s;
+}
+
+.arrow.rotated {
+    transform: rotate(90deg);
+}
+
+.tree-item:hover:not(.active-pill) {
+    background-color: #f5f5f5;
+}
+
+.map-img {
+    width: 80%;
+    height:80%;
+    margin-top: 7%;
+    margin-left: 10%;
+}
+
+.tree-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.item-left {
+    flex-grow: 1;
+    /* Takes up available space */
+}
+
+.item-actions {
+    display: flex;
+    gap: 8px;
+    margin-right: 10px;
+    /* Space between actions and the arrow */
+    opacity: 1;
+    /* Keep it visible at all times */
+    transition: opacity 0.2s;
+}
+
+/* You can delete the .tree-item:hover .item-actions rule entirely */
+
+.action-icon {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    opacity: 0.7;
+    /* Optional: Keep them slightly dim until hovered for a cleaner look */
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+.action-icon:hover {
+    opacity: 1;
+    /* Highlights the specific icon you are about to click */
+    transform: scale(1.2);
+}
+
+
+.arrow {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.2s;
+}
+
+
+/* Container for top right buttons */
+.top-header-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+/* Project/Device Toggle Buttons */
+.toggle-btn {
+    padding: 6px 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: white;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.toggle-btn.active {
+    background-color: #7030A0; /* Purple theme */
+    color: white;
+    border-color: #7030A0;
+}
+
+/* Add Project Button (Inside Hierarchy Card) */
+.add-project-btn {
+    background-color: #7030A0;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.add-project-btn:hover {
+    background-color: #5a2682;
+}
+
+/* Ensure the layout holds the buttons correctly */
+.main-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.project-header-row {
+    display: flex;
+    justify-content: space-between; /* This pushes title left and buttons right */
+    align-items: center;            /* Keeps them vertically centered */
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 0 10px;                /* Optional: aligns with the edge of your cards */
+}
+
+.page-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+}
+
+.toggle-actions {
+    display: flex;
+    gap: 8px; /* Space between Project and Device buttons */
+}
+
+.toggle-btn {
+    padding: 6px 18px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.toggle-btn.active {
+    background-color: #7030A0; /* Matches your purple theme */
+    color: white;
+    border-color: #7030A0;
+}

@@ -1,0 +1,192 @@
+<div class="report"><span class="direction" routerLink="/report">Report >></span> <span>Create Report</span></div>
+
+<div class="main-layout">
+
+    <!-- LEFT SIDE -->
+    <div class="left-panel">
+        <div class="hierarchy-card">
+            <div class="search-wrapper">
+                <input type="text" class="search-input" placeholder="Search..." />
+                <img src="assets/search.png" class="search-icon" alt="Search" />
+            </div>
+
+            <ng-container *ngTemplateOutlet="treeRecursive; context:{ $implicit: locations }"></ng-container>
+
+            <ng-template #treeRecursive let-list>
+                <ul class="tree-list">
+                    <li *ngFor="let node of list">
+                        <div class="tree-item" [class.active-pill]="selectedNode === node.name"
+                            (click)="selectNode(node)">
+
+                            <div class="item-left">
+                                <span>{{ node.name }}</span>
+                            </div>
+
+                            <img src="assets/expand.png" class="arrow" [class.rotated]="node.expanded"
+                                *ngIf="node.children" />
+                        </div>
+
+                        <div class="nested-level" *ngIf="node.expanded && node.children">
+                            <ng-container *ngTemplateOutlet="treeRecursive; context:{ $implicit: node.children }">
+                            </ng-container>
+                        </div>
+                    </li>
+                </ul>
+            </ng-template>
+        </div>
+    </div>
+
+
+
+    <div class="right-panel">
+        <!-- <div class="page-card"> -->
+            <!-- Title -->
+            <div class="page-title">New Reports</div>
+
+            <!-- Status Bar -->
+            <div class="status-bar">
+                <span>Connection Status:
+                    <span class="online">Online</span>/<span class="offline">Offline</span>
+                </span>
+                <span>TOTAL GATEWAY</span>
+                <span>FIXED SENSONR</span>
+                <span>MOBILILE SENSOR (TRACKERS)</span>
+                <span>ALARMS | |</span>
+            </div>
+
+            <!-- Section Header -->
+            <div class="section-header">
+                <span class="section-title">Create Reports</span>
+                <div class="time-range">
+                    <label>Time Range :</label>
+                    <select>
+                        <option>Custom</option>
+                    </select>
+                    <div class="time-btns">
+                        <button *ngFor="let t of timeOptions" class="time-btn" [class.active]="selectedTime === t"
+                            (click)="selectedTime = t">
+                            {{ t }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Body -->
+            <div class="form-body">
+
+                <!-- LEFT COLUMN -->
+                <div class="col-left">
+                    <label class="field-label">Report Name</label>
+                    <input class="input-field" type="text" placeholder="Report Name" [(ngModel)]="reportName" />
+
+                    <label class="field-label">Select Module</label>
+                    <ul class="module-list">
+                        <li *ngFor="let module of modules">
+                            <input type="radio" name="module" [value]="module" [(ngModel)]="selectedModule" />
+                            {{ module }}
+                        </li>
+                    </ul>
+
+                    <!-- Template -->
+                    <div class="template-section">
+  <div class="template-cols">
+    <span></span>
+    <span>Select Template</span>
+  </div>
+
+  <div class="template-row">
+
+    <!-- Dropdown -->
+    <select *ngIf="getTemplates().length > 0"
+            class="action-input"
+            [(ngModel)]="selectedTemplate">
+      <option value="" disabled selected>Select Template</option>
+      <option *ngFor="let item of getTemplates()" [value]="item">
+        {{ item }}
+      </option>
+    </select>
+
+    <!-- Default input if no dropdown -->
+    <input *ngIf="getTemplates().length === 0"
+           class="action-input"
+           type="text" />
+
+  </div>
+</div>
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="col-right">
+
+                    <!-- Choose Format -->
+                    <div class="section-block">
+                        <div class="block-title">Choose Format</div>
+                        <div class="radio-group">
+                            <label class="radio-row">
+                                <input type="radio" name="format" value="url" [(ngModel)]="selectedFormat" /> URL
+                            </label>
+                            <label class="radio-row">
+                                <input type="radio" name="format" value="pdf" [(ngModel)]="selectedFormat" /> PDF
+                            </label>
+                            <label class="radio-row">
+                                <input type="radio" name="format" value="csv" [(ngModel)]="selectedFormat" />
+                                Also download raw data in CSV Format
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Recurrence -->
+                    <div class="section-block">
+                        <div class="block-title">Recurrence of Report</div>
+                        <div class="recurrence-group">
+                            <label class="rec-row">
+                                <input type="radio" name="recurrence" value="once" [(ngModel)]="selectedRecurrence" />
+                                Once
+                            </label>
+                            <label class="rec-row">
+                                <input type="radio" name="recurrence" value="daily" [(ngModel)]="selectedRecurrence" />
+                                Daily
+                                <input type="time" [(ngModel)]="dailyTime" />
+                            </label>
+                            <label class="rec-row">
+                                <input type="radio" name="recurrence" value="weekly" [(ngModel)]="selectedRecurrence" />
+                                Weekly On
+                                <select [(ngModel)]="weeklyDay">
+                                    <option *ngFor="let day of weekDays">{{ day }}</option>
+                                </select>
+                                at
+                                <input type="time" [(ngModel)]="weeklyTime" />
+                            </label>
+                            <label class="rec-row">
+                                <input type="radio" name="recurrence" value="monthly"
+                                    [(ngModel)]="selectedRecurrence" /> Monthly
+                                <input type="date" [(ngModel)]="monthlyDate" />
+                                at
+                                <input type="time" [(ngModel)]="monthlyTime" />
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Share With -->
+                    <div class="section-block">
+                        <div class="block-title">Share With</div>
+                        <textarea class="share-textarea" placeholder="Enter Comma-Separated Email Addresses"
+                            [(ngModel)]="shareEmails">
+        </textarea>
+                    </div>
+
+                </div>
+
+                <!-- Footer -->
+                <div class="footer-btns">
+                    <button class="btn-cancel" (click)="onCancel()"  routerLink="/report">Cancel</button>
+                    <button class="btn-generate" (click)="onGenerate()">Generate Report</button>
+                </div>
+
+            </div>
+        </div>
+
+
+    <!-- </div> -->
+</div>
+

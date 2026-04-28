@@ -1,0 +1,174 @@
+/* --- Page Container --- */
+.main-content {
+    padding: 24px;
+    background: #f4f6f8;
+    min-height: 100vh;
+}
+
+.events-card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+}
+
+.role-meta-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two perfectly equal columns */
+    gap: 24px; /* Matches the gap in your permission-wrapper below */
+    margin-bottom: 20px;
+}
+
+/* 2. Force inputs to fill their respective grid cells */
+.res-input-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.res-input-group label {
+    margin-bottom: 8px;
+      color:#7030A0 ;
+      font-size: 14px;
+}
+
+.res-input-group input {
+    width: 100%;       /* Ensures it fills the grid column */
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    box-sizing: border-box; /* Crucial: ensures padding doesn't push width out */
+}
+
+.res-input-group input:focus {
+    border-color: #7030A0;
+    box-shadow: 0 0 0 2px rgba(112, 48, 160, 0.1);
+}
+
+/* --- Hierarchy Tree (Matches your reference image) --- */
+.permission-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.hierarchy-section,
+.access-section {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.tree-container {
+    max-height: 500px;
+    /* overflow-y: auto; */
+}
+
+.tree-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.2s;
+    gap: 18px;
+    font-size: 14px;
+}
+
+.tree-item:hover {
+    background-color: #DCD0FF;
+    border-radius: 30px;
+}
+
+.tree-item.active-pill {
+    background-color: #f0e8f5;
+    color: #7030A0;
+    font-weight: 800;
+}
+
+.arrow {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.2s;
+}
+
+.arrow.rotated {
+    transform: rotate(90deg);
+}
+
+/* --- Access Matrix --- */
+.access-header {
+    display: grid;
+    grid-template-columns: 2fr 0.5fr 0.5fr;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f3f4f6;
+    font-weight: 500;
+    color: #7030A0;
+    margin-bottom: 10px;
+}
+
+.access-row {
+    display: grid;
+    grid-template-columns: 2fr 0.5fr 0.5fr;
+    padding: 12px 0;
+    border-bottom: 1px solid #f9fafb;
+    align-items: center;
+}
+
+.text-center {
+    text-align: center;
+    font-size: 15px;
+}
+
+/* --- Footer Buttons --- */
+.page-footer {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.res-btn-cancel {
+    padding: 10px 20px;
+    border: 1px solid #d1d5db;
+    background: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.res-btn-save {
+    padding: 10px 20px;
+    background: #7030A0;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+.header {
+    font-size: 15px;
+}
+
+.hierarchy {
+    font-weight: 500;
+    color: #7030A0;
+    font-size: 14px;
+    
+}
+
+.tree-list {
+    list-style: none;
+}
+
+.mod-label{
+    font-size: 14px;
+}
+.item-left {
+    display: flex;
+    align-items: center;
+    /* Increase this value to add more space between the checkbox and the text */
+    gap: 15px; 
+}
+

@@ -1,0 +1,103 @@
+<div class="report-container">
+
+
+
+
+
+
+
+
+
+
+<div class="main-content">
+    <div class="tracking-layout">
+        <div class="hierarchy-card">
+            <h2 class="card-title">Tracking</h2>
+
+            <ng-container *ngTemplateOutlet="treeRecursive; context:{ $implicit: locations }"></ng-container>
+
+            <ng-template #treeRecursive let-list>
+                <ul class="tree-list">
+                    <li *ngFor="let node of list">
+                        <div class="tree-item" [class.active-pill]="selectedNode === node.name"
+                            (click)="handleNodeClick(node)">
+
+                            <div class="item-left">
+                                <span>{{ node.name }}</span>
+                            </div>
+
+                            <img src="assets/expand.png" class="arrow" [class.rotated]="node.expanded"
+                                *ngIf="node.children">
+                        </div>
+
+                        <div class="nested-level" *ngIf="node.expanded && node.children">
+                            <ng-container
+                                *ngTemplateOutlet="treeRecursive; context:{ $implicit: node.children }"></ng-container>
+                        </div>
+                    </li>
+                </ul>
+            </ng-template>
+        </div>
+
+        <div class="map-card">
+
+
+
+
+
+
+
+
+            <div class="map-controls">
+                <div class="control-group">
+                    <label>Select Device : </label>
+                    <select>
+                        <option value="fixed">Fixed</option>
+                        <option value="mobile">Mobile</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Select Parameter : </label>
+                      <select [(ngModel)]="selectedParameter" (change)="onParameterChange()">
+                        <option>Total Visitor</option>
+                        <option>New Visitor</option>
+                        <option>Repeated Visitor</option>
+                        <option>Employee</option>
+                        <option>Heatmap</option>
+                        <option>Queue</option>
+                        <option>Dwell time</option>
+                    </select>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <div id="map" [style.display]="showLeaflet ? 'block' : 'none'"></div>
+
+            <img *ngIf="!showLeaflet" [src]="currentMapImage" class="map-img fade-in" alt="Static Tracking Map">
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

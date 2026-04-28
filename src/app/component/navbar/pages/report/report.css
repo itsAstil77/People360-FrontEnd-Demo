@@ -1,0 +1,170 @@
+.report-container {
+  background: #ffff;
+  padding: 20px;
+  border-radius: 20px;
+  font-family: 'Red Hat Display', sans-serif;
+  min-height: calc(100vh - 80px);
+  width: 100%;              /* ✅ full available space */
+  max-width: 100%;          /* ✅ prevent overflow */
+  box-sizing: border-box;   /* ✅ include padding */
+   border: 1px solid #d4d6da;
+  
+}
+/* Header */
+.report-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 15px;
+  font-size: 14px;
+}
+
+.filters input {
+  accent-color: #7030A0;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-box {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+/* Icon placeholder */
+.icon-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  /* border: 2px solid #7030A0; */
+  cursor: pointer;
+}
+
+/* Table */
+.table-wrapper {
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+thead th {
+  text-align: left;
+  padding: 10px;
+  /* color: #666; */
+  font-weight: 400;
+}
+
+tbody td {
+  padding: 10px;
+  color: #555;
+}
+tbody tr:nth-child(even) {
+  background-color: #f2f0ff; /* light purple */
+}
+tbody tr:nth-child(odd) {
+  background-color: #f8f9ff; /* white */
+}
+
+/* LEFT corner */
+tbody tr td:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* RIGHT corner */
+tbody tr td:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+
+tbody tr:hover {
+  background-color: #e8e9ff;
+}
+
+/* Link style */
+.link {
+  color: #7030A0 !important;
+  cursor: pointer;
+
+  font-weight: 500;
+}
+
+/* Status */
+.status {
+  color: #888;
+}
+
+/* Action icons */
+.action-icons {
+  display: flex;       /* ✅ makes icons inline */
+  align-items: center;
+  gap: 8px;
+}
+.action-icons img {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+
+.search-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.search-box {
+  padding: 8px 35px 8px 12px; /* space for icon */
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  outline: none;
+  width: 200px;
+  box-sizing: border-box;
+}
+
+/* ICON inside input */
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  pointer-events: none; /* click goes to input */
+}
+
+
+
+
+
+.pending {
+  background: linear-gradient(90deg, #7030a0, #3b3175);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.5;  /* 👈 change value 0.1 (low) → 1.0 (full) */
+}

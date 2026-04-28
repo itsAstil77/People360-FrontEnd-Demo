@@ -1,0 +1,72 @@
+<div class="report-container">
+
+  <div class="table-header">
+    <h2>Events</h2>
+
+
+
+
+
+    <div class="search-wrapper">
+            <input type="text" placeholder="Search" class="search-box" />
+            <img src="assets/search.png" class="search-icon" alt="Search" />
+        </div>
+
+
+
+
+
+    <div class="action-icons">
+      <!-- <button class="icon-btn" title="Add Event">
+        <img src="assets/add.png" alt="Add">
+      </button> -->
+<!-- 
+      <button class="icon-btn needs-circle" title="Upload">
+        <img src="assets/upload.png" alt="Upload">
+      </button> -->
+
+      <button class="icon-btn needs-circle" title="Download">
+        <img src="assets/download.png" alt="Download">
+      </button>
+
+      <button class="icon-btn" title="Delete">
+        <img src="assets/columns.png" alt="Filter">
+      </button>
+
+      <button class="icon-btn" title="Reset">
+        <img src="assets/reloading.png" alt="Reset">
+      </button>
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>TIME STAMP</th>
+          <th>CATEGORY</th>
+          <th>DESCRIPTION</th>
+          <th>DEVICE NAME</th>
+          <th>DEVICE ID</th>
+          <th>TIME RAISED</th>
+          <th>HOST NAME</th>
+          <th>DEVICE MAC</th>
+          <th>CLIENT MAC</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events">
+          <td>{{ event.timeStamp }}</td>
+          <td>{{ event.category }}</td>
+          <td>{{ event.description }}</td>
+          <td>{{ event.deviceName }}</td>
+          <td>{{ event.deviceId }}</td>
+          <td>{{ event.timeRaised }}</td>
+          <td>{{ event.hostName }}</td>
+          <td>{{ event.deviceMac }}</td>
+          <td>{{ event.clientMac }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

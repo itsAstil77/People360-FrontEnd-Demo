@@ -1,0 +1,228 @@
+<nav class="navbar-wrapper">
+
+  <!-- LEFT SIDEBAR -->
+  <div class="left-sidebar" [class.expanded]="isExpanded">
+    <div class="sidebar-inner">
+
+      <!-- Logo -->
+      <div class="logo-section">
+        <img src="assets/PurpleIQLOGOPurpleBright.png" alt="PurpleIQ Logo" class="logo-icon" />
+        <img src="assets/PurpleIqNamePurple.png" alt="PurpleIQ" class="logo-name" />
+      </div>
+
+
+      <!-- Expand Button -->
+      <div class="expand-btn" (click)="toggleSidebar()" title="Expand sidebar">
+        <img src="assets/expand.png" alt="Expand" />
+      </div>
+      <!-- Nav Icons -->
+      <div class="nav-icons">
+
+        <div class="nav-item" [class.active-nav]="activeRoute.includes('/dashboard')" routerLink="/dashboard"
+          routerLinkActive="active" title="Dashboard">
+          <img [src]="activeRoute.includes('/dashboard') ? 'assets/dashboardwhite.png' : 'assets/dashboardpurple.png'"
+            alt="Dashboard" />
+          <span class="nav-text">Dashboard</span>
+        </div>
+
+        <div class="nav-item" [class.active-nav]="activeRoute.includes('/live')" routerLink="/live"
+          routerLinkActive="active" title="Live">
+          <img [src]="activeRoute.includes('/live') ? 'assets/trackingwhite.png' : 'assets/trackingpurple.png'"
+            alt="Live" />
+          <span class="nav-text">Live</span>
+        </div>
+
+        <div class="nav-item" [class.active-nav]="activeRoute.includes('/events')" routerLink="/events"
+          routerLinkActive="active" title="Events">
+          <img [src]="activeRoute.includes('/events') ? 'assets/Events-white.png' : 'assets/Events-purple.png'"
+            alt="Events" />
+          <span class="nav-text">Events</span>
+        </div>
+
+        <!-- <div class="nav-item" [class.active-nav]="activeRoute.includes('/administration')" routerLink="/administration"
+          routerLinkActive="active" title="Administration">
+          <img
+            [src]="activeRoute.includes('/administration') ? 'assets/Administration-white.png' : 'assets/Administration-purple.png'"
+            alt="Administration" />
+          <span class="nav-text">Administration</span>
+        </div> -->
+
+<div class="nav-item"
+     [class.active-nav]="isAdministrationActive()"
+     (click)="onAdminClick($event)"
+     title="Administration">
+
+  <img [src]="isAdministrationActive() 
+      ? 'assets/Administration-white.png' 
+      : 'assets/Administration-purple.png'"
+       alt="Administration" />
+
+  <span class="nav-text">Administration</span>
+</div>
+
+
+        <div class="sub-nav-panel" *ngIf="activeRoute.includes('/administration')"
+          [style.left.px]="isExpanded ? 232 : 82">
+
+          <div class="sub-nav-header">
+            <h3>Administration</h3>
+          </div>
+
+         <div class="sub-nav-items">
+  <div *ngFor="let item of administrationSubItems">
+
+    <div class="sub-item"
+      [class.active-pill]="(item.name === 'Configuration' && isConfigExpanded) || item.expanded"
+      (click)="onAdminItemClick(item)">
+      <span>{{ item.name }}</span>
+      <img src="assets/expand.png" class="chevron"
+        [class.rotated]="(item.name === 'Configuration' && isConfigExpanded) || item.expanded"
+        *ngIf="item.hasArrow || item.children">
+    </div>
+
+    <!-- Configuration children -->
+    <ul class="tree-branch" *ngIf="item.name === 'Configuration' && isConfigExpanded">
+      <li *ngFor="let child of item.children" class="tree-leaf">
+        <div class="leaf-content" [class.active-pill]="child.expanded"
+          (click)="child.children ? child.expanded = !child.expanded : null; $event.stopPropagation()"
+          [routerLink]="!child.children && child.path ? child.path : null"
+          routerLinkActive="active-sub-item">
+          <div class="leaf-left">
+            <span class="tree-line"></span>
+            <span class="leaf-text">{{ child.name }}</span>
+          </div>
+          <img src="assets/expand.png" class="small-chevron" [class.rotated]="child.expanded"
+            *ngIf="child.hasArrow || child.children">
+        </div>
+        <ul class="sub-tree-branch" *ngIf="child.children && child.expanded">
+          <li *ngFor="let subChild of child.children" class="sub-tree-leaf">
+            <div class="leaf-content" [class.active-pill]="subChild.expanded"
+              (click)="subChild.children ? subChild.expanded = !subChild.expanded : null; $event.stopPropagation()"
+              [routerLink]="!subChild.children && subChild.path ? subChild.path : null"
+              routerLinkActive="active-sub-item">
+              <div class="leaf-left">
+                <span class="tree-line"></span>
+                <span class="leaf-text sub-text">{{ subChild.name }}</span>
+              </div>
+              <img src="assets/expand.png" class="small-chevron" [class.rotated]="subChild.expanded"
+                *ngIf="subChild.hasArrow || subChild.children">
+            </div>
+            <ul class="deep-tree-branch" *ngIf="subChild.children && subChild.expanded">
+              <li *ngFor="let deepChild of subChild.children" class="deep-tree-leaf">
+                <div class="leaf-content"
+                  [routerLink]="deepChild.path ? deepChild.path : null"
+                  routerLinkActive="active-sub-item">
+                  <div class="leaf-left">
+                    <span class="tree-line"></span>
+                    <span class="leaf-text deep-text">{{ deepChild.name }}</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- User Management children (and any other items with children) -->
+    <ul class="tree-branch" *ngIf="item.name !== 'Configuration' && item.children && item.expanded">
+      <li *ngFor="let child of item.children" class="tree-leaf">
+        <div class="leaf-content"
+          [class.active-pill]="child.expanded"
+          (click)="child.children ? child.expanded = !child.expanded : null; $event.stopPropagation()"
+          [routerLink]="!child.children && child.path ? child.path : null"
+          routerLinkActive="active-sub-item">
+          <div class="leaf-left">
+            <span class="tree-line"></span>
+            <span class="leaf-text">{{ child.name }}</span>
+          </div>
+          <img src="assets/expand.png" class="small-chevron" [class.rotated]="child.expanded"
+            *ngIf="child.hasArrow || child.children">
+        </div>
+        <!-- Sub-children if needed -->
+        <ul class="sub-tree-branch" *ngIf="child.children && child.expanded">
+          <li *ngFor="let subChild of child.children" class="sub-tree-leaf">
+            <div class="leaf-content"
+              [routerLink]="subChild.path ? subChild.path : null"
+              routerLinkActive="active-sub-item">
+              <div class="leaf-left">
+                <span class="tree-line"></span>
+                <span class="leaf-text sub-text">{{ subChild.name }}</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+</div>
+        </div>
+        <div class="nav-item" [class.active-nav]="isProcessActive()" routerLink="/processandautomation"
+          title="Process&Automation">
+
+          <img [src]="isProcessActive() 
+      ? 'assets/process&auto-white.png' 
+      : 'assets/Process&auto-purple.png'" />
+
+          <span class="nav-text">Process&Automation</span>
+        </div>
+        <div class="nav-item" [class.active-nav]="isReportActive()" routerLink="/report" title="Report">
+          <img [src]="isReportActive() ? 'assets/reports-white.png' : 'assets/reports-purple.png'" alt="Report" />
+          <span class="nav-text">Report</span>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- TOP HEADER -->
+  <div class="top-header">
+
+    <!-- App Title -->
+    <div class="header-brand">
+      <span class="brand-title">People360</span>
+    </div>
+
+
+    <!-- Right Actions -->
+    <div class="header-actions">
+
+      <!-- Notification -->
+      <div class="action-btn" title="Notifications">
+        <div class="action-circle purple">
+          <img src="assets/notification.png" alt="Notifications" />
+        </div>
+        <span class="badge red"></span>
+      </div>
+
+      <!-- Email -->
+      <div class="action-btn" title="Email">
+        <div class="action-circle-e purple">
+          <img src="assets/email.png" alt="Email" />
+        </div>
+        <span class="badge red"></span>
+      </div>
+
+
+      <!-- Divider -->
+      <div class="header-divider"></div>
+
+      <!-- Email Label -->
+      <span class="user-email">purpleiq&#64;gmail.com</span>
+
+
+
+
+      <!-- User -->
+      <div class="action-btn" title="User Profile">
+        <div class="action-circle purple">
+          <img src="assets/userwhite.png" alt="User" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</nav>

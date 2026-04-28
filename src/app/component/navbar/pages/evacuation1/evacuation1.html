@@ -1,0 +1,983 @@
+
+<div class="report-container">
+    
+    
+    <div class="tabs">
+    <span class="tab" routerLink="/dashboard-1">
+        Dashboard 
+        <span class="tab-icons">
+            <img src="assets/editpurple.png" alt="Edit" />
+            <img src="assets/trashpurple.png" alt="Delete" />
+        </span>
+    </span>
+    <span routerLink="/evacuation1" class="tab  active">Evacuation 
+        <span class="tab-icons">
+            <img src="assets/edit-white.png" alt="Edit" />
+            <img src="assets/trash-white.png" alt="Delete" />
+        </span>
+    </span>
+
+
+        <span class="tab" routerLink="/dashboardnew">
+       Customer Analytics 
+        <span class="tab-icons">
+            <img src="assets/editpurple.png" alt="Edit" />
+            <img src="assets/trashpurple.png" alt="Delete" />
+        </span>
+    </span>
+
+    <!-- <span routerLink="/evacuation2" class="tab">Evacuation 2
+        <span class="tab-icons">
+            <img src="assets/editpurple.png" alt="Edit" />
+            <img src="assets/trashpurple.png" alt="Delete" />
+        </span>
+    </span> -->
+    <div class="tab-group">
+        <span class="tab" routerLink="/dashboard">
+            OT Dashboard
+            <span class="tab-icons">
+                <img src="assets/editpurple.png" alt="Edit" />
+                <img src="assets/trashpurple.png" alt="Delete" />
+            </span>
+        </span>
+
+        <span class="divider"></span>
+
+        <span class="new">+ New</span>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="header">
+        <h2>Evacuation</h2>
+        <div class="header-actions">
+            <button class="btn">+ Add Widget</button>
+            <button class="btn-outline">Filter</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="dashboard">
+
+        <!-- TOP CARDS -->
+        <div class="top-cards">
+
+            <div class="card small">
+                <h4 class="card-header">
+                    <div class="left">
+                        <span class="red-dot"></span>
+                        <span>Emergency Status</span>
+                    </div>
+
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+                <p class="red">Evacuation In Progress</p>
+            </div>
+
+            <div class="card small">
+                <h4 class="card-header">
+                    <img src="assets/security-system.png" class="left-icon" />
+
+                    <span>Safe Area Status</span>
+
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+                <p><span class="dot green"></span> Evacuated : 132</p>
+            </div>
+
+            <div class="card small">
+
+
+                   <h4 class="card-header">
+                    <img src="assets/family.png" class="left-icon" />
+                        <span> Muster Point</span>
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+
+
+                <p><span class="dot green"></span> Capacity : 150</p>
+            </div>
+
+            <div class="card small center">
+
+
+                <h4 class="card-header">
+                    <img src="assets/warning-sign.png" class="left-icon" />
+
+                    <span>Active Alerts</span>
+
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+
+
+                <h2 class="red">4</h2>
+            </div>
+
+            <div class="card small">
+
+
+                <h4 class="card-header">
+                    <img src="assets/tap.png" class="left-icon" />
+
+                    <span>Trigger</span>
+
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+
+
+
+                <p class="red">Manual Trigger</p>
+            </div>
+
+        </div>
+
+        <!-- SECOND ROW -->
+        <div class="middle-cards">
+
+            <!-- Evacuation Status -->
+            <div class="card big">
+
+                <h4 class="card-header-two">
+                    <img src="assets/bar.png" class="left-icon" />
+
+                    <span class="title">Evacuation Status</span>
+
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+
+                <p>Evacuated - 132/160</p>
+                <div class="progress green">
+                    <span style="width: 80%"></span>
+                </div>
+
+                <p>People Remaining - 28/160</p>
+                <div class="progress red">
+                    <span style="width: 20%"></span>
+                </div>
+
+                <p class="time">Time Elapsed : 00:18:45</p>
+            </div>
+
+            <!-- Active Alerts -->
+            <div class="card big">
+
+                <h4 class="card-header-two">
+                    <img src="assets/warning-triangle.png" class="left-icon" />
+
+                    <span class="title">Active Alerts Description</span>
+
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+
+                <!-- <div class="alert-row" > 
+                    <button class="view-btn">View</button>
+                </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="env-row">
+                    <img src="assets/exclamation-mark.png" class="item-icon" />
+
+                    <!-- LEFT -->
+                    <div class="left">
+                        <div class="name">John Smith Missing</div>
+                        <div class="sub">No Movement Detected</div>
+                    </div>
+
+                    <div class="time-left">00:12:33 </div>
+
+                    <!-- DIVIDER -->
+                    <div class="divider"></div>
+
+                    <!-- RIGHT -->
+                    <div class="right">
+                        <div class="ot">Warehouse A</div>
+                        <div class="sub">No Movement Detected</div>
+                    </div>
+
+                    <!-- <span class="time-right">|</span> -->
+                    <div class="time-right">| 9:15 AM <button class="view-btn">View</button> </div>
+
+                </div>
+
+
+                <!-- ROW 2 -->
+                <div class="env-row">
+                    <img src="assets/exclamation-mark.png" class="item-icon" />
+
+                    <div class="left">
+                        <div class="name">Forklift Stop</div>
+                        <div class="sub">Crash Detected</div>
+                    </div>
+
+                    <div class="time-left">9:00 AM</div>
+
+                    <div class="divider"></div>
+
+                    <div class="right">
+                        <div class="ot">Warehouse B</div>
+                        <div class="sub">Estimated Time</div>
+                    </div>
+
+                    <div class="time-right">| 9:30 AM <button class="view-btn">View</button> </div>
+                </div>
+
+
+                <!-- ROW 3 -->
+                <div class="env-row">
+                    <img src="assets/exclamation-mark.png" class="item-icon" />
+
+                    <div class="left">
+                        <div class="name">Pradeep Missing</div>
+                        <div class="sub">No Movement Detected</div>
+                    </div>
+
+                    <div class="time-left">00:38:19</div>
+
+                    <div class="divider"></div>
+
+                    <div class="right">
+                        <div class="ot">Warehouse C</div>
+                        <div class="sub">No Movement Detected</div>
+                    </div>
+
+                    <div class="time-right">| 8:42 AM <button class="view-btn">View</button> </div>
+                </div>
+
+
+
+
+                <!-- row 4 -->
+                <div class="env-row">
+                    <img src="assets/exclamation-mark.png" class="item-icon" />
+
+                    <div class="left">
+                        <div class="name">Door Left Open</div>
+                        <div class="sub">Exit Door Ajar</div>
+                    </div>
+
+                    <div class="time-left">00:30:00</div>
+
+                    <div class="divider"></div>
+
+                    <div class="right">
+                        <div class="ot">Warehouse B</div>
+                        <div class="sub">Exit Door Ajar</div>
+                    </div>
+
+                    <div class="time-right">| 8:15 AM <button class="view-btn">View</button> </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+            <!-- Critical Alerts -->
+            <div class="card big">
+
+                <h4 class="card-header-two">
+                    <img src="assets/out.png" class="left-icon" />
+
+                    <span class="title">Critical Alerts</span>
+
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+
+                <!-- <div class="alert-row" >
+                    <span class="dot red"></span>
+                    <div class="alert-text">
+                        <b>{{c.title}}</b>
+                        <p>{{c.location}}</p>
+                    </div>
+                    <span class="time">{{c.time}}</span>
+                </div> -->
+
+
+
+
+
+
+
+
+
+                <div class="env-row">
+                    <img src="assets/exclamation-mark.png" class="item-icon" />
+
+                    <!-- LEFT -->
+                    <div class="left">
+                        <div class="name">John Smith Missing</div>
+                        <div class="sub">Warehouse A</div>
+                    </div>
+
+
+
+                    <!-- DIVIDER -->
+                    <div class="divider"></div>
+
+
+                    <!-- <span class="time-right">|</span> -->
+                    <div class="time-right"> 9:15 AM </div>
+
+                </div>
+
+
+                <!-- ROW 2 -->
+                <div class="env-row">
+                    <img src="assets/exclamation-mark.png" class="item-icon" />
+
+                    <div class="left">
+                        <div class="name">Forklift Stop</div>
+                        <div class="sub">Warehouse B</div>
+                    </div>
+
+
+                    <div class="divider"></div>
+
+
+                    <div class="time-right"> 9:30 AM </div>
+                </div>
+
+
+                <!-- ROW 3 -->
+                <div class="env-row">
+                    <img src="assets/exclamation-mark.png" class="item-icon" />
+
+                    <div class="left">
+                        <div class="name">Pradeep Missing</div>
+                        <div class="sub">Warehouse C</div>
+                    </div>
+
+                    <div class="divider"></div>
+
+
+                    <div class="time-right"> 8:42 AM </div>
+                </div>
+
+
+
+
+                <!-- row 4 -->
+                <div class="env-row">
+                    <img src="assets/exclamation-mark.png" class="item-icon" />
+
+                    <div class="left">
+                        <div class="name">Door Left Open</div>
+                        <div class="sub">Exit Door Ajar</div>
+                    </div>
+
+
+                    <div class="divider"></div>
+
+
+                    <div class="time-right"> 8:15 AM </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+        <!-- 3rd ROW -->
+        <div class="bottom-cards">
+
+            <!-- Zone Status -->
+            <div class="card big">
+
+
+
+
+
+                <h4 class="card-header">
+                    <div class="left">
+                        <span class="red-dot"></span>
+                        <span>Evacuation Zone Status</span>
+                    </div>
+
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+
+
+
+
+                <div class="zones">
+                    <div>
+                        <p>Warehouse A</p>
+                        <span>7 Remaining</span>
+                    </div>
+                    <div>
+                        <p>Warehouse C</p>
+                        <span>5 Remaining</span>
+                    </div>
+                    <div>
+                        <p>Warehouse B</p>
+                        <span>10 Remaining</span>
+                    </div>
+                    <div>
+                        <p>Office Area</p>
+                        <span>5 Remaining</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Donut -->
+            <div class="card big">
+
+                <h4 class="card-header">
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+
+                <!-- 🔥 FLEX ROW -->
+                <div class="donut-row">
+
+                    <!-- LEFT -->
+                    <div class="donut"></div>
+
+                    <!-- RIGHT -->
+                    <div class="donut-info">
+                        <p class="evacuated">
+                            <span class="legend purple"></span>
+                            - Evacuated 132
+                        </p>
+
+                        <span class="percent">88%</span>
+
+                        <p class="capacity">Capacity - 150</p>
+                    </div>
+
+                </div>
+
+                <h4 class="title-bottom">Safe Zone Occupancy</h4>
+
+            </div>
+
+            <!-- Attendance -->
+            <div class="card small">
+
+
+                <h4 class="card-header">
+                    <img src="assets/authentication.png" class="left-icon" />
+
+                    <span>Today Attendance</span>
+
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+                <p><span class="dot green"></span> Total : 160</p>
+            </div>
+
+            <!-- Exit Status -->
+            <div class="card small">
+
+                <h4 class="card-header">
+                    <img src="assets/people.png" class="left-icon" />
+
+                    <span>Exit Status</span>
+
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+                <ul>
+                    <li><span class="dot green"></span> Gate 1 IN</li>
+                    <li><span class="dot green"></span> Back Gate</li>
+                    <li><span class="dot green"></span> IT Gate</li>
+                    <li><span class="dot green"></span> Emergency Exit</li>
+                </ul>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- evacuation2 -->
+
+
+
+
+
+<!-- 4th row -->
+
+         <div class="top-cards">
+
+            <div class="card small">
+                <h4 class="card-header">
+                    <div class="left">
+                        <span class="red-dot"></span>
+                        <span>Emergency Status</span>
+                    </div>
+
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+                <p class="red">Evacuation In Progress</p>
+            </div>
+
+            <div class="card small">
+                <h4 class="card-header">
+                    <img src="assets/security-system.png" class="left-icon" />
+
+                    <span>Safe Area Status</span>
+
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+                <p><span class="dot green"></span> Evacuated : 132</p>
+            </div>
+
+
+
+
+
+
+
+            <div class="card small center">
+
+
+                <h4 class="card-header">
+                    <img src="assets/warning-sign.png" class="left-icon" />
+
+                    <span>Active Alerts</span>
+
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+
+
+                <h2 class="red">4</h2>
+            </div>
+
+            <div class="card small">
+
+
+                <h4 class="card-header">
+                    <img src="assets/tap.png" class="left-icon" />
+
+                    <span>Trigger</span>
+
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+
+
+
+                <p class="red">Manual Trigger</p>
+            </div>
+
+
+
+
+
+            <div class="card small">
+
+
+                <h4 class="card-header">
+                    <img src="assets/authentication.png" class="left-icon" />
+
+                    <span>Today Attendance</span>
+
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+
+
+                <p><span class="dot green"></span> Total : 160</p>
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- 5th ROW -->
+        <div class="middle-cards">
+
+            <!-- Evacuation Status -->
+            <div class="card big">
+
+                <h4 class="card-header-two">
+                    <img src="assets/gathering.png" class="left-icon" />
+
+                    <span class="title">Muster Point Status</span>
+
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+
+                <pre
+                    class="pre"><p><span class="dot green"></span>Muster Point 1 - Gate 1 In Terminal       -                        30</p></pre>
+                <pre
+                    class="pre"><p><span class="dot green"></span>Muster Point 2 - Gate 1 Out Terminal    -                        28</p></pre>
+                <pre
+                    class="pre"><p><span class="dot green"></span>Muster Point 3 - Barrier 1 Terminal        -                        4</p></pre>
+                <pre
+                    class="pre"><p><span class="dot green"></span>Muster Point 4 - Barrier 2 Terminal        -                        13</p></pre>
+                <pre
+                    class="pre"><p><span class="dot green"></span>Muster Point 5 - IT Room Terminal        -                        26</p></pre>
+                <pre
+                    class="pre"><p><span class="dot green"></span>Muster Point 6 - Server SS Terminal      -                        31</p></pre>
+
+
+
+            </div>
+
+            <!-- Active Alerts -->
+            <div class="card big">
+
+                <!-- HEADER -->
+                <h4 class="card-header-two">
+                    <img src="assets/people.png" class="left-icon" />
+                    <span class="title">Evacuation Pending</span>
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+
+                <!-- ROW -->
+                <div class="pending-row">
+                    <img src="assets/exclamation-mark.png" class="item-icon" />
+
+                    <div class="col name-col">
+                        <div class="name">John Smith Missing</div>
+                        <div class="id">1676463</div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="col location-col">
+                        Warehouse 1
+                    </div>
+
+                    <div class="time">8.45 AM</div>
+
+                    <!-- RIGHT ICON (you will replace image) -->
+                    <img src="assets/security-camera.png" class="action-icon" />
+                </div>
+
+                <!-- ROW 2 -->
+                <div class="pending-row">
+                    <img src="assets/exclamation-mark.png" class="item-icon" />
+
+                    <div class="col name-col">
+                        <div class="name">Akash Missing</div>
+                        <div class="id">21453536</div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="col location-col">
+                        Warehouse 2
+                    </div>
+
+                    <div class="time">8.40 AM</div>
+
+                    <img src="assets/security-camera.png" class="action-icon" />
+                </div>
+
+                <!-- ROW 3 -->
+                <div class="pending-row">
+                    <img src="assets/exclamation-mark.png" class="item-icon" />
+
+                    <div class="col name-col">
+                        <div class="name">Pradeep Missing</div>
+                        <div class="id">1242435</div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="col location-col">
+                        Workshop
+                    </div>
+
+                    <div class="time">8.42 AM</div>
+
+                    <img src="assets/security-camera.png" class="action-icon" />
+                </div>
+
+                <!-- ROW 4 -->
+                <div class="pending-row">
+                    <img src="assets/exclamation-mark.png" class="item-icon" />
+
+                    <div class="col name-col">
+                        <div class="name">Ram - Inactive</div>
+                        <div class="id">4235566</div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="col location-col">
+                        IT Room
+                    </div>
+
+                    <div class="time">8.38 AM</div>
+
+                    <img src="assets/security-camera.png" class="action-icon" />
+                </div>
+
+            </div>
+
+            <!-- Critical Alerts -->
+
+
+
+
+
+
+            <div class="card small">
+
+                <h4 class="card-header">
+                    <img src="assets/people.png" class="left-icon" />
+                    <span>Exit Status</span>
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+
+                <ul class="exit-list">
+                    <li>
+                        <span class="left">
+                            <span class="dot green"></span> Gate 1 IN
+                        </span>
+                        <span class="divider"></span>
+                        <span class="count">10</span>
+                    </li>
+
+                    <li>
+                        <span class="left">
+                            <span class="dot green"></span> Back Gate
+                        </span>
+                        <span class="divider"></span>
+                        <span class="count">30</span>
+                    </li>
+
+                    <li>
+                        <span class="left">
+                            <span class="dot green"></span> IT Gate
+                        </span>
+                        <span class="divider"></span>
+                        <span class="count">50</span>
+                    </li>
+
+                    <li>
+                        <span class="left">
+                            <span class="dot green"></span> Emergency Exit
+                        </span>
+                        <span class="divider"></span>
+                        <span class="count">60</span>
+                    </li>
+                </ul>
+
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+      <!-- 6th ROW -->
+        <div class="bottom-cards">
+
+
+
+
+            <div class="card big">
+
+                <!-- HEADER -->
+                <h4 class="card-header">
+                    <img src="assets/hotel.png" class="left-icon" />
+                    <span>Evacuation Zone Status</span>
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+
+                <!-- LIST -->
+                <div class="zone-list">
+
+                    <div class="zone-item">
+                        <p class="zone-name">Warehouse A</p>
+                         <span class="divider"></span>
+                        <span class="zone-count">7 Remaining</span>
+                    </div>
+
+                    <div class="zone-item">
+                        <p class="zone-name">Warehouse C</p>
+                         <span class="divider"></span>
+                        <span class="zone-count">5 Remaining</span>
+                    </div>
+
+                    <div class="zone-item">
+                        <p class="zone-name">Warehouse B</p>
+                         <span class="divider"></span>
+                        <span class="zone-count">10 Remaining</span>
+                    </div>
+
+                    <div class="zone-item">
+                        <p class="zone-name">Office Area</p>
+                         <span class="divider"></span>
+                        <span class="zone-count">5 Remaining</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Donut -->
+            <div class="card big">
+
+                <h4 class="card-header">
+                    <img src="assets/family.png" class="left-icon" />
+                        <span> Safe Zone Occupancy</span>
+                    <img src="assets/dots.png" class="menu-icon" />
+                </h4>
+
+                <!-- 🔥 FLEX ROW -->
+                <div class="donut-row">
+
+                    <!-- LEFT -->
+                    <div class="donut"></div>
+
+                    <!-- RIGHT -->
+                    <div class="donut-info">
+                        <p class="evacuated">
+                            <span class="legend purple"></span>
+                            - Evacuated 132
+                        </p>
+
+                        <span class="percent">88%</span>
+
+                        <p class="capacity">Capacity - 150</p>
+                    </div>
+
+                </div>
+
+               
+
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+</div>

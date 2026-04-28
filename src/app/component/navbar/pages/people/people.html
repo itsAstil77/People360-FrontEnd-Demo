@@ -1,0 +1,304 @@
+<div class="main-content">
+    <div class="tab-container">
+        <div class="tab" [class.active]="activeTab === 'employee'" (click)="activeTab = 'employee'">
+            People
+        </div>
+        <div class="tab" [class.active]="activeTab === 'contractor'" (click)="activeTab = 'contractor'">
+            Contractor
+        </div>
+        <div class="tab" [class.active]="activeTab === 'visitor'" (click)="activeTab = 'visitor'">
+            Visitor
+        </div>
+    </div>
+
+    <div class="events-card">
+        <div *ngIf="activeTab === 'employee'">
+            <div class="table-header">
+                <h2 class="header">Employee</h2>
+                <div class="search-container">
+                    <div class="search-box">
+                        <img src="assets/search.png" alt="search" class="search-icon">
+                        <input type="text" placeholder="Search">
+                    </div>
+                </div>
+                <div class="action-icons">
+                    <button class="icon-btn" (click)="createEmpAddPopup()"><img src="assets/add.png"></button>
+                    <button class="icon-btn"><img src="assets/download.png"></button>
+                    <button class="icon-btn"><img src="assets/reloading.png"></button>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="full-data-table">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Company</th>
+                            <th>Department</th>
+                            <th>National ID</th>
+                            <th>SOW/Vehicle ID</th>
+                            <th>Designation</th>
+                            <th>ID Number</th>
+                            <th>Phone No</th>
+                            <th>Card Badge</th>
+                            <th>Status</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let res of resourceData">
+                            <td class="font-semibold">{{ res.FirstName }}</td>
+                            <td class="font-semibold">{{ res.LastName }}</td>
+                            <td>{{ res.StartDate }}</td>
+                            <td>{{ res.EndDate }}</td>
+                            <td>{{ res.Company }}</td>
+                            <td>{{ res.Department }}</td>
+                            <td><code class="id-code">{{ res.NationalId }}</code></td>
+                            <td>{{ res.SOW_VehicleId }}</td>
+                            <td>{{ res.Designation }}</td>
+                            <td><strong>{{ res.IDNumber }}</strong></td>
+                            <td>{{ res.PhoneNo }}</td>
+                            <td>{{ res.CardBadge }}</td>
+                            <td>
+                                <span class="status-pill" [attr.data-status]="res.Status">
+                                    {{ res.Status }}
+                                </span>
+                            </td>
+                            <td class="action-cell">
+                                <div class="action-wrapper">
+                                    <img src="assets/edit.png" class="table-icon" title="Edit">
+                                    <img src="assets/del.png" class="table-icon" title="Delete">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div *ngIf="activeTab === 'contractor'">
+            <div class="table-header">
+                <h2 class="header">Contractor</h2>
+                <div class="search-container">
+                    <div class="search-box">
+                        <img src="assets/search.png" alt="search" class="search-icon">
+                        <input type="text" placeholder="Search">
+                    </div>
+                </div>
+                <div class="action-icons">
+                    <button class="icon-btn"><img src="assets/add.png"></button>
+                    <button class="icon-btn needs-circle"><img src="assets/download.png"></button>
+                    <button class="icon-btn"><img src="assets/reloading.png"></button>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Contractor Name</th>
+                            <th>Contractor ID</th>
+                            <th>Vehicle ID</th>
+                            <th>Vehicle Name</th>
+                            <th>Company Name</th>
+                            <th>Project Name</th>
+                            <th>Address</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Phone Number</th>
+                            <th>Nationality</th>
+                            <th>Status</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let con of contractorData">
+                            <td class="name-highlight">{{ con.ContractorName }}</td>
+                            <td><code class="con-id">{{ con.ContractorId }}</code></td>
+                            <td><strong>{{ con.VehicleId }}</strong></td>
+                            <td>{{ con.VehicleName }}</td>
+                            <td>{{ con.CompanyName }}</td>
+                            <td>{{ con.ProjectName }}</td>
+                            <td class="address-cell" [title]="con.Address">{{ con.Address }}</td>
+                            <td>{{ con.StartDate }}</td>
+                            <td>{{ con.EndDate }}</td>
+                            <td>{{ con.PhoneNo }}</td>
+                            <td>{{ con.Nationality }}</td>
+                            <td>
+                                <span class="status-pill" [attr.data-status]="con.Status">
+                                    {{ con.Status }}
+                                </span>
+                            </td>
+                            <td class="action-cell">
+                                <div class="action-wrapper">
+                                    <img src="assets/edit.png" class="table-icon" title="Edit">
+                                    <img src="assets/del.png" class="table-icon" title="Delete">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div *ngIf="activeTab === 'visitor'">
+            <div class="table-header">
+                <h2 class="header">Visitor</h2>
+                <div class="search-container">
+                    <div class="search-box">
+                        <img src="assets/search.png" alt="search" class="search-icon">
+                        <input type="text" placeholder="Search">
+                    </div>
+                </div>
+                <div class="action-icons">
+                    <button class="icon-btn"><img src="assets/add.png"></button>
+                    <button class="icon-btn needs-circle"><img src="assets/download.png"></button>
+                    <button class="icon-btn"><img src="assets/reloading.png"></button>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Company To Visit</th>
+                            <th>Dept To Visit</th>
+                            <th>National ID</th>
+                            <th>SOW/Vehicle ID</th>
+                            <th>ID Number</th>
+                            <th>Phone No</th>
+                            <th>Badge No</th>
+                            <th>Email ID</th>
+                            <th>Visitor Company</th>
+                            <th>Doc Type</th>
+                            <th>Doc ID</th>
+                            <th>Auth Code</th>
+                            <th>Status</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let vis of visitorData">
+                            <td class="name-bold">{{ vis.FirstName }}</td>
+                            <td class="name-bold">{{ vis.LastName }}</td>
+                            <td>{{ vis.StartDate }}</td>
+                            <td>{{ vis.EndDate }}</td>
+                            <td>{{ vis.CompanyToVisit }}</td>
+                            <td>{{ vis.DeptToVisit }}</td>
+                            <td><code>{{ vis.NationalId }}</code></td>
+                            <td>{{ vis.SOW_VehicleId }}</td>
+                            <td><strong>{{ vis.IDNumber }}</strong></td>
+                            <td>{{ vis.PhoneNo }}</td>
+                            <td>{{ vis.BadgeNo }}</td>
+                            <td class="email-cell">{{ vis.Email }}</td>
+                            <td>{{ vis.VisitorCompany }}</td>
+                            <td>{{ vis.DocType }}</td>
+                            <td>{{ vis.DocId }}</td>
+                            <td><code>{{ vis.AuthCode }}</code></td>
+                            <td>
+                                <span class="status-pill" [attr.data-status]="vis.Status">
+                                    {{ vis.Status }}
+                                </span>
+                            </td>
+                            <td class="action-cell">
+                                <div class="action-wrapper">
+                                    <img src="assets/edit.png" class="table-icon" title="Edit">
+                                    <img src="assets/del.png" class="table-icon" title="Delete">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<div class="resource-popup-wrapper" *ngIf="showEmpAddPopup">
+    <div class="res-modal-overlay">
+        <div class="res-modal-card">
+            <div class="res-modal-header">
+                <h2>Add Employee</h2>
+            </div>
+
+            <div class="res-modal-body">
+                <div class="res-form-grid">
+                    <div class="res-input-group">
+                        <label>First Name</label>
+                        <input type="text" placeholder="e.g. Amit">
+                    </div>
+                    <div class="res-input-group">
+                        <label>Last Name</label>
+                        <input type="text" placeholder="e.g. Sharma">
+                    </div>
+
+                    <div class="res-input-group">
+                        <label>Start Date</label>
+                        <input type="date">
+                    </div>
+                    <div class="res-input-group">
+                        <label>End Date</label>
+                        <input type="date">
+                    </div>
+
+                    <div class="res-input-group">
+                        <label>Company</label>
+                        <input type="text" placeholder="e.g. TechSol UAE">
+                    </div>
+                    <div class="res-input-group">
+                        <label>Department</label>
+                        <input type="text" placeholder="e.g. IT Support">
+                    </div>
+
+                    <div class="res-input-group">
+                        <label>National ID</label>
+                        <input type="text" placeholder="784-1985-1234567-1">
+                    </div>
+                    <div class="res-input-group">
+                        <label>SOW / Vehicle ID</label>
+                        <input type="text" placeholder="SOW-DXB-001">
+                    </div>
+
+                    <div class="res-input-group">
+                        <label>Designation</label>
+                        <input type="text" placeholder="System Engineer">
+                    </div>
+                    <div class="res-input-group">
+                        <label>ID Number</label>
+                        <input type="text" placeholder="EMP-501">
+                    </div>
+
+                    <div class="res-input-group">
+                        <label>Phone No</label>
+                        <input type="text" placeholder="+971 50 123 4567">
+                    </div>
+                    <div class="res-input-group">
+                        <label>Card Badge Number</label>
+                        <input type="text" placeholder="B-9921">
+                    </div>
+
+                    <div class="res-input-group">
+                        <label>Status</label>
+                        <input type="text" placeholder="Active">
+                    </div>
+                </div>
+            </div>
+
+            <div class="res-modal-footer">
+                <button class="res-btn-cancel" (click)="closeEmpAddPopup()">Cancel</button>
+                <button class="res-btn-save">Save Employee</button>
+            </div>
+        </div>
+    </div>
+</div>

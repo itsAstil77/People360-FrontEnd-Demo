@@ -1,0 +1,62 @@
+<div class="report-container">
+
+    <div class="project-header-row">
+        <h2 class="page-title">Project</h2>
+        
+        <!-- <div class="toggle-actions">
+            <button class="toggle-btn active">Project</button>
+            <button class="toggle-btn">Device</button>
+        </div> -->
+    </div>
+    <div class="tracking-layout">
+        <div class="hierarchy-card">
+            <button class="add-project-btn">
+                Add Project
+            </button>
+
+            <ng-container *ngTemplateOutlet="treeRecursive; context:{ $implicit: locations }"></ng-container>
+
+            <ng-template #treeRecursive let-list>
+                <ul class="tree-list">
+                    <li *ngFor="let node of list">
+                        <div class="tree-item" [class.active-pill]="selectedNode === node.name"
+                            (click)="handleNodeClick(node)">
+
+                            <div class="item-left">
+                                <span>{{ node.name }}</span>
+                            </div>
+
+                            <div class="item-actions">
+                                <img src="assets/addd.png" class="action-icon" *ngIf="node.name !== 'Azy floor'"
+                                    title="Add">
+                                <img src="assets/edit.png" class="action-icon" title="Edit">
+                                <img src="assets/del.png" class="action-icon" title="Delete">
+                            </div>
+
+                            <img src="assets/expand.png" class="arrow" [class.rotated]="node.expanded"
+                                *ngIf="node.children">
+                        </div>
+
+                        <div class="nested-level" *ngIf="node.expanded && node.children">
+                            <ng-container
+                                *ngTemplateOutlet="treeRecursive; context:{ $implicit: node.children }"></ng-container>
+                        </div>
+                    </li>
+                </ul>
+            </ng-template>
+        </div>
+
+        <div class="map-card">
+
+            <div id="map" [style.display]="showLeaflet ? 'block' : 'none'"></div>
+
+            <img *ngIf="!showLeaflet" [src]="currentMapImage" class="map-img fade-in" alt="Static Tracking Map">
+
+        </div>
+    </div>
+</div>
+
+
+
+
+

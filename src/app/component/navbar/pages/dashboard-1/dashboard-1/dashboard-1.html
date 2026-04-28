@@ -1,0 +1,195 @@
+<div class="dashboard-wrapper">
+<div class="tabs">
+    <span class="tab active">
+        Dashboard 
+        <span class="tab-icons">
+      <img src="assets/edit-white.png" alt="Edit" />
+            <img src="assets/trash-white.png" alt="Delete" />
+        </span>
+    </span>
+    <span routerLink="/evacuation1" class="tab ">Evacuation 
+        <span class="tab-icons">
+          
+                    <img src="assets/editpurple.png" alt="Edit" />
+            <img src="assets/trashpurple.png" alt="Delete" />
+        </span>
+    </span>
+    <!-- <span routerLink="/evacuation2" class="tab">Evacuation 2
+        <span class="tab-icons">
+            <img src="assets/editpurple.png" alt="Edit" />
+            <img src="assets/trashpurple.png" alt="Delete" />
+        </span>
+    </span> -->
+
+    <div class="tab-group">
+        <span class="tab" routerLink="/dashboardnew">
+           Customer Analytics
+            <span class="tab-icons">
+                <img src="assets/editpurple.png" alt="Edit" />
+                <img src="assets/trashpurple.png" alt="Delete" />
+            </span>
+        </span>
+    </div>
+
+
+    <div class="tab-group">
+        <span class="tab" routerLink="/dashboard">
+            OT Dashboard
+            <span class="tab-icons">
+                <img src="assets/editpurple.png" alt="Edit" />
+                <img src="assets/trashpurple.png" alt="Delete" />
+            </span>
+        </span>
+
+        <span class="divider"></span>
+
+        <span class="new">+ New</span>
+    </div>
+</div>
+
+
+
+    <div class="dashboard-top-bar">
+        <h1 class="dashboard-title">Dashboard 1</h1>
+        <div class="top-actions">
+            <button class="btn-widget">+ Add Widget</button>
+            <button class="btn-widget">Filter</button>
+        </div>
+    </div>
+
+    <div class="dashboard-grid">
+
+        <div class="zone-cards-container">
+            <div class="card zone-card" *ngFor="let zone of zones">
+                <div class="card-header">
+                    <div class="header-left">
+                        <span class="purple-title">{{ zone.name }}</span>
+                    </div>
+
+                    <div class="header-right-icons">
+                        <img src="assets/group.png" class="icon-sm">
+                        <img src="assets/dots.png" class="icon-dots">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="para1">Live People Count - {{ zone.people }}</p>
+                    <p class="para">Live Visitor Count - {{ zone.visitors }}</p>
+                    <p class="para">Live Contractor Count - {{ zone.contractors }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-stats-row">
+            <div class="card stat-card center-content">
+                <div class="card-header">
+                    <div class="header-left">
+                        <img src="assets/chart-uppurple.png" class="icon-purple">
+                    </div>
+
+                    <div class="header-right-icons">
+                        <img src="assets/dots.png" class="icon-dots">
+                    </div>
+                </div>
+                <div class="big-number">32</div>
+                <div class="sub-label">People in Zone5</div>
+            </div>
+
+            <div class="card stat-card">
+                <div class="card-header">
+                    <div class="header-left">
+                        <img src="assets/donut-chart.png" class="icon-purple">
+                    </div>
+
+                    <div class="header-right-icons">
+                        <img src="assets/dots.png" class="icon-dots">
+                    </div>
+                </div>
+                <div class="pie-content">
+                    <div class="pie-placeholder"></div>
+                    <ul class="pie-legend">
+                        <li><span class="dot emp"></span> Employee</li>
+                        <li><span class="dot con"></span> Contractor</li>
+                        <li><span class="dot vis"></span> Visitor</li>
+                    </ul>
+                </div>
+                <div class="chart-footer-label">Live Count</div>
+            </div>
+
+            <!-- <div class="card stat-card wide-stat">
+                <div class="card-header">
+                    <div class="header-left">
+                        <img src="assets/pie-chart.png" class="icon-purple">
+                    </div>
+
+                    <div class="header-right-icons">
+                        <img src="assets/dots.png" class="icon-dots">
+                    </div>
+                </div>
+                <div class="area-chart-placeholder">
+                    <img src="assets/graph-mockup.png" class="full-img">
+                </div>
+            </div> -->
+<div class="card stat-card wide-stat">
+
+      <div class="card-header">
+                    <div class="header-left">
+                        <img src="assets/pie-chart.png" class="icon-purple">
+                    </div>
+ <div class="sub-label">Overall Graph </div>
+                    <div class="header-right-icons">
+                        <img src="assets/dots.png" class="icon-dots">
+                    </div>
+                </div>
+<div class="area-chart">
+  <div class="graph">
+    <!-- LINE -->
+    <svg viewBox="0 0 300 120" class="line-graph">
+      <polyline
+        points="0,100 50,80 100,90 150,50 200,70 250,40 300,60"
+        fill="none"
+        stroke="#7030A0"
+        stroke-width="3" />
+        
+      
+      <!-- AREA FILL -->
+      <polygon
+        points="0,100 50,80 100,90 150,50 200,70 250,40 300,60 300,120 0,120"
+        fill="rgba(112,48,160,0.1)" />
+        <circle cx="50" cy="80" r="3" fill="#7030A0"/>
+        
+    </svg>
+  </div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+        </div>
+
+        <div class="right-sidebar-chart">
+            <div class="card full-height-card">
+                <div class="card-header">
+                    <div class="header-left">
+                        <span class="purple-title">Live People</span>
+                    </div>
+                    <div class="header-right-icons">
+                        <img src="assets/data-analyticspurple.png" class="icon-purple">
+                        <img src="assets/dots.png" class="icon-dots">
+                    </div>
+                </div>
+                <div class="bar-chart-vertical">
+                    <div class="bar-group" *ngFor="let b of barData">
+                        <div class="bar" [style.height.%]="b.height" [style.background-color]="b.color"></div>
+                        <span>{{ b.label }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

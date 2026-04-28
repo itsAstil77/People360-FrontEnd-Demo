@@ -1,0 +1,69 @@
+<div class="main-content">
+    <div class="events-card">
+        <div class="table-header">
+            <h2 class="header">Create Newe Role</h2>
+        </div>
+
+        <div class="role-meta-container">
+            <div class="res-input-group">
+                <label>Role Name *</label>
+                <input type="text" placeholder="Enter Role Name" [(ngModel)]="role.name">
+            </div>
+            <div class="res-input-group">
+                <label>Description</label>
+                <input type="text" placeholder="Enter description" [(ngModel)]="role.description">
+            </div>
+        </div>
+
+        <div class="permission-wrapper">
+            <div class="hierarchy-section">
+                <h3 class="hierarchy">Hierarchy Permission</h3>
+                <div class="tree-container">
+                    <ng-container *ngTemplateOutlet="treeRecursive; context:{ $implicit: locations }"></ng-container>
+
+                    <ng-template #treeRecursive let-list>
+                        <ul class="tree-list">
+                            <li *ngFor="let node of list">
+                                <div class="tree-item" [class.active-pill]="selectedNode === node"
+                                    (click)="handleNodeClick(node)">
+                                    <div class="item-left">
+                                        <input type="checkbox" [(ngModel)]="node.checked"
+                                            (change)="toggleNodeSelection(node)">
+                                        <span (click)="handleNodeClick(node)">{{ node.name }}</span>
+                                    </div>
+                                    <img src="assets/expand.png" class="arrow" [class.rotated]="node.expanded"
+                                        *ngIf="node.children" (click)="node.expanded = !node.expanded">
+                                </div>
+
+                                <div class="nested-level" *ngIf="node.expanded && node.children">
+                                    <ng-container
+                                        *ngTemplateOutlet="treeRecursive; context:{ $implicit: node.children }"></ng-container>
+                                </div>
+                            </li>
+                        </ul>
+                    </ng-template>
+                </div>
+            </div>
+
+            <div class="access-section">
+                <div class="access-header">
+                    <span class="hierarchy">Access Permission</span>
+                    <span class="text-center">View</span>
+                    <span class="text-center">Edit</span>
+                </div>
+                <div class="access-list">
+                    <div *ngFor="let mod of accessModules" class="access-row">
+                        <label class="mod-label">{{ mod.name }}</label>
+                        <div class="text-center"><input type="checkbox" [(ngModel)]="mod.view"></div>
+                        <div class="text-center"><input type="checkbox" [(ngModel)]="mod.edit"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <button class="res-btn-cancel" (click)="cancel()">Cancel</button>
+            <button class="res-btn-save" (click)="saveRole()">Save Role</button>
+        </div>
+    </div>
+</div>

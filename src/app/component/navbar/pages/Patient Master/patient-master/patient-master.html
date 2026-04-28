@@ -1,0 +1,68 @@
+<div class="main-content">
+  <div class="events-card">
+    
+    <div class="table-header">
+      <h2 class="header">Patient-Master</h2>
+      
+      <div class="search-container">
+        <div class="search-box">
+          <img src="assets/search.png" alt="search" class="search-icon">
+          <input type="text" placeholder="Search">
+        </div>
+      </div>
+
+      <div class="action-icons">
+        <button class="icon-btn"><img src="assets/add.png"></button>
+        <button class="icon-btn needs-circle"><img src="assets/download.png"></button>
+        <button class="icon-btn"><img src="assets/reloading.png"></button>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+<table>
+    <thead>
+      <tr>
+        <th>HIS ID</th>
+        <th>Patient Name</th>
+        <th>Gender/Age</th>
+        <th>Case ID</th>
+        <th>Dept / OT</th>
+        <th>Priority</th>
+        <th>Surgery Type</th>
+        <th>Status</th>
+        <th class="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let patient of patientData">
+        <td><code>{{ patient.Patient_ID }}</code></td>
+        <td class="name-column">{{ patient.Patient_Name }}</td>
+        <td>{{ patient.Gender }} / {{ patient.Age }}</td>
+        <td>{{ patient.Case_ID }}</td>
+        <td>
+          <div class="dept-text">{{ patient.Department }}</div>
+          <small class="ot-subtext">{{ patient.Assigned_OT }}</small>
+        </td>
+        <td>
+          <span class="priority-tag" [ngClass]="patient.Priority.toLowerCase()">
+            {{ patient.Priority }}
+          </span>
+        </td>
+        <td>{{ patient.Surgery_Type }}</td>
+        <td>
+          <span class="status-indicator" [attr.data-status]="patient.Status">
+            {{ patient.Status }}
+          </span>
+        </td>
+        <td class="action-cell">
+        <div class="action-wrapper">
+          <img src="assets/edit.png" class="table-icon" title="Edit">
+          <img src="assets/del.png" class="table-icon" title="Delete">
+        </div>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+    </div>
+  </div>
+</div>

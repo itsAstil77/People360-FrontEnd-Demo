@@ -1,0 +1,579 @@
+<div class="report"><span class="direction" routerLink="/processandautomation">Process&Automation >></span> <span>Create
+        Process&Automation</span></div>
+
+<div class="main-layout">
+
+    <!-- LEFT SIDE -->
+    <div class="left-panel">
+        <div class="hierarchy-card">
+            <div class="search-wrapper">
+                <input type="text" class="search-input" placeholder="Search..." />
+                <img src="assets/search.png" class="search-icon" alt="Search" />
+            </div>
+
+            <ng-container *ngTemplateOutlet="treeRecursive; context:{ $implicit: locations }"></ng-container>
+
+            <ng-template #treeRecursive let-list>
+                <ul class="tree-list">
+                    <li *ngFor="let node of list">
+                        <div class="tree-item" [class.active-pill]="selectedNode === node.name"
+                            (click)="selectNode(node)">
+
+                            <div class="item-left">
+                                <span>{{ node.name }}</span>
+                            </div>
+
+                            <img src="assets/expand.png" class="arrow" [class.rotated]="node.expanded"
+                                *ngIf="node.children" />
+                        </div>
+
+                        <div class="nested-level" *ngIf="node.expanded && node.children">
+                            <ng-container *ngTemplateOutlet="treeRecursive; context:{ $implicit: node.children }">
+                            </ng-container>
+                        </div>
+                    </li>
+                </ul>
+            </ng-template>
+        </div>
+    </div>
+
+
+
+    <div class="right-panel">
+        <!-- <div class="page-card"> -->
+        <!-- Title -->
+        <div class="page-title">Add</div>
+
+        <!-- Form Body -->
+
+        <div class="form-group">
+            <label class="input-label">Title</label>
+            <input type="text" class="input-box" />
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <div class="section">
+            <div class="section-title">Conditions</div>
+
+            <div class="row">
+                <label>Relationship: A</label>
+            </div>
+
+            <div class="row input-row">
+                <label>Condition A</label>
+
+                <div class="input-group">
+                    <input type="text" placeholder="Enter condition" />
+                    <button class="add-btn">+</button>
+                </div>
+            </div> -->
+
+        <div class="section">
+
+            <!-- RELATIONSHIP -->
+            <div class="condition-header">
+                <label>Conditions</label>
+
+                <div class="rowcolor">
+                    <label>Relationship: {{ getRelationship() }}</label>
+                </div>
+            </div>
+
+            <!-- CONDITIONS -->
+            <div *ngFor="let cond of conditions; let i = index" class="row input-row">
+
+
+                <!-- LEFT COLUMN (Operator) -->
+                <div class="operator-col">
+                    <select *ngIf="i > 0" [(ngModel)]="cond.operator" class="operator-dropdown">
+                        <option value="AND">AND</option>
+                        <option value="OR">OR</option>
+                    </select>
+                </div>
+
+                <!-- MIDDLE COLUMN (Label) -->
+                <div class="label-col">
+                    <label>Condition {{ cond.name }}</label>
+                </div>
+
+                <!-- RIGHT COLUMN (Input + Buttons) -->
+                <!-- <div class="input-col">
+
+                    <input type="text" [(ngModel)]="cond.value" (click)="openDropdown(cond)" readonly />
+
+                    <div class="condition-dropdown" *ngIf="cond.showDropdown">
+                        <div (click)="selectCondition(cond, 'When the device is')">When the device is</div>
+                        <div (click)="selectCondition(cond, 'When the time is')">When the time is</div>
+                        <div (click)="selectCondition(cond, 'When the people is')">When the people is</div>
+                        <div (click)="selectCondition(cond, 'When there no one')">When the zone is</div>
+                    </div>
+
+
+
+
+                 
+                    <button *ngIf="i > 0" class="remove-btn" (click)="removeCondition(i)">−</button>
+                   
+                    <button *ngIf="i === conditions.length - 1 && conditions.length < maxConditions" class="add-btn"
+                        (click)="addCondition()">+</button>
+
+
+                </div> -->
+
+
+
+
+
+
+
+
+                <div class="input-col">
+
+                    <!-- ✅ MAIN ROW -->
+                    <div class="main-row">
+
+                        <input type="text" [(ngModel)]="cond.value" (click)="openDropdown(cond)" placeholder="Select condition" readonly />
+
+                        <!-- BUTTONS STAY HERE -->
+                        <button *ngIf="i > 0" class="remove-btn" (click)="removeCondition(i)">−</button>
+
+                        <button *ngIf="i === conditions.length - 1 && conditions.length < maxConditions" class="add-btn"
+                            (click)="addCondition()">+</button>
+
+                    </div>
+
+                    <!-- ✅ DROPDOWN (GOES BELOW INPUT) -->
+                    <div class="condition-dropdown" *ngIf="cond.showDropdown">
+                        <div (click)="selectCondition(cond, 'device')">When the device is</div>
+                        <div (click)="selectCondition(cond, 'time')">When the time is</div>
+                        <div (click)="selectCondition(cond, 'people')">When the people is</div>
+                        <div (click)="selectCondition(cond, 'zone')">When the zone is</div>
+                    </div>
+
+                    <!-- ✅ SUB INPUTS (GO BELOW) -->
+                    <div class="sub-section" *ngIf="cond.type !== 'time' && cond.type">
+
+                        <!-- 1st -->
+                        <div class="trigger-dropdown-box">
+                            <input type="text" placeholder="Select Zone" [(ngModel)]="cond.zone"
+                                (click)="openSub(cond, 'zone')" readonly />
+
+                            <div class="trigger-dropdown" *ngIf="cond.showZone">
+                                <div (click)="selectZone(cond, 'Zone 1')">Device 1</div>
+                                <div (click)="selectZone(cond, 'Zone 2')">Device 2</div>
+                                <div (click)="selectZone(cond, 'Zone 3')">Device 3</div>
+                            </div>
+                        </div>
+
+                        <!-- 2nd -->
+                        <div class="trigger-dropdown-box" *ngIf="cond.zone">
+                            <input type="text" placeholder="Select Type" [(ngModel)]="cond.metric"
+                                (click)="openSub(cond, 'metric')" readonly />
+
+                            <div class="trigger-dropdown" *ngIf="cond.showMetric">
+                                <div (click)="selectMetric(cond, 'Energy Saved')">Energy Saved</div>
+                                <div (click)="selectMetric(cond, 'Energy Consumed')">Energy Consumed</div>
+                                <div (click)="selectMetric(cond, 'Status')">Status</div>
+                            </div>
+                        </div>
+
+                        <!-- 3rd -->
+                        <div class="trigger-dropdown-box" *ngIf="cond.metric">
+                            <input type="text" placeholder="Select Condition" [(ngModel)]="cond.operatorValue"
+                                (click)="openSub(cond, 'operator')" readonly />
+
+                            <div class="trigger-dropdown" *ngIf="cond.showOperator">
+                                <div (click)="selectOperator(cond, 'Less than')">Less than</div>
+                                <div (click)="selectOperator(cond, 'Greater than')">Greater than</div>
+                                <div (click)="selectOperator(cond, 'Equal to')">Equal to</div>
+                                <div (click)="selectOperator(cond, 'Not equal to')">Not equal to</div>
+                                <div (click)="selectOperator(cond, 'Online')">Online</div>
+                                <div (click)="selectOperator(cond, 'Offline')">Offline</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ✅ TIME SECTION -->
+                    <!-- <div class="time-section" *ngIf="cond.type === 'time'">
+                        <label>Set Time Period</label>
+                        <input type="time" [(ngModel)]="cond.startTime">
+                        <input type="time" [(ngModel)]="cond.endTime">
+                    </div> -->
+                    
+
+                    <div class="time-period-section" *ngIf="cond.type === 'time'">
+
+    <!-- TIME INPUTS -->
+    <div class="time-inputs">
+        <div class="time-box">
+            <input type="text" placeholder="HH" [(ngModel)]="cond.startHH" maxlength="2" />
+            <span>:</span>
+            <input type="text" placeholder="MM" [(ngModel)]="cond.startMM" maxlength="2" />
+        </div>
+
+        <div class="time-box">
+            <input type="text" placeholder="HH" [(ngModel)]="cond.endHH" maxlength="2" />
+            <span>:</span>
+            <input type="text" placeholder="MM" [(ngModel)]="cond.endMM" maxlength="2" />
+        </div>
+    </div>
+
+    <!-- DAYS -->
+    <div class="days">
+        <button *ngFor="let day of ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']"
+            [class.active-day]="cond.selectedDays?.includes(day)"
+            (click)="toggleDay(cond, day)">
+            {{ day }}
+        </button>
+    </div>
+
+    <!-- EFFECTIVE TIME -->
+    <div class="effective-time">
+        Effective Time: {{ cond.startHH || '00' }}:{{ cond.startMM || '00' }} - {{ cond.endHH || '23' }}:{{ cond.endMM || '59' }}
+    </div>
+
+</div>
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+            <div class="row checkbox-row">
+                <label>Set time Period</label>
+                <input type="checkbox" [(ngModel)]="isTimeEnabled" />
+
+            </div>
+
+            <div *ngIf="isTimeEnabled" class="time-container">
+
+                <!-- TIME INPUTS -->
+                <div class="time-inputs">
+                    <div class="time-box">
+                        <input type="text" placeholder="HH" />
+                        <span>:</span>
+                        <input type="text" placeholder="MM" />
+                    </div>
+
+                    <div class="time-box">
+                        <input type="text" placeholder="HH" />
+                        <span>:</span>
+                        <input type="text" placeholder="MM" />
+                    </div>
+                </div>
+
+                <!-- DAYS -->
+                <div class="days">
+                    <button *ngFor="let day of ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']">
+                        {{ day }}
+                    </button>
+                </div>
+
+                <!-- EFFECTIVE TIME -->
+                <div class="effective-time">
+                    Effective Time: 00:00 - 23:59
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+        <!-- 
+        </div> -->
+
+
+
+        <div class="section">
+            <div class="section-title">Actions</div>
+
+            <div class="actions-body">
+
+                <div *ngFor="let action of actions; let i = index" class="action-block">
+
+                    <!-- MAIN ROW -->
+                    <div class="row input-row">
+                        <label>Action {{ action.name }}</label>
+
+                        <div class="input-group">
+                            <input type="text"  [(ngModel)]="action.value" placeholder="Select action" (click)="openDropdown(action)" readonly />
+
+
+
+                            <!-- REMOVE -->
+                            <button *ngIf="i > 0" class="remove-btn" (click)="removeAction(i)">−</button>
+
+                            <!-- ADD -->
+                            <button *ngIf="i === actions.length - 1 && actions.length < 3" class="add-btn"
+                                (click)="addAction()">+</button>
+
+
+                        </div>
+                    </div>
+
+                    <!-- DROPDOWN -->
+                    <div class="dropdown" *ngIf="action.showDropdown">
+                        <div (click)="selectType(action, 'trigger')">Trigger device(s) to..</div>
+                        <div (click)="selectType(action, 'alarm')">Send an alarm notification</div>
+                    </div>
+
+                    <!-- TRIGGER DEVICE UI -->
+                    <!-- <div class="sub-section" *ngIf="action.type === 'trigger'">
+                        <input type="text" class="input-box" />
+                        <input type="text" class="input-box"/>
+                        <input type="text" class="input-box"/>
+                    </div> -->
+                    
+                    <div class="action-sub-section" *ngIf="action.type === 'trigger'">
+
+                        <!-- 1st -->
+                        <div class="action-dropdown-box">
+                            <input type="text" [(ngModel)]="action.device" (click)="openSubDropdown(action, 'device')"
+                                placeholder="Select device" readonly />
+
+                            <div class="action-dropdown" *ngIf="action.showDeviceDropdown">
+                                <div (click)="selectDevice(action, 'Light Sensor')">Light Sensor</div>
+                                <div (click)="selectDevice(action, 'Gas Sensor')">Gas Sensor</div>
+                                <div (click)="selectDevice(action, 'Controller')">Controller</div>
+                            </div>
+                        </div>
+
+                        <!-- 2nd -->
+                        <div class="action-dropdown-box" *ngIf="action.device">
+                            <input type="text" [(ngModel)]="action.deviceType" (click)="openSubDropdown(action, 'type')"
+                                placeholder="Select type" readonly />
+
+                            <div class="action-dropdown" *ngIf="action.showTypeDropdown">
+                                <div (click)="selectTypeValue(action, 'Testing for display name')">Testing for display
+                                    name</div>
+                                <div (click)="selectTypeValue(action, 'Testing for indoor')">Testing for indoor</div>
+                                <div (click)="selectTypeValue(action, 'Testing for outdoor')">Testing for outdoor</div>
+                            </div>
+                        </div>
+
+                        <!-- 3rd -->
+                        <div class="action-dropdown-box" *ngIf="action.deviceType">
+                            <input type="text" [(ngModel)]="action.status" (click)="openSubDropdown(action, 'status')"
+                                placeholder="Select status" readonly />
+
+                            <div class="action-dropdown" *ngIf="action.showStatusDropdown">
+                                <div (click)="selectStatus(action, 'Online')">Online</div>
+                                <div (click)="selectStatus(action, 'Offline')">Offline</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ALARM UI -->
+                    <div class="sub-section-inline" *ngIf="action.type === 'alarm'">
+                        <button>Dashboard</button>
+                        <button>Email</button>
+                        <button>Alarm</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="action-footer">
+            <button class="btn-cancel" routerLink="/processandautomation">Cancel</button>
+            <button class="btn-create">Create</button>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+
+
+
+
+
+
+
+ <div class="form-body">
+
+            <div class="col-left">
+                <label class="field-label">Title</label>
+                <input class="input-field" type="text" placeholder="Report Name" [(ngModel)]="reportName" />
+
+
+
+
+
+
+
+
+
+
+                <div class="rule-container">
+
+            
+                    <div class="section">
+                        <div class="section-title">Conditions</div>
+
+                        <div class="row">
+                            <label>Relationship: A</label>
+                        </div>
+
+                        <div class="row input-row">
+                            <label>Condition A</label>
+
+                            <div class="input-group">
+                                <input type="text" placeholder="Enter condition" />
+                                <button class="add-btn">+</button>
+                            </div>
+                        </div>
+
+                        <div class="row checkbox-row">
+                            <label>Set time Period</label>
+                            <input type="checkbox" />
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Actions</div>
+
+                        <div class="row input-row">
+                            <label>Action A</label>
+
+                            <div class="input-group">
+                                <input type="text" placeholder="Enter action" />
+                                <button class="add-btn">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+            </div>
+
+      
+            <div class="footer-btns">
+                <button class="btn-cancel" (click)="onCancel()" routerLink="/processandautomation">Cancel</button>
+                <button class="btn-generate" (click)="onGenerate()">Create</button>
+            </div>
+
+        </div>
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

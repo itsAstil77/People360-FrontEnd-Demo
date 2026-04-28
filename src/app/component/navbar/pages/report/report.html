@@ -1,0 +1,147 @@
+<div class="report-container">
+
+    <!-- Header -->
+    <div class="report-header">
+        <div class="title">Report</div>
+
+
+
+<div class="search-wrapper">
+  <input type="text" placeholder="Search" class="search-box" />
+  <img src="assets/search.png" class="search-icon" alt="Search" />
+</div>
+        <div class="actions">
+
+
+            <!-- ICONS (you add images later) -->
+            <img class="icon-btn" src="assets/add.png" alt="Expand"   routerLink="/createreport" />
+            <img class="icon-btn" src="assets/upload.png" alt="Upload" />
+            <img class="icon-btn" src="assets/download.png" alt="Download" />
+            <img class="icon-btn" src="assets/reloading.png" alt="Reloading" />
+            <img class="icon-btn" src="assets/delete.png" alt="Delete" />
+        </div>
+    </div>
+
+
+
+
+    <div class="filters">
+        <label><input type="radio" name="type" checked> Monthly</label>
+        <label><input type="radio" name="type"> Weakly</label>
+        <label><input type="radio" name="type"> Daily</label>
+        <label><input type="radio" name="type"> Once</label>
+    </div>
+
+
+    <!-- Table -->
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sl NO</th>
+                    <th>Reports</th>
+                    <th>Time Range</th>
+                    <th>Expire On</th>
+                    <th>Recurrence</th>
+                    <th>Created On</th>
+                    <th>Type</th>
+                    <th>Share With</th>
+                    <th>Generated On</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td class="link" routerLink="/otreport">OT Report</td>
+                    <td>1 - Month</td>
+                    <td>2027-07-01</td>
+                    <td>Once</td>
+                    <td>2026-05-01</td>
+                    <td>URL</td>
+                    <td>piq@gmail.com</td>
+                    <td>2026-05-01</td>
+                    <td><span class="status">Completed</span></td>
+                    <td>
+                        <div class="action-icons">
+                            <img src="assets/editpurple.png" alt="Edit" />
+                            <img src="assets/trashpurple.png" alt="Delete" />
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Duplicate rows -->
+                <tr>
+                    <td>2</td>
+                    <td class="link" routerLink="/patientreport">Patient Report</td>
+                    <td>1 - Month</td>
+                    <td>2027-07-01</td>
+                    <td>Once</td>
+                    <td>2026-05-01</td>
+                    <td>URL</td>
+                    <td>piq@gmail.com</td>
+                    <td>2026-05-01</td>
+                    <td><span class="status">Completed</span></td>
+                     <td>
+                        <div class="action-icons">
+                            <img src="assets/editpurple.png" alt="Edit" />
+                            <img src="assets/trashpurple.png" alt="Delete" />
+                        </div>
+                    </td>
+                </tr>
+
+
+
+                <!-- Duplicate rows -->
+                <tr>
+                    <td>3</td>
+                    <td class="link" routerLink="/customer">Customer</td>
+                    <td>1 - Month</td>
+                    <td>2027-07-01</td>
+                    <td>Once</td>
+                    <td>2026-05-01</td>
+                    <td>URL</td>
+                    <td>piq@gmail.com</td>
+                    <td>2026-05-01</td>
+                    <td><span class="status">Completed</span></td>
+                     <td>
+                        <div class="action-icons">
+                            <img src="assets/editpurple.png" alt="Edit" />
+                            <img src="assets/trashpurple.png" alt="Delete" />
+                        </div>
+                    </td>
+                </tr>
+
+
+
+
+
+
+
+                <!-- Duplicate rows -->
+                <tr>
+                    <td>4</td>
+                    <td class="pending">People</td>
+                    <td>1 - Month</td>
+                    <td>2027-07-01</td>
+                    <td>Once</td>
+                    <td>2026-05-01</td>
+                    <td>URL</td>
+                    <td>piq@gmail.com</td>
+                    <td>2026-05-01</td>
+                    <td><span class="status">Pending</span></td>
+                     <td>
+                        <div class="action-icons">
+                            <img src="assets/editpurple.png" alt="Edit" />
+                            <img src="assets/trashpurple.png" alt="Delete" />
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>

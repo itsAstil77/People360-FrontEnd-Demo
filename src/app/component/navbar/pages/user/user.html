@@ -1,0 +1,106 @@
+<div class="main-content">
+    <div class="events-card">
+        <div class="table-header">
+            <h2 class="header">User Master</h2>
+            <div class="search-container">
+                <div class="search-box">
+                    <img src="assets/search.png" alt="search" class="search-icon">
+                    <input type="text" placeholder="Search Users">
+                </div>
+            </div>
+            <div class="action-icons">
+                <button class="icon-btn" (click)="openUserAddPopup()"><img src="assets/add.png"></button>
+                <button class="icon-btn needs-circle"><img src="assets/download1.png"></button>
+                <button class="icon-btn"><img src="assets/reloading.png"></button>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>User Id</th>
+                        <th>User Name</th>
+                        <th>Short Name</th>
+                        <th>Contact No</th>
+                        <th>Email Id</th>
+                        <th>Role</th>
+                        <th>Role Name</th>
+                        <th>AD User Name</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of userData">
+                        <td>{{ user.userId }}</td>
+                        <td><strong>{{ user.userName }}</strong></td>
+                        <td>{{ user.shortName }}</td>
+                        <td>{{ user.contactNo }}</td>
+                        <td>{{ user.emailId }}</td>
+                        <td>{{ user.role }}</td>
+                        <td>{{ user.roleName }}</td>
+                        <td>{{ user.adUserName }}</td>
+                        <td class="action-cell">
+                            <div class="action-wrapper">
+                                <img src="assets/edit.png" class="table-icon" title="Edit">
+                                <img src="assets/del.png" class="table-icon" title="Delete">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="resource-popup-wrapper" *ngIf="showUserAddPopup">
+    <div class="res-modal-overlay">
+        <div class="res-modal-card">
+            <div class="res-modal-header">
+                <h2>Add User</h2>
+            </div>
+
+            <div class="res-modal-body">
+                <div class="res-form-grid">
+                    <div class="res-input-group">
+                        <label>User Id</label>
+                        <input type="text" placeholder="e.g. U006">
+                    </div>
+                    <div class="res-input-group">
+                        <label>User Name</label>
+                        <input type="text" placeholder="e.g. John Doe">
+                    </div>
+                    <div class="res-input-group">
+                        <label>Short Name</label>
+                        <input type="text" placeholder="e.g. JohnD">
+                    </div>
+                    <div class="res-input-group">
+                        <label>Contact No</label>
+                        <input type="text" placeholder="+971 50 123 4567">
+                    </div>
+                    <div class="res-input-group">
+                        <label>Email Id</label>
+                        <input type="email" placeholder="john@hospital.com">
+                    </div>
+                    <div class="res-input-group">
+                        <label>Role Name</label>
+                        <select class="res-select-input">
+                            <option value="System Admin">Admin</option>
+                            <option value="Senior Nurse">Patrol</option>
+                        </select>
+                    </div>
+                   <div class="res-input-group">
+                        <label>Active Directory User Name</label>
+                        <input type="text" placeholder="e.g. john_ad">
+                    </div>
+                </div>
+            </div>
+
+            <div class="res-modal-footer">
+                <button class="res-btn-cancel" (click)="closeUserAddPopup()">Cancel</button>
+                <button class="res-btn-save">Save User</button>
+            </div>
+        </div>
+    </div>
+</div>

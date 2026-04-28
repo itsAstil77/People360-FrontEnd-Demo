@@ -1,0 +1,51 @@
+/* styles.scss — Global styles for people360 */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Red Hat Display', sans-serif;
+  background: #F6F4F8;
+  min-height: 100vh;
+}
+
+/* Push content clear of fixed navbar */
+/* .page-content {
+  padding-top: 70px;   
+  padding-left: 10px;   
+  min-height: 100vh;
+  padding-right: 24px;
+  padding-bottom: 24px;
+} */
+.page-content {
+  /* margin-left: 82px;  */
+  width: calc(100% - 82px);
+  transition: all 0.3s ease;
+    margin-top: 70px; 
+  padding: 5px;
+  box-sizing: border-box;
+    /* transition: all 0.3s ease; */
+}
+
+/* When expanded */
+.page-content.expanded {
+  /* margin-left: 5px; expanded sidebar */
+  width: calc(100% - 232px);
+  padding-right: 5px;
+}
+
+
+
+.page-content {
+  transform: translateX(82px); /* collapsed */
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Expanded */
+.page-content.expanded {
+  transform: translateX(232px);
+}
+

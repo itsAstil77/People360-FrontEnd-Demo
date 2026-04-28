@@ -1,0 +1,6 @@
+<app-navbar (sidebarToggle)="onSidebarToggle($event)"></app-navbar>
+
+
+<div class="page-content" [class.expanded]="isExpanded">
+  <router-outlet></router-outlet>
+</div>

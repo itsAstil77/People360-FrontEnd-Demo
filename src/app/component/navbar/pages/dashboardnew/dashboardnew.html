@@ -1,0 +1,932 @@
+<!-- bala -->
+
+<div class="dashboard-wrapper">
+  <div class="tabs">
+
+    <span routerLink="/dashboard-1" class="tab ">Dashboard
+      <span class="tab-icons">
+
+        <img src="assets/editpurple.png" alt="Edit" />
+        <img src="assets/trashpurple.png" alt="Delete" />
+      </span>
+    </span>
+
+
+    <span routerLink="/evacuation1" class="tab ">Evacuation
+      <span class="tab-icons">
+
+        <img src="assets/editpurple.png" alt="Edit" />
+        <img src="assets/trashpurple.png" alt="Delete" />
+      </span>
+    </span>
+
+
+    <span class="tab active">
+      Customer Analytics
+      <span class="tab-icons">
+        <img src="assets/edit-white.png" alt="Edit" />
+        <img src="assets/trash-white.png" alt="Delete" />
+      </span>
+    </span>
+
+
+    <div class="tab-group">
+      <span class="tab" routerLink="/dashboard">
+        OT Dashboard
+        <span class="tab-icons">
+          <img src="assets/editpurple.png" alt="Edit" />
+          <img src="assets/trashpurple.png" alt="Delete" />
+        </span>
+      </span>
+
+      <span class="divider"></span>
+
+      <span class="new">+ New</span>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="dashboard-top-bar">
+    <h1 class="dashboard-title">Customer Analytics</h1>
+    <div class="top-actions">
+      <button class="btn-widget">+ Add Widget</button>
+      <button class="btn-widget">Filter</button>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- row 1 -->
+  <div class="dashboard-container">
+    <div class="dashboard-container-row">
+      <div class="dashboard-card">
+        <div class="card-header">
+          <img src="assets/customer.png" class="header-icon" />
+          <h2 class="card-title">Customer Analytics</h2>
+          <img src="assets/dots.png" class="header-icon dots-icon" />
+        </div>
+
+        <div class="card-content">
+          <div class="stat-row">
+            <div class="stat-label">Unique Visitors</div>
+            <div class="stat-value">1,245 <span class="highlight-red">35%</span></div>
+            <div class="stat-sub">(362 New)</div>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat-label">Repeat Customers</div>
+            <div class="stat-value">478</div>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat-label">Avg. Dwell Time</div>
+            <div class="stat-value">15m 23s</div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="dashboard-card">
+        <div class="card-header">
+          <img src="assets/customerstatus.png" class="header-icon" />
+          <h2 class="card-title">Customer Status</h2>
+          <img src="assets/dots.png" class="header-icon dots-icon" />
+        </div>
+
+        <div class="gender-container">
+          <div class="gender-item">
+            <img src="assets/woman.png" alt="Female" class="gender-icon" />
+            <span>65% Female</span>
+          </div>
+          <div class="gender-item">
+            <img src="assets/male.png" alt="Male" class="gender-icon" />
+            <span>35% Male</span>
+          </div>
+        </div>
+
+        <h3 class="sub-title">Age Groups</h3>
+
+        <div class="chart-and-stats">
+          <div class="pie-chart-design-container">
+            <div class="pie-outer-ring">
+              <div class="pie-inner-bg">
+                <div class="pie-segment-mask">
+                  <div class="pie-inner-line line-v"></div>
+                  <div class="pie-inner-line line-h"></div>
+                  <div class="pie-inner-line line-diag"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="age-stats">
+            <div class="age-row">
+              <span>18-24</span>
+              <div class="bar-bg">
+                <div class="bar-fill" style="width: 30%; background: #f87171;"></div>
+              </div>
+              <span>28%</span>
+            </div>
+            <div class="age-row">
+              <span>25-40</span>
+              <div class="bar-bg">
+                <div class="bar-fill" style="width: 75%; background: #22d3ee;"></div>
+              </div>
+              <span>38%</span>
+            </div>
+            <div class="age-row">
+              <span>41-60</span>
+              <div class="bar-bg">
+                <div class="bar-fill" style="width: 55%; background: #fb923c;"></div>
+              </div>
+              <span>34%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="dashboard-card">
+        <div class="card-header">
+          <img src="assets/monitoring.png" class="header-icon" />
+          <h2 class="card-title">Employee Monitoring</h2>
+          <img src="assets/dots.png" class="header-icon dots-icon" />
+        </div>
+
+        <div class="monitoring-grid">
+          <div class="stat-box" (click)="openAttendancePopup()">
+            <img src="assets/man.png" alt="Attendance" class="icon" />
+            <div class="text">
+              <label>Attendance</label>
+              <p class="value">8 Present <small>1 Absent</small></p>
+            </div>
+          </div>
+          <div class="stat-box">
+            <img src="assets/man.png" alt="Service" class="icon" />
+            <div class="text">
+              <label>Time in Service Area</label>
+              <p class="value">03h 15m</p>
+            </div>
+          </div>
+
+          <div class="stat-box">
+            <img src="assets/clockwidget.png" alt="Time" class="icon" />
+            <div class="text">
+              <label>Time in Service Area</label>
+              <p class="value">03h 15m</p>
+            </div>
+          </div>
+          <div class="stat-box">
+            <img src="assets/customer.png" alt="Engagement" class="icon" />
+            <div class="text">
+              <label>Customer Engagement</label>
+              <p class="value">26 Interactions</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- row 2 -->
+    <div class="dashboard-row">
+      <div class="dashboard-row">
+
+
+
+
+
+
+
+        <!-- LEFT: PEOPLE PROFILING -->
+        <div class="stats-card" (click)="openProfilePopup()">
+
+          <div class="card-header">
+            <img src="assets/usericon.png" class="header-icon" />
+
+            <h3 class="card-title">People Profiling</h3>
+
+            <img src="assets/dots.png" class="header-icon dots-icon" />
+          </div>
+
+
+          <!-- PERSON 1 -->
+          <div class="profile-item">
+            <!-- <img src="assets/aigirl.png" class="profile-img" /> -->
+            <div class="profile-info">
+              <h4>Jeni Sonalika</h4>
+              <p>Age: 28</p>
+              <span>Frequent Visitor</span>
+            </div>
+            <div class="profile-gender">Female</div>
+            <!-- <img src="assets/aigroup1.png" class="profile-bg" /> -->
+          </div>
+
+          <!-- PERSON 2 -->
+          <div class="profile-item">
+            <!-- <img src="assets/aiboy.png" class="profile-img" /> -->
+            <div class="profile-info">
+              <h4>John</h4>
+              <p>Age: 45</p>
+              <span>New Customer</span>
+            </div>
+            <div class="profile-gender">Male</div>
+            <!-- <img src="assets/aigroup2.png" class="profile-bg" /> -->
+          </div>
+          <div class="profile-item">
+            <!-- <img src="assets/aiboy.png" class="profile-img" /> -->
+            <div class="profile-info">
+              <h4>Mohamad Kumar Jeevan</h4>
+              <p>Age: 25</p>
+              <span>Temporory Customer</span>
+            </div>
+            <div class="profile-gender">Male</div>
+            <!-- <img src="assets/aigroup2.png" class="profile-bg" /> -->
+          </div>
+          <div class="profile-item">
+            <!-- <img src="assets/aiboy.png" class="profile-img" /> -->
+            <div class="profile-info">
+              <h4>Valapathi Immanual Kumara Kandan</h4>
+              <p>Age: 55</p>
+              <span>New Customer</span>
+            </div>
+            <div class="profile-gender">Male</div>
+            <!-- <img src="assets/aigroup2.png" class="profile-bg" /> -->
+          </div>
+
+        </div>
+
+
+        <div class="stats-card">
+
+          <!-- HEADER -->
+
+          <div class="card-header">
+            <img src="assets/gender-identity.png" class="header-icon" />
+
+            <h3 class="card-title">Gender</h3>
+
+            <img src="assets/dots.png" class="header-icon dots-icon" />
+          </div>
+
+          <!-- BODY -->
+          <div class="stats-body">
+
+            <!-- DONUT -->
+            <div class="stats-donut-group">
+              <div class="stats-donut donut-one"><span>65%</span></div>
+              <div class="stats-donut donut-two"><span>35%</span></div>
+            </div>
+
+
+
+            <!-- TEXT -->
+            <div class="stats-data">
+              <p>Male 35% Female 65%</p>
+
+              <p class="stats-sub">Age Distribution:</p>
+              <div class="stats-data">
+
+                <p class="legend-line">
+                  <span>18-24</span>
+                  <span class="color-box box1"></span>
+                  <span>12%</span>
+                </p>
+
+                <p class="legend-line">
+                  <span>25-40</span>
+                  <span class="color-box box2"></span>
+                  <span>38%</span>
+                </p>
+
+                <p class="legend-line">
+                  <span>41-60</span>
+                  <span class="color-box box3"></span>
+                  <span>34%</span>
+                </p>
+
+                <p class="legend-line">
+                  <span>60+</span>
+                  <span class="color-box box4"></span>
+                  <span>16%</span>
+                </p>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <!-- SECOND CHART -->
+
+
+
+
+        <!-- RIGHT: ALERTS -->
+        <!-- <div class="card alert-card"> -->
+        <div class="stats-card">
+          <!-- 
+      <h3 class="card-title"></h3> -->
+          <div class="card-header">
+            <img src="assets/circle.png" class="header-icon" />
+
+            <h3 class="card-title">Alerts & Notifications</h3>
+
+            <img src="assets/dots.png" class="header-icon dots-icon" />
+          </div>
+
+          <div class="alerts-container">
+            <div class="alert red">🔔 New Customer Identified</div>
+            <div class="alert orange">⭐ VIP Customer Entered</div>
+            <div class="alert teal">👤 Employee Left Area</div>
+            <div class="alert blue">⚠ Suspicious Behavior Detected</div>
+            <div class="alert red">🔔 New Customer Identified</div>
+            <div class="alert red">🔔 New Customer Identified</div>
+            <div class="alert teal">👤 Employee Left Area</div>
+            <div class="alert orange">⭐ VIP Customer Entered</div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- row 3 -->
+
+
+    <div class="dashboard-row">
+
+      <div class="stats-card footfall-card" (click)="openFootfallPopup()">
+
+        <div class="card-header">
+          <img src="assets/human-footprint.png" class="header-icon" />
+
+          <h3 class="card-title">Total Footfall Today</h3>
+
+          <img src="assets/dots.png" class="header-icon dots-icon" />
+        </div>
+
+        <div class="footfall-content">
+
+          <!-- LEFT VALUE -->
+          <div class="footfall-left">
+            <h1>1267</h1>
+          </div>
+
+          <!-- DIVIDER -->
+          <div class="footfall-divider"></div>
+
+          <!-- RIGHT DATA -->
+          <div class="footfall-right">
+            <p>Per Hour</p>
+            <h2>155</h2>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+      <div class="stats-card visitors-card">
+
+        <div class="card-header">
+          <img src="assets/visitors.png" class="header-icon" />
+          <h3 class="card-title">New vs Repeat Visitors</h3>
+          <img src="assets/dots.png" class="header-icon dots-icon" />
+        </div>
+
+        <div class="visitors-content">
+
+          <!-- NEW -->
+          <div class="visitors-left">
+            <h1>68%</h1>
+            <p>New</p>
+          </div>
+
+          <!-- DIVIDER -->
+          <div class="visitors-divider"></div>
+
+          <!-- REPEAT -->
+          <div class="visitors-right">
+            <h1>32%</h1>
+            <p>Repeat</p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+
+      <div class="stats-card dwell-card">
+
+        <div class="card-header">
+          <img src="assets/time-management.png" class="header-icon" />
+          <h3 class="card-title">Avg Dwell Time</h3>
+          <img src="assets/dots.png" class="header-icon dots-icon" />
+        </div>
+
+        <div class="dwell-content">
+          <h1>11m 55s</h1>
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="stats-card occupancy-card">
+
+        <div class="card-header">
+          <img src="assets/occupational-therapy.png" class="header-icon" />
+          <h3 class="card-title">Current Occupancy</h3>
+          <img src="assets/dots.png" class="header-icon dots-icon" />
+        </div>
+
+        <div class="occupancy-content">
+
+          <!-- COUNT -->
+          <div class="occupancy-left">
+            <h1>58</h1>
+          </div>
+
+          <!-- DIVIDER -->
+          <div class="occupancy-divider"></div>
+
+          <!-- STATUS -->
+          <div class="occupancy-right">
+            <p class="live-text">Live</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- row 4 -->
+
+
+
+    <div class="dashboard-row">
+
+      <!-- Widget 1 -->
+      <div class="stats-card top-paths-card">
+        <div class="card-header">
+          <img src="assets/direction.png" class="header-icon" />
+          <h3 class="card-title">Top Paths</h3>
+          <img src="assets/dots.png" class="header-icon dots-icon" />
+        </div>
+
+        <div class="path-list">
+
+          <div class="path-item">
+            <strong>45%</strong>
+            <p>Entry → Product A ↓ Hotspot Area ↓ Cash Register ↓ Exit</p>
+          </div>
+
+          <div class="path-item">
+            <strong>17%</strong>
+            <p>Entry → Product C → Cash Register ↓ Exit</p>
+          </div>
+
+          <div class="path-item">
+            <strong>14%</strong>
+            <p>Entry → Product B → Exit</p>
+          </div>
+
+          <div class="path-item">
+            <strong>11%</strong>
+            <p>Entry → Product Area → Exit</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Widget 2 -->
+      <div class="stats-card popular-card" (click)="openPopularPopup()">
+        <div class="card-header">
+          <img src="assets/location-on-map.png" class="header-icon" />
+          <h3 class="card-title">Popular Areas</h3>
+          <img src="assets/dots.png" class="header-icon dots-icon" />
+        </div>
+
+        <div class="area-list">
+
+          <div class="area-item">
+            <span>Hotspot Area</span>
+            <span>27%</span>
+          </div>
+
+          <div class="area-item">
+            <span>Product A</span>
+            <span class="up">72% ↑</span>
+          </div>
+
+          <div class="area-item">
+            <span>Cash Register</span>
+            <span class="up">58% ↑</span>
+          </div>
+
+
+
+          <!-- extra rows -->
+          <div class="area-item">
+            <span>Entrance</span>
+            <span>41%</span>
+          </div>
+
+          <div class="area-item">
+            <span>Product B</span>
+            <span class="down">33% ↓</span>
+          </div>
+
+          <div class="area-item">
+            <span>Product C</span>
+            <span>29%</span>
+          </div>
+
+          <div class="area-item">
+            <span>Display Zone</span>
+            <span class="up">64% ↑</span>
+          </div>
+
+          <div class="area-item">
+            <span>Billing Counter</span>
+            <span class="up">52% ↑</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Widget 3 -->
+      <div class="stats-card dropoff-card">
+        <div class="card-header">
+          <img src="assets/arrow.png" class="header-icon" />
+          <h3 class="card-title">Drop-off Points</h3>
+          <img src="assets/dots.png" class="header-icon dots-icon" />
+        </div>
+
+        <div class="drop-list">
+
+          <div class="drop-item">
+            <span>Product B</span>
+            <span class="down">25% ↓</span>
+          </div>
+
+          <div class="drop-item">
+            <span>Product C</span>
+            <span class="down">47% ↓</span>
+          </div>
+
+          <div class="drop-item">
+            <span>Exit</span>
+            <span class="up">19% ↑</span>
+          </div>
+
+
+
+
+
+
+
+          <div class="drop-list">
+
+            <div class="drop-item">
+              <span>Product D</span>
+              <span class="down">28% ↓</span>
+            </div>
+
+            <div class="drop-item">
+              <span>New Product</span>
+              <span class="down">12% ↓</span>
+            </div>
+
+            <div class="drop-item">
+              <span>Offer Product</span>
+              <span class="up">11% ↑</span>
+            </div>
+
+            <!-- extra rows -->
+            <div class="drop-item">
+              <span>Hotspot Area</span>
+              <span class="down">22% ↓</span>
+            </div>
+
+            <div class="drop-item">
+              <span>Product A</span>
+              <span class="up">15% ↑</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="popup-overlay" *ngIf="isPopupOpen">
+  <div class="popup-content">
+    <button class="close-btn" (click)="isPopupOpen = false">×</button>
+    <h2>Attendance Details</h2>
+
+    <div class="list-section">
+      <h3>Present Employees (8)</h3>
+      <table class="employee-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of presentList">
+            <td>{{emp.name}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.gender}}</td>
+            <td>{{emp.address}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="list-section">
+      <h3>Absent Employee (1)</h3>
+      <table class="employee-table">
+        <tbody>
+          <tr *ngFor="let emp of absentList">
+            <td>{{emp.name}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.gender}}</td>
+            <td>{{emp.address}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="popup-overlay" *ngIf="isProfilePopupOpen">
+  <div class="popup-contentone">
+
+    <button class="close-btn" (click)="isProfilePopupOpen = false">×</button>
+    <h2>People Profiling</h2>
+
+    <!-- SCROLL AREA -->
+    <div class="popup-scroll">
+      <div class="profile-row" *ngFor="let person of profileList">
+        <div>
+          <strong>{{person.name}}</strong>
+          <p>Age: {{person.age}}</p>
+          <span>{{person.type}}</span>
+        </div>
+        <div class="profile-gender">{{person.gender}}</div>
+      </div>
+    </div>
+
+    <!-- BOTTOM BUTTON -->
+    <div class="popup-footer">
+      <button class="view-btn">View</button>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="popup-overlay" *ngIf="isFootfallPopupOpen">
+  <div class="popup-contenttwo">
+
+    <button class="close-btn" (click)="isFootfallPopupOpen = false">×</button>
+
+    <h2>Total Footfall Details</h2>
+
+    <!-- SUMMARY -->
+    <div class="foot-summary">
+      <div>
+        <label>Total Today</label>
+        <h3>1267</h3>
+      </div>
+      <div>
+        <label>Per Hour</label>
+        <h3>155</h3>
+      </div>
+    </div>
+
+    <!-- EXTRA DATA -->
+    <div class="footfall-list">
+
+      <div class="foot-row">
+        <span>Morning (6AM - 12PM)</span>
+        <span>420</span>
+      </div>
+
+      <div class="foot-row">
+        <span>Afternoon (12PM - 6PM)</span>
+        <span>510</span>
+      </div>
+
+      <div class="foot-row">
+        <span>Evening (6PM - 10PM)</span>
+        <span>337</span>
+      </div>
+
+      <div class="foot-row">
+        <span>Peak Hour</span>
+        <span>5PM - 6PM</span>
+      </div>
+
+      <div class="foot-row">
+        <span>Lowest Hour</span>
+        <span>9AM - 10AM</span>
+      </div>
+
+    </div>
+
+    <!-- BUTTON -->
+    <div class="popup-footer">
+      <button class="view-btn">View</button>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="popup-overlay" *ngIf="isPopularPopupOpen">
+  <div class="popup-contentthree">
+
+    <button class="close-btn" (click)="isPopularPopupOpen = false">×</button>
+
+    <h2>Popular Areas - Details</h2>
+
+    <!-- SCROLL LIST -->
+    <div class="popular-list">
+
+      <div class="popular-row" *ngFor="let area of popularList">
+        <span>{{area.name}}</span>
+        <span [ngClass]="area.trend">{{area.value}}</span>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="popup-footer">
+      <button class="view-btn">View</button>
+    </div>
+
+  </div>
+</div>

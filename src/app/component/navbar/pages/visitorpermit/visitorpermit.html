@@ -1,0 +1,2282 @@
+<div class="report-container">
+
+
+
+
+    <!-- 
+<div class="tab-header">
+
+  <div class="tabs">
+    <div 
+      class="tab"
+      [class.active]="activeTab === 'visitor'"
+      (click)="setTab('visitor')">
+      Manage Visitor Permit
+    </div>
+
+    <div 
+      class="tab"
+      [class.active]="activeTab === 'material'"
+      (click)="setTab('material')">
+      Manage Material Permit
+    </div>
+
+    <div 
+      class="tab"
+      [class.active]="activeTab === 'exit'"
+      (click)="setTab('exit')">
+      Manage Exit Permit
+    </div>
+  </div>
+
+</div> -->
+
+
+
+
+
+
+    <div class="top-bar">
+
+        <!-- LEFT TITLE (DYNAMIC) -->
+        <p class="page-title">
+            {{ getTitle() }}
+        </p>
+
+        <!-- RIGHT TABS -->
+        <div class="tabs">
+            <div class="tab" [class.active]="activeTab === 'visitor'" (click)="setTab('visitor')">
+                Manage Visitor Permit
+            </div>
+
+            <div class="tab" [class.active]="activeTab === 'material'" (click)="setTab('material')">
+                Manage Material Permit
+            </div>
+
+            <div class="tab" [class.active]="activeTab === 'exit'" (click)="setTab('exit')">
+                Manage Exit Permit
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="tab-content">
+        <!-- tab 1 -->
+        <!-- VISITOR TAB CONTENT -->
+        <div *ngIf="activeTab === 'visitor'">
+
+            <!-- SUB TABS -->
+            <div class="sub-tabs">
+                <div class="sub-tab" [class.active]="subTab === 'pending'" (click)="setSubTab('pending')">
+                    Pending
+                </div>
+
+                <div class="sub-tab" [class.active]="subTab === 'approved'" (click)="setSubTab('approved')">
+                    Approved
+                </div>
+
+                <div class="sub-tab" [class.active]="subTab === 'reject'" (click)="setSubTab('reject')">
+                    Reject
+                </div>
+            </div>
+
+            <!-- TABLE ONLY IN PENDING -->
+            <!-- sub tab 1 -->
+            <div *ngIf="subTab === 'pending'" class="table-container">
+
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Visitor Name</th>
+                            <th>Email Id</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Phone Number</th>
+                            <th>Visitor Company</th>
+                            <th>Visit Reason</th>
+                            <th>Visit Time</th>
+                            <th>Department/Area To Visit</th>
+                            <th>Host Person</th>
+                            <th>Host Company</th>
+                            <th>Host Person Email</th>
+                            <th>Vehicle Name</th>
+                            <th>Vehicle Id</th>
+                            <th>Tools Name</th>
+                            <th>Tools Quantity</th>
+                            <th>Returnable</th>
+                            <th>Remarks</th>
+                            <th>Authorization Code</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>-</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View" (click)="openViewPopup()">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+
+
+
+
+            <!-- sub tab 2 -->
+
+            <div *ngIf="subTab === 'approved'" class="table-container">
+
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Visitor Name</th>
+                            <th>Email Id</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Phone Number</th>
+                            <th>Visitor Company</th>
+                            <th>Visit Reason</th>
+                            <th>Visit Time</th>
+                            <th>Department/Area To Visit</th>
+                            <th>Host Person</th>
+                            <th>Host Company</th>
+                            <th>Host Person Email</th>
+                            <th>Vehicle Name</th>
+                            <th>Vehicle Id</th>
+                            <th>Tools Name</th>
+                            <th>Tools Quantity</th>
+                            <th>Returnable</th>
+                            <th>Remarks</th>
+                            <th>Authorization Code</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>-</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View" (click)="openApprovedPopup()">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>-</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>-</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>-</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>-</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+
+
+
+
+
+
+
+            <!-- sub tab 3 -->
+
+
+
+
+
+
+            <div *ngIf="subTab === 'reject'" class="table-container">
+
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Visitor Name</th>
+                            <th>Email Id</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Phone Number</th>
+                            <th>Visitor Company</th>
+                            <th>Visit Reason</th>
+                            <th>Visit Time</th>
+                            <th>Department/Area To Visit</th>
+                            <th>Host Person</th>
+                            <th>Host Company</th>
+                            <th>Host Person Email</th>
+                            <th>Vehicle Name</th>
+                            <th>Vehicle Id</th>
+                            <th>Tools Name</th>
+                            <th>Tools Quantity</th>
+                            <th>Returnable</th>
+                            <th>Remarks</th>
+                            <th>Authorization Code</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!-- <tr>
+          <td>John</td>
+          <td>john@mail.com</td>
+          <td>01-01-2026</td>
+          <td>02-01-2026</td>
+          <td>9876543210</td>
+          <td>ABC Ltd</td>
+          <td>Meeting</td>
+          <td>10:00 AM</td>
+          <td>IT Dept</td>
+          <td>Ravi</td>
+          <td>XYZ</td>
+          <td>ravi@mail.com</td>
+          <td>Car</td>
+          <td>TN01AB1234</td>
+          <td>Laptop</td>
+          <td>1</td>
+          <td>Yes</td>
+          <td>-</td>
+          <td>AUTH123</td>
+          <td>Pending</td>
+          <td><button>View</button></td>
+        </tr> -->
+                    </tbody>
+                </table>
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- tab 2 -->
+        <div *ngIf="activeTab === 'material'">
+
+            <div class="sub-tabs">
+                <div class="sub-tab" [class.active]="subTab === 'pending'" (click)="setSubTab('pending')">
+                    Pending
+                </div>
+
+                <div class="sub-tab" [class.active]="subTab === 'approved'" (click)="setSubTab('approved')">
+                    Approved
+                </div>
+
+                <div class="sub-tab" [class.active]="subTab === 'reject'" (click)="setSubTab('reject')">
+                    Reject
+                </div>
+            </div>
+
+
+
+
+            <div *ngIf="subTab === 'pending'" class="table-container">
+
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Visitor Name</th>
+                            <th>Email Id</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Phone Number</th>
+                            <th>Visitor Company</th>
+                            <th>Visit Reason</th>
+                            <th>Visit Time</th>
+                            <th>Department/Area To Visit</th>
+                            <th>Host Person</th>
+                            <th>Host Company</th>
+                            <th>Host Person Email</th>
+                            <th>Vehicle Name</th>
+                            <th>Vehicle Id</th>
+                            <th>Tools Name</th>
+                            <th>Tools Quantity</th>
+                            <th>Returnable</th>
+                            <th>Remarks</th>
+                            <th>Authorization Code</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>-</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View" (click)="openPermitPopup()" >
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>-</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>-</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+
+
+
+
+            <!-- sub tab 2 -->
+
+            <div *ngIf="subTab === 'approved'" class="table-container">
+
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Visitor Name</th>
+                            <th>Email Id</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Phone Number</th>
+                            <th>Visitor Company</th>
+                            <th>Visit Reason</th>
+                            <th>Visit Time</th>
+                            <th>Department/Area To Visit</th>
+                            <th>Host Person</th>
+                            <th>Host Company</th>
+                            <th>Host Person Email</th>
+                            <th>Vehicle Name</th>
+                            <th>Vehicle Id</th>
+                            <th>Tools Name</th>
+                            <th>Tools Quantity</th>
+                            <th>Returnable</th>
+                            <th>Remarks</th>
+                            <th>Authorization Code</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>-</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View"  (click)="openMaterialPopup()">
+                            </td>
+                        </tr>
+
+
+
+
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>-</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>-</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>-</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>-</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+
+
+
+
+
+
+
+            <!-- sub tab 3 -->
+
+
+
+
+
+
+            <div *ngIf="subTab === 'reject'" class="table-container">
+
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Visitor Name</th>
+                            <th>Email Id</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Phone Number</th>
+                            <th>Visitor Company</th>
+                            <th>Visit Reason</th>
+                            <th>Visit Time</th>
+                            <th>Department/Area To Visit</th>
+                            <th>Host Person</th>
+                            <th>Host Company</th>
+                            <th>Host Person Email</th>
+                            <th>Vehicle Name</th>
+                            <th>Vehicle Id</th>
+                            <th>Tools Name</th>
+                            <th>Tools Quantity</th>
+                            <th>Returnable</th>
+                            <th>Remarks</th>
+                            <th>Authorization Code</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!-- <tr>
+          <td>John</td>
+          <td>john@mail.com</td>
+          <td>01-01-2026</td>
+          <td>02-01-2026</td>
+          <td>9876543210</td>
+          <td>ABC Ltd</td>
+          <td>Meeting</td>
+          <td>10:00 AM</td>
+          <td>IT Dept</td>
+          <td>Ravi</td>
+          <td>XYZ</td>
+          <td>ravi@mail.com</td>
+          <td>Car</td>
+          <td>TN01AB1234</td>
+          <td>Laptop</td>
+          <td>1</td>
+          <td>Yes</td>
+          <td>-</td>
+          <td>AUTH123</td>
+          <td>Pending</td>
+           <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View">
+                            </td>
+        </tr> -->
+                    </tbody>
+                </table>
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+
+        <!-- tab 3 -->
+
+
+
+
+
+
+        <div *ngIf="activeTab === 'exit'">
+
+
+
+            <div class="sub-tabs">
+                <div class="sub-tab" [class.active]="subTab === 'pending'" (click)="setSubTab('pending')">
+                    Pending
+                </div>
+
+                <div class="sub-tab" [class.active]="subTab === 'approved'" (click)="setSubTab('approved')">
+                    Approved
+                </div>
+
+                <div class="sub-tab" [class.active]="subTab === 'reject'" (click)="setSubTab('reject')">
+                    Reject
+                </div>
+            </div>
+
+
+
+
+            <div *ngIf="subTab === 'pending'" class="table-container">
+
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Id Type</th>
+                            <th>Id No</th>
+                            <th>Request Type</th>
+                            <th>End Date</th>
+                            <th>Gatepass Refference No</th>
+                            <th>Valid From</th>
+                            <th>Valid To</th>
+                            <th>Equipment Type</th>
+                            <th>Company</th>
+                            <th>Department</th>
+                            <th>Equipement Description</th>
+                            <th>Entry Reason</th>
+                            <th>Other Entry Reason</th>
+                            <th>Chasis No</th>
+                            <th>Plate No</th>
+                            <th>Plate Registration No</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Reference No</th>
+                            <th>Returnable</th>
+                            <th>Remarks</th>
+                            <th>Upload</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View"   (click)="openExitPopup()">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+
+
+
+
+            <!-- sub tab 2 -->
+
+            <div *ngIf="subTab === 'approved'" class="table-container">
+
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Id Type</th>
+                            <th>Id No</th>
+                            <th>Request Type</th>
+                            <th>End Date</th>
+                            <th>Gatepass Refference No</th>
+                            <th>Valid From</th>
+                            <th>Valid To</th>
+                            <th>Equipment Type</th>
+                            <th>Company</th>
+                            <th>Department</th>
+                            <th>Equipement Description</th>
+                            <th>Entry Reason</th>
+                            <th>Other Entry Reason</th>
+                            <th>Chasis No</th>
+                            <th>Plate No</th>
+                            <th>Plate Registration No</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Reference No</th>
+                            <th>Returnable</th>
+                            <th>Remarks</th>
+                            <th>Upload</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View"   (click)="openExitApprovedPopup()">
+                            </td>
+                        </tr>
+
+
+
+
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>John</td>
+                            <td>john@mail.com</td>
+                            <td>01-01-2026</td>
+                            <td>02-01-2026</td>
+                            <td>9876543210</td>
+                            <td>ABC Ltd</td>
+                            <td>Meeting</td>
+                            <td>10:00 AM</td>
+                            <td>IT Dept</td>
+                            <td>Ravi</td>
+                            <td>XYZ</td>
+                            <td>ravi@mail.com</td>
+                            <td>Car</td>
+                            <td>TN01AB1234</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>no</td>
+                            <td>AUTH123</td>
+                            <td>Pending</td>
+                            <td class="action-cell">
+                                <img src="assets/eye.png" class="table-icon" title="View">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+
+
+
+
+
+
+
+            <!-- sub tab 3 -->
+
+
+
+
+
+
+            <div *ngIf="subTab === 'reject'" class="table-container">
+
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Id Type</th>
+                            <th>Id No</th>
+                            <th>Request Type</th>
+                            <th>End Date</th>
+                            <th>Gatepass Refference No</th>
+                            <th>Valid From</th>
+                            <th>Valid To</th>
+                            <th>Equipment Type</th>
+                            <th>Company</th>
+                            <th>Department</th>
+                            <th>Equipement Description</th>
+                            <th>Entry Reason</th>
+                            <th>Other Entry Reason</th>
+                            <th>Chasis No</th>
+                            <th>Plate No</th>
+                            <th>Plate Registration No</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Reference No</th>
+                            <th>Returnable</th>
+                            <th>Remarks</th>
+                            <th>Upload</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!-- add some data here -->
+                    </tbody>
+                </table>
+
+            </div>
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- POPUP — add outside table, inside component -->
+    <div class="popup-overlay" *ngIf="showViewPopup" (click)="closePopup($event)">
+        <div class="popup-container">
+
+            <!-- HEADER -->
+            <div class="popup-header">
+                <span>Manage Visitor Permit View</span>
+                <span class="close-btn" (click)="showViewPopup = false">×</span>
+            </div>
+
+            <div class="popup-body">
+
+                <!-- COMPANY DETAILS -->
+                <div class="popup-section">
+                    <h4 class="section-title">Company Details</h4>
+                    <div class="detail-grid">
+                        <div class="detail-row"><span class="detail-label">Company Name</span><span
+                                class="colon">:</span><span class="detail-value">{{ selectedRow?.companyName }}</span>
+                        </div>
+                        <div class="detail-row"><span class="detail-label">Company Email</span><span
+                                class="colon">:</span><span class="detail-value">{{ selectedRow?.companyEmail }}</span>
+                        </div>
+                        <div class="detail-row"><span class="detail-label">Department Name</span><span
+                                class="colon">:</span><span class="detail-value">{{ selectedRow?.department }}</span>
+                        </div>
+                        <div class="detail-row"><span class="detail-label">Contact Name</span><span
+                                class="colon">:</span><span class="detail-value">{{ selectedRow?.contactName }}</span>
+                        </div>
+                        <div class="detail-row"><span class="detail-label">Reason Of Visit</span><span
+                                class="colon">:</span><span class="detail-value">{{ selectedRow?.visitReason }}</span>
+                        </div>
+                        <div class="detail-row"><span class="detail-label">Start Date</span><span
+                                class="colon">:</span><span class="detail-value">{{ selectedRow?.startDate }}</span>
+                        </div>
+                        <div class="detail-row"><span class="detail-label">End Date</span><span
+                                class="colon">:</span><span class="detail-value">{{ selectedRow?.endDate }}</span></div>
+                    </div>
+                </div>
+
+                <!-- VISITOR DETAILS -->
+                <div class="popup-section">
+                    <h4 class="section-title">Visitor Details</h4>
+                    <div class="detail-grid">
+                        <div class="detail-row"><span class="detail-label">Full Name</span><span
+                                class="colon">:</span><span class="detail-value">{{ selectedRow?.visitorName }}</span>
+                        </div>
+                        <div class="detail-row"><span class="detail-label">Mobile Number</span><span
+                                class="colon">:</span><span class="detail-value">{{ selectedRow?.phone }}</span></div>
+                        <div class="detail-row"><span class="detail-label">Department Name</span><span
+                                class="colon">:</span><span class="detail-value">{{ selectedRow?.department }}</span>
+                        </div>
+                        <div class="detail-row"><span class="detail-label">Visiting Time</span><span
+                                class="colon">:</span><span class="detail-value">{{ selectedRow?.visitTime }}</span>
+                        </div>
+                        <div class="detail-row"><span class="detail-label">Gatepass No</span><span
+                                class="colon">:</span><span class="detail-value">{{ selectedRow?.authCode }}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Status</span><span class="colon">:</span>
+                            <span class="detail-value status-badge pending">{{ selectedRow?.status }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VEHICLE DETAILS -->
+                <div class="popup-section">
+                    <h4 class="section-title">Vehicle Details</h4>
+                    <div class="detail-grid">
+                        <div class="detail-row"><span class="detail-label">Vehicle Id</span><span
+                                class="colon">:</span><span class="detail-value">{{ selectedRow?.vehicleId }}</span>
+                        </div>
+                        <div class="detail-row"><span class="detail-label">Vehicle Name</span><span
+                                class="colon">:</span><span class="detail-value">{{ selectedRow?.vehicleName }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DOCUMENTS -->
+                <div class="popup-section">
+                    <h4 class="section-title">Documents</h4>
+                    <div class="doc-grid">
+                        <div class="doc-card" *ngFor="let doc of selectedRow?.documents">
+                            <div class="doc-row"><span class="doc-label">Document Type:</span><span>{{ doc.type
+                                    }}</span></div>
+                            <div class="doc-row"><span class="doc-label">Document Number:</span><span>{{ doc.number
+                                    }}</span></div>
+                            <div class="doc-row"><span class="doc-label">Expires On:</span><span>{{ doc.expiry }}</span>
+                            </div>
+                            <div class="doc-upload">
+                                <img *ngIf="doc.image" [src]="doc.image" class="doc-img" />
+                                <span *ngIf="!doc.image" class="no-image">No Image Available</span>
+                                <button class="upload-btn">uploads</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL DETAILS -->
+                <div class="popup-section">
+                    <h4 class="section-title">Tool Details</h4>
+                    <table class="popup-table">
+                        <thead>
+                            <tr>
+                                <th>Tools Name</th>
+                                <th>Serial No</th>
+                                <th>Tools Quantity</th>
+                                <th>Returnable</th>
+                                <th>Remarks</th>
+                                <th>Status</th>
+                                <th>Email</th>
+                                <th>Timestamp</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let tool of selectedRow?.tools">
+                                <td>{{ tool.name }}</td>
+                                <td>{{ tool.serialNo }}</td>
+                                <td>{{ tool.quantity }}</td>
+                                <td>{{ tool.returnable }}</td>
+                                <td>{{ tool.remarks }}</td>
+                                <td>{{ tool.status }}</td>
+                                <td>{{ tool.email }}</td>
+                                <td>{{ tool.timestamp }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- REMARKS -->
+                <div class="popup-section">
+                    <div class="detail-row"><span class="detail-label">Remarks</span><span class="colon">:</span><span
+                            class="detail-value">{{ selectedRow?.remarks }}</span></div>
+                    <div class="detail-row"><span class="detail-label">Description</span><span
+                            class="colon">:</span><span class="detail-value">{{ selectedRow?.description }}</span></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ✅ Place this OUTSIDE both tab divs, at the bottom of your component -->
+<div class="popup-overlay" *ngIf="showViewPopup" (click)="closePopup($event)">
+  <div class="popup-container">
+
+    <!-- HEADER -->
+    <div class="popup-header">
+      <span>Manage Visitor Permit View</span>
+      <span class="close-btn" (click)="showViewPopup = false">×</span>
+    </div>
+
+    <div class="popup-body">
+
+      <!-- COMPANY DETAILS -->
+      <div class="popup-section">
+        <h4 class="section-title">Company Details</h4>
+        <div class="detail-grid">
+          <div class="detail-row">
+            <span class="detail-label">Company Name</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ selectedRow?.companyName }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Company Email</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ selectedRow?.companyEmail }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Department Name</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ selectedRow?.department }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Contact Name</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ selectedRow?.contactName }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Reason Of Visit</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ selectedRow?.visitReason }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Start Date</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ selectedRow?.startDate }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">End Date</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ selectedRow?.endDate }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- VISITOR DETAILS -->
+      <div class="popup-section">
+        <h4 class="section-title">Visitor Details</h4>
+        <div class="detail-grid">
+          <div class="detail-row">
+            <span class="detail-label">Full Name</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ selectedRow?.visitorName }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Mobile Number</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ selectedRow?.phone }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Department Name</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ selectedRow?.department }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Visiting Time</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ selectedRow?.visitTime }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Gatepass No</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ selectedRow?.authCode }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Status</span>
+            <span class="colon">:</span>
+            <span class="detail-value status-badge"
+              [class.pending]="selectedRow?.status === 'Pending'"
+              [class.approved]="selectedRow?.status === 'Approved'">
+              {{ selectedRow?.status }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- VEHICLE DETAILS -->
+      <div class="popup-section">
+        <h4 class="section-title">Vehicle Details</h4>
+        <div class="detail-grid">
+          <div class="detail-row">
+            <span class="detail-label">Vehicle Id</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ selectedRow?.vehicleId }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Vehicle Name</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ selectedRow?.vehicleName }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DOCUMENTS -->
+      <div class="popup-section">
+        <h4 class="section-title">Documents</h4>
+        <div class="doc-grid">
+    <div class="doc-card" *ngFor="let doc of selectedRow?.documents">
+  
+  <div class="doc-card-inner">
+    
+    <!-- LEFT — details -->
+    <div class="doc-details">
+      <div class="doc-row">
+        <span class="doc-label">Document Type:</span>
+        <span>{{ doc.type }}</span>
+      </div>
+      <div class="doc-row">
+        <span class="doc-label">Document Number:</span>
+        <span>{{ doc.number }}</span>
+      </div>
+      <div class="doc-row">
+        <span class="doc-label">Expires On:</span>
+        <span>{{ doc.expiry }}</span>
+      </div>
+      <input type="file" accept="image/*" #fileInput style="display:none"
+             (change)="onImageUpload($event, doc)" />
+      <button class="upload-btn" (click)="fileInput.click()">uploads</button>
+    </div>
+
+    <!-- RIGHT — image -->
+    <div class="doc-image-side">
+      <img *ngIf="doc.image" [src]="doc.image" class="doc-img" />
+      <span *ngIf="!doc.image" class="no-image">No Image Available</span>
+    </div>
+
+  </div>
+</div>
+
+
+        </div>
+      </div>
+
+      <!-- TOOL DETAILS -->
+   <!-- TOOL DETAILS -->
+<div class="popup-section">
+  <h4 class="section-title">Tool Details</h4>
+  <table class="popup-table">
+    <thead>
+      <tr>
+        <th>Tools Name</th>
+        <th>Serial No</th>
+        <th>Tools Quantity</th>
+        <th>Returnable</th>
+        <th>Remarks</th>
+        <th>Status</th>
+        <th>Email</th>
+        <th>Timestamp</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tool of selectedRow?.tools">
+        <td>{{ tool.name }}</td>
+        <td>{{ tool.serialNo }}</td>
+        <td>{{ tool.quantity }}</td>
+        <td>{{ tool.returnable }}</td>
+        <td>{{ tool.remarks }}</td>
+        <td>{{ tool.status }}</td>
+        <td>{{ tool.email }}</td>
+        <td>{{ tool.timestamp }}</td>
+        <td class="tool-action-cell">
+          <img src="assets/edit.png" class="tool-icon" title="Edit" />
+          <img src="assets/trashgrey.png" class="tool-icon" title="Delete" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+      <!-- REMARKS -->
+      <div class="popup-section">
+        <div class="detail-grid">
+          <div class="detail-row">
+            <span class="detail-label">Remarks</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ selectedRow?.remarks }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Description</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ selectedRow?.description }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- material popup -->
+
+
+<div class="popup-overlay" *ngIf="showPermitPopup" (click)="closePermitPopup($event)">
+  <div class="popup-container">
+
+    <!-- HEADER -->
+    <div class="popup-header">
+      <span>Manage Visitor Permit View</span>
+      <span class="close-btn" (click)="showPermitPopup = false">×</span>
+    </div>
+
+    <div class="popup-body">
+
+      <!-- PERMIT DETAILS -->
+      <div class="popup-section">
+        <div class="detail-grid">
+          <div class="detail-row">
+            <span class="detail-label">Passport(EID)</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ permitRow?.passport }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Full Name</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ permitRow?.fullName }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">ID No</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ permitRow?.idNo }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Permit Reference No</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ permitRow?.permitRefNo }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Mobile Number</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ permitRow?.phone }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Reason</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ permitRow?.reason }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Status</span>
+            <span class="colon">:</span>
+            <span class="detail-value status-badge"
+              [class.pending]="permitRow?.status === 'Pending'"
+              [class.approved]="permitRow?.status === 'Approved'">
+              {{ permitRow?.status }}
+            </span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Gatepass Reference No</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ permitRow?.gatepassRefNo }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- APPLICANT COMPANY -->
+      <div class="popup-section">
+        <h4 class="section-title">Applicant Company</h4>
+        <div class="detail-grid">
+          <div class="detail-row">
+            <span class="detail-label">Company Name</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ permitRow?.companyName }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">E-mail ID</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ permitRow?.companyEmail }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MATERIAL DETAILS -->
+      <div class="popup-section">
+        <h4 class="section-title">Material Details</h4>
+        <table class="popup-table">
+          <thead>
+            <tr>
+              <th>Material Description</th>
+              <th>Serial No</th>
+              <th>Quantity</th>
+              <th>Reference No</th>
+              <th>Returnable</th>
+              <th>Remarks</th>
+              <th>Supporting Document No</th>
+              <th>Status</th>
+              <th>Email</th>
+              <th>Timestamp</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let mat of permitRow?.materials">
+              <td>{{ mat.description }}</td>
+              <td>{{ mat.serialNo }}</td>
+              <td>{{ mat.quantity }}</td>
+              <td>{{ mat.referenceNo }}</td>
+              <td>{{ mat.returnable }}</td>
+              <td>{{ mat.remarks }}</td>
+              <td>{{ mat.supportingDocNo }}</td>
+              <td>{{ mat.status }}</td>
+              <td>{{ mat.email }}</td>
+              <td>{{ mat.timestamp }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- REMARKS -->
+      <div class="popup-section">
+        <div class="detail-grid">
+          <div class="detail-row">
+            <span class="detail-label">Remarks</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ permitRow?.remarks }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Description</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ permitRow?.description }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="popup-overlay" *ngIf="showMaterialPopup" (click)="closeMaterialPopup($event)">
+  <div class="popup-container">
+
+    <!-- HEADER -->
+    <div class="popup-header">
+      <span>Manage Material Permit Update</span>
+      <span class="close-btn" (click)="showMaterialPopup = false">×</span>
+    </div>
+
+    <div class="popup-body">
+
+      <!-- PERMIT DETAILS -->
+      <div class="popup-section">
+        <div class="detail-grid">
+          <div class="detail-row">
+            <span class="detail-label">ID Type</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ materialRow?.idType }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Full Name</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ materialRow?.fullName }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">ID No</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ materialRow?.idNo }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Permit Reference No</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ materialRow?.permitRefNo }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Mobile Number</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ materialRow?.phone }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Reason</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ materialRow?.reason }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Status</span>
+            <span class="colon">:</span>
+            <span class="detail-value status-badge"
+              [class.pending]="materialRow?.status === 'Pending'"
+              [class.approved]="materialRow?.status === 'Approved'">
+              {{ materialRow?.status }}
+            </span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Gatepass Reference No</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ materialRow?.gatepassRefNo }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- APPLICANT COMPANY -->
+      <div class="popup-section">
+        <h4 class="section-title">Applicant Company</h4>
+        <div class="detail-grid">
+          <div class="detail-row">
+            <span class="detail-label">Company Name</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ materialRow?.companyName }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">E-mail ID</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ materialRow?.companyEmail }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MATERIAL DETAILS -->
+      <div class="popup-section">
+        <h4 class="section-title">Material Details</h4>
+        <table class="popup-table">
+          <thead>
+            <tr>
+              <th>Material Description</th>
+              <th>Serial No</th>
+              <th>Quantity</th>
+              <th>Reference No</th>
+              <th>Returnable</th>
+              <th>Remarks</th>
+              <th>Supporting Document No</th>
+              <th>Status</th>
+              <th>Email</th>
+              <th>Timestamp</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let mat of materialRow?.materials">
+              <td>{{ mat.description }}</td>
+              <td>{{ mat.serialNo }}</td>
+              <td>{{ mat.quantity }}</td>
+              <td>{{ mat.referenceNo }}</td>
+              <td>{{ mat.returnable }}</td>
+              <td>{{ mat.remarks }}</td>
+              <td>{{ mat.supportingDocNo }}</td>
+              <td>{{ mat.status }}</td>
+              <td>{{ mat.email }}</td>
+              <td style="white-space:nowrap">{{ mat.timestamp }}</td>
+              <td class="tool-action-cell">
+                <img src="assets/edit.png" class="tool-icon" title="Edit" />
+                <img src="assets/delete.png" class="tool-icon" title="Delete" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- REMARKS -->
+      <div class="popup-section">
+        <div class="detail-grid">
+          <div class="detail-row">
+            <span class="detail-label">Remarks</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ materialRow?.remarks }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Description</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ materialRow?.description }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- exit popup -->
+
+
+<div class="popup-overlay" *ngIf="showExitPopup" (click)="closeExitPopup($event)">
+  <div class="popup-container">
+
+    <!-- HEADER -->
+    <div class="popup-header">
+      <span>Manage Exit Permit Update</span>
+      <span class="close-btn" (click)="showExitPopup = false">×</span>
+    </div>
+
+    <div class="popup-body">
+
+      <!-- MAIN DETAILS -->
+      <div class="popup-section">
+        <div class="detail-grid">
+          <div class="detail-row">
+            <span class="detail-label">ID Type</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitRow?.idType }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">ID No</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitRow?.idNo }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Name</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitRow?.name }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Company Name</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitRow?.companyName }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Company Email</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitRow?.companyEmail }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Status</span>
+            <span class="colon">:</span>
+            <span class="detail-value status-badge"
+              [class.pending]="exitRow?.status === 'Pending'"
+              [class.approved]="exitRow?.status === 'Approved'">
+              {{ exitRow?.status }}
+            </span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Exit Permit No</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitRow?.exitPermitNo }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Gate Pass No</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitRow?.gatePassNo }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EQUIPMENT DETAILS -->
+      <div class="popup-section">
+        <h4 class="section-title">Equipment Details</h4>
+        <div class="detail-grid">
+          <div class="detail-row">
+            <span class="detail-label">Created Date</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitRow?.createdDate }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Valid From</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitRow?.validFrom }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Valid To</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitRow?.validTo }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Equipment Type</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitRow?.equipmentType }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Port Name</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitRow?.portName }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Chassis Number</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitRow?.chassisNo }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Plate No</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitRow?.plateNo }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Plate Register</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitRow?.plateRegister }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Remarks</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitRow?.remarks }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Description</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitRow?.description }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MATERIAL DETAILS -->
+      <div class="popup-section">
+        <h4 class="section-title">Material Details</h4>
+        <table class="popup-table">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Serial No</th>
+              <th>Quantity</th>
+              <th>Reference No</th>
+              <th>Returnable</th>
+              <th>Remarks</th>
+              <th>Status</th>
+              <th>Email</th>
+              <th>Timestamp</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let mat of exitRow?.materials">
+              <td>{{ mat.description }}</td>
+              <td>{{ mat.serialNo }}</td>
+              <td>{{ mat.quantity }}</td>
+              <td>{{ mat.referenceNo }}</td>
+              <td>{{ mat.returnable }}</td>
+              <td>{{ mat.remarks }}</td>
+              <td>{{ mat.status }}</td>
+              <td>{{ mat.email }}</td>
+              <td style="white-space:nowrap">{{ mat.timestamp }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="popup-overlay" *ngIf="showExitApprovedPopup" (click)="closeExitApprovedPopup($event)">
+  <div class="popup-container">
+
+    <!-- HEADER -->
+    <div class="popup-header">
+      <span>Manage Exit Permit Update</span>
+      <span class="close-btn" (click)="showExitApprovedPopup = false">×</span>
+    </div>
+
+    <div class="popup-body">
+
+      <!-- MAIN DETAILS -->
+      <div class="popup-section">
+        <div class="detail-grid">
+          <div class="detail-row">
+            <span class="detail-label">ID Type</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitApprovedRow?.idType }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">ID No</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitApprovedRow?.idNo }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Name</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitApprovedRow?.name }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Company Name</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitApprovedRow?.companyName }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Company Email</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitApprovedRow?.companyEmail }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Status</span>
+            <span class="colon">:</span>
+            <span class="detail-value status-badge"
+              [class.pending]="exitApprovedRow?.status === 'Pending'"
+              [class.approved]="exitApprovedRow?.status === 'Approved'">
+              {{ exitApprovedRow?.status }}
+            </span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Exit Permit No</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitApprovedRow?.exitPermitNo }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Gate Pass No</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitApprovedRow?.gatePassNo }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EQUIPMENT DETAILS -->
+      <div class="popup-section">
+        <h4 class="section-title">Equipment Details</h4>
+        <div class="detail-grid">
+          <div class="detail-row">
+            <span class="detail-label">Created Date</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitApprovedRow?.createdDate }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Valid From</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitApprovedRow?.validFrom }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Valid To</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitApprovedRow?.validTo }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Equipment Type</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitApprovedRow?.equipmentType }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Port Name</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitApprovedRow?.portName }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Chassis Number</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitApprovedRow?.chassisNo }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Plate No</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitApprovedRow?.plateNo }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Plate Register</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitApprovedRow?.plateRegister }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Remarks</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitApprovedRow?.remarks }}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Description</span>
+            <span class="colon">:</span>
+            <span class="detail-value">{{ exitApprovedRow?.description }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MATERIAL DETAILS -->
+      <div class="popup-section">
+        <h4 class="section-title">Material Details</h4>
+        <table class="popup-table">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Serial No</th>
+              <th>Quantity</th>
+              <th>Reference No</th>
+              <th>Returnable</th>
+              <th>Remarks</th>
+              <th>Status</th>
+              <th>Email</th>
+              <th>Timestamp</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let mat of exitApprovedRow?.materials">
+              <td>{{ mat.description }}</td>
+              <td>{{ mat.serialNo }}</td>
+              <td>{{ mat.quantity }}</td>
+              <td>{{ mat.referenceNo }}</td>
+              <td>{{ mat.returnable }}</td>
+              <td>{{ mat.remarks }}</td>
+              <td>{{ mat.status }}</td>
+              <td>{{ mat.email }}</td>
+              <td style="white-space:nowrap">{{ mat.timestamp }}</td>
+              <td class="tool-action-cell">
+                <img src="assets/edit.png" class="tool-icon" title="Edit" />
+                <img src="assets/delete.png" class="tool-icon" title="Delete" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    <!-- last div -->
+</div>

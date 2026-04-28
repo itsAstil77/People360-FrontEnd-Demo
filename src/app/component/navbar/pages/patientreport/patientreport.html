@@ -1,0 +1,76 @@
+<div class="report"><span class="direction" routerLink="/report">Report >></span> <span>Patient Report</span></div>
+
+
+
+
+<div class="report-container">
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- HEADER -->
+        <div class="report-header">
+            <h2>Patient Report</h2>
+            <!-- <div class="filters">
+      <input type="date" />
+      <input type="date" />
+      <button class="btn-filter">Filter</button>
+    </div> -->
+        </div>
+
+        <!-- TABLE -->
+        <!-- <div class="table-wrapper"> -->
+        <table class="report-table">
+            <thead>
+                <tr class="thead">
+                    <th>ID</th>
+                    <th>Patient Name</th>
+                    <th>OT</th>
+                    <th>Status</th>
+                    <th>Doctor</th>
+                    <th>Start Time</th>
+                    <th>Duration</th>
+                    <th>Last Update</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let p of patients; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td >{{ p.name }}</td>
+                    <td>{{ p.ot }}</td>
+
+                    <td>
+                        <span class="status" [ngClass]="{
+                    'red': p.status === 'In Surgery',
+                    'orange': p.status === 'Waiting',
+                    'green': p.status === 'Ready'
+                  }">
+                            {{ p.status }}
+                        </span>
+                    </td>
+
+                    <td>{{ p.doctor }}</td>
+                    <td>{{ p.startTime }}</td>
+                    <td>{{ p.duration }}</td>
+                    <td>{{ p.updated }}</td>
+                </tr>
+            </tbody>
+
+        </table>
+  
+
+</div>
+
+
+
+
+<!-- </div> -->

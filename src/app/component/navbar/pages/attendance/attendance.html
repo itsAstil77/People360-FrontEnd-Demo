@@ -1,0 +1,546 @@
+<div class="report-container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- TABS HEADER -->
+    <div class="attendance-tabs">
+        <div class="tab" [class.active]="activeTab === 'work'" (click)="setTab('work')">
+            Work Schedule
+        </div>
+
+        <div class="tab" [class.active]="activeTab === 'manual'" (click)="setTab('manual')">
+            Manual Attendance
+        </div>
+
+        <div class="tab" [class.active]="activeTab === 'greetings'" (click)="setTab('greetings')">
+            Greetings
+        </div>
+
+        <div class="tab" [class.active]="activeTab === 'others'" (click)="setTab('others')">
+            Others
+        </div>
+    </div>
+
+
+    <!-- TAB CONTENT -->
+    <div class="tab-content">
+
+
+        <!-- tab1 -->
+        <div *ngIf="activeTab === 'work'">
+            <div class="header-row">
+
+                <!-- LEFT -->
+                <div class="left-title">
+                    <p>Work Schedule</p>
+                </div>
+
+                <!-- CENTER -->
+                <div class="center-search">
+                    <input type="text" placeholder="Search..." />
+                </div>
+
+                <!-- RIGHT -->
+                <div class="right-icons">
+                    <img src="assets/add.png" class="header-icon" />
+                    <img src="assets/columns.png" class="header-icon" />
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>Work Schedule Name</th>
+                        <th>Description</th>
+                        <th>Group Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Work 2</td>
+                        <td>Work 2</td>
+                        <td>new</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Work</td>
+                        <td>Work</td>
+                        <td>new</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>lu</td>
+                        <td>i</td>
+                        <td>new</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Bcvbvb</td>
+                        <td>Cbcbcvb</td>
+                        <td>new</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Ddsdsds</td>
+                        <td>Dfsf</td>
+                        <td>test</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+        </div>
+        <!-- tab2 -->
+        <div *ngIf="activeTab === 'manual'">
+
+
+
+
+
+
+            <div class="header-row">
+
+                <!-- LEFT -->
+                <div class="left-title">
+                    <p>Manual Attendance</p>
+                </div>
+
+                <!-- CENTER -->
+                <div class="center-search">
+                    <input type="text" placeholder="Search..." />
+                </div>
+
+                <!-- RIGHT -->
+                <div class="right-icons">
+                    <img src="assets/add.png" class="header-icon" />
+                    <img src="assets/columns.png" class="header-icon" />
+                </div>
+
+
+
+
+            </div>
+
+
+
+
+
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>Employee Code</th>
+                        <th>Employee Name</th>
+                        <th>Describe Reason</th>
+                        <th>Location</th>
+                        <th>Attendence Status</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>7552</td>
+                        <td>Jenkins Roch</td>
+                        <td>I was in a car accident</td>
+                        <td></td>
+                        <td>In</td>
+                        <td>Pending</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                                <img src="assets/vision.png" alt="Delete" />
+
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>24562</td>
+                        <td>Naveen</td>
+                        <td>I had a dentist appointment</td>
+                        <td></td>
+                        <td>In</td>
+                        <td>Approved</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                                <img src="assets/vision.png" alt="Delete" />
+
+                            </div>
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>5792</td>
+                        <td>Jenkins Roch</td>
+                        <td> I’m stuck in traffic</td>
+                        <td></td>
+                        <td>In</td>
+                        <td>Pending</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                                <img src="assets/vision.png" alt="Delete" />
+
+                            </div>
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>8552</td>
+                        <td>Jenkins Roch</td>
+                        <td>I was sick</td>
+                        <td></td>
+                        <td>In</td>
+                        <td>Pending</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                                <img src="assets/vision.png" alt="Delete" />
+
+                            </div>
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>8752</td>
+                        <td>Jenkins Roch</td>
+                        <td>I’m stuck in traffic</td>
+                        <td></td>
+                        <td>In</td>
+                        <td>Approved</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                                <img src="assets/vision.png" alt="Delete" />
+
+                            </div>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+
+
+
+
+        </div>
+
+
+
+
+        <!-- tab3 -->
+        <div *ngIf="activeTab === 'greetings'">
+
+
+
+
+
+
+            <div class="header-row">
+
+                <!-- LEFT -->
+                <div class="left-title">
+                    <p>Greetings</p>
+                </div>
+
+                <!-- CENTER -->
+                <div class="center-search">
+                    <input type="text" placeholder="Search..." />
+                </div>
+
+                <!-- RIGHT -->
+                <div class="right-icons">
+                    <img src="assets/add.png" class="header-icon" />
+                    <img src="assets/columns.png" class="header-icon" />
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>Employee Code</th>
+                        <th>Employee Name</th>
+                        <th>Greetings Description</th>
+                        <th>Timings</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>756235</td>
+                        <td>jiju</td>
+                        <td>Tic</td>
+                        <td>2025-06-02 05:30:00 to 2025-06-02 05:30:00</td>
+                        <td>Active</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>34563</td>
+                        <td>pravin</td>
+                        <td>Good Job Congratulations!</td>
+                        <td>2024-09-01 05:30:00 to 2024-09-05 05:30:00</td>
+                        <td>Active</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>83476</td>
+                        <td>harish</td>
+                        <td>Qwerty</td>
+                        <td>2024-09-01 05:30:00 to 2024-09-02 05:30:00</td>
+                        <td>Active</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>34937</td>
+                        <td>leo</td>
+                        <td>Happy</td>
+                        <td>2024-07-01 05:30:00 to 2024-07-03 05:30:00</td>
+                        <td>Inactive</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>308649</td>
+                        <td>vishnu</td>
+                        <td>Good Job</td>
+                        <td>2024-10-14 05:30:00 to 2024-10-21 05:30:00</td>
+                        <td>Active</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+        <!-- tab4 -->
+        <div *ngIf="activeTab === 'others'">
+
+
+
+
+
+
+
+            <div class="header-row">
+
+                <!-- LEFT -->
+                <div class="left-title">
+                    <p>Others</p>
+                </div>
+
+                <!-- CENTER -->
+                <div class="center-search">
+                    <input type="text" placeholder="Search..." />
+                </div>
+
+                <!-- RIGHT -->
+                <div class="right-icons">
+                    <img src="assets/add.png" class="header-icon" />
+                    <img src="assets/columns.png" class="header-icon" />
+                </div>
+
+            </div>
+
+
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>Employee Code</th>
+                        <th>Employee Name</th>
+                        <th>Variable Name</th>
+                        <th>status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <!-- <tbody>
+                    <tr>
+                        <td>Work 2</td>
+                        <td>Work 2</td>
+                        <td>new</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Work</td>
+                        <td>Work</td>
+                        <td>new</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>lu</td>
+                        <td>i</td>
+                        <td>new</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Bcvbvb</td>
+                        <td>Cbcbcvb</td>
+                        <td>new</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Ddsdsds</td>
+                        <td>Dfsf</td>
+                        <td>test</td>
+                        <td>
+                            <div class="action-icons">
+                                <img src="assets/edit.png" alt="Edit" />
+                                <img src="assets/trashgrey.png" alt="Delete" />
+                            </div>
+                        </td>
+                    </tr>
+                </tbody> -->
+            </table>
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+</div>

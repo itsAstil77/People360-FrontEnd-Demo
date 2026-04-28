@@ -1,0 +1,773 @@
+<div class="dashboard-container">
+
+<div class="tabs">
+    <span class="tab" routerLink="/dashboard-1">
+        Dashboard 
+        <span class="tab-icons">
+            <img src="assets/editpurple.png" alt="Edit" />
+            <img src="assets/trashpurple.png" alt="Delete" />
+        </span>
+    </span>
+
+
+        <span class="tab" routerLink="/evacuation1">Evacuation 
+        <span class="tab-icons">
+            <img src="assets/editpurple.png" alt="Edit" />
+            <img src="assets/trashpurple.png" alt="Delete" />
+        </span>
+    </span>
+
+
+    <span class="tab" routerLink="/dashboardnew">Customer Analytics
+        <span class="tab-icons">
+            <img src="assets/editpurple.png" alt="Edit" />
+            <img src="assets/trashpurple.png" alt="Delete" />
+        </span>
+    </span>
+
+    <div class="tab-group">
+        <span class="tab active">
+            OT Dashboard
+            <span class="tab-icons">
+                <img src="assets/edit-white.png" alt="Edit" />
+                <img src="assets/trash-white.png" alt="Delete" />
+            </span>
+        </span>
+
+        <span class="divider"></span>
+
+        <span class="new" (click)="openDashboard()">+ New</span>
+    </div>
+</div>
+
+
+
+
+
+    <!-- HEADER -->
+    <div class="header">
+        <h2>OT Dashboard</h2>
+        <div class="header-actions">
+            <button class="btn" (click)="openWidgetPopup()">+ Add Widget</button>
+            <button class="btn-outline">Filter</button>
+        </div>
+    </div>
+
+    <!-- OT CARDS -->
+    <div class="ot-cards">
+        <div class="ot-card available">
+
+            <!-- Top right icon -->
+            <img src="assets/dots.png" alt="menu" class="card-menu" />
+
+            <!-- Title -->
+            <div class="ot-title">
+                <span class="status-dot"></span>
+                <span class="ot-name">OT 1</span>
+            </div>
+
+            <!-- Status -->
+            <span class="status-text">Available</span>
+
+        </div>
+        <div class="ot-card danger">
+            <img src="assets/dots.png" class="card-menu" />
+
+            <div class="ot-title">
+                <span class="status-dot"></span>
+                <span class="ot-name">OT 2</span>
+            </div>
+
+            <span class="status-text">In Surgery</span>
+        </div>
+
+        <div class="ot-card warning">
+            <img src="assets/dots.png" class="card-menu" />
+
+            <div class="ot-title">
+                <span class="status-dot"></span>
+                <span class="ot-name">OT 3</span>
+            </div>
+
+            <span class="status-text">Cleaning</span>
+        </div>
+
+        <div class="ot-card available active">
+            <img src="assets/dots.png" class="card-menu" />
+
+            <div class="ot-title">
+                <span class="status-dot"></span>
+                <span class="ot-name">OT 4</span>
+            </div>
+
+            <span class="status-text">Available</span>
+        </div>
+
+        <div class="ot-card danger">
+
+            <img src="assets/dots.png" class="card-menu" />
+
+            <div class="ot-title">
+                <span class="status-dot"></span>
+                <span class="ot-name">OT 5</span>
+            </div>
+
+            <span class="status-text">In Surgery</span>
+
+            <!-- NEW BOTTOM SECTION -->
+            <div class="ot-footer">
+                <div class="left-info">
+                    <div class="info-row">
+                        <span class="label">Name :</span>
+                        <span class="value">Ajith Kumar</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">Case :</span>
+                        <span class="value">OR-1116</span>
+                    </div>
+                </div>
+
+                <div class="right-time">
+                    Time: 00:28:00
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ot-card available">
+            <img src="assets/dots.png" class="card-menu" />
+
+            <div class="ot-title">
+                <span class="status-dot"></span>
+                <span class="ot-name">OT 6</span>
+            </div>
+
+            <span class="status-text">Available</span>
+        </div>
+    </div>
+
+    <!-- GRID -->
+    <div class="grid">
+
+        <!-- OCCUPANCY -->
+        <div class="card" (click)="opendoctorList()">
+
+            <!-- HEADER -->
+            <div class="card-header">
+                <img src="assets/gathering.png" class="left-icon" alt="Gathering" />
+
+                <h3>Occupancy Overview</h3>
+
+                <img src="assets/dots.png" class="right-icon" alt="Menu" />
+            </div>
+
+            <!-- UNDERLINE -->
+            <div class="card-divider"></div>
+
+            <!-- CONTENT -->
+            <p>Current OT : <b class="red">9 / 8 Capacity</b></p>
+
+            <div class="progress">
+                <label>Doctors</label>
+                <div class="bar"><span style="width:70%"></span></div>
+            </div>
+
+            <div class="progress">
+                <label>Nurses</label>
+                <div class="bar"><span style="width:50%"></span></div>
+            </div>
+
+            <div class="progress">
+                <label>Patients</label>
+                <div class="bar"><span style="width:30%"></span></div>
+            </div>
+
+            <p class="alert">
+                <img src="assets/warning-triangle.png" alt="warning" />
+                Over Capacity Alert !
+            </p>
+
+        </div>
+
+        <!-- UTILIZATION -->
+        <div class="card">
+
+            <!-- TOP HEADER -->
+            <div class="card-header">
+
+                <!-- Left Icon -->
+                <img src="assets/operating-room.png" class="left-icon" alt="menu" />
+
+                <!-- Title -->
+                <h3>OT Utilization</h3>
+
+                <!-- Right Section -->
+                <div class="header-right">
+                    <span class="tab today">Today</span>
+                    <span class="tab">Weekly</span>
+
+                    <!-- Right Icon -->
+                    <img src="assets/dots.png" class="right-icon" alt="menu" />
+                </div>
+
+            </div>
+
+            <!-- UNDERLINE -->
+            <div class="header-line"></div>
+
+            <!-- CHART -->
+            <div class="chart-container">
+                <div class="y-axis">
+                    <span>50%</span>
+                    <span>40%</span>
+                    <span>30%</span>
+                    <span>20%</span>
+                    <span>10%</span>
+                    <span>0%</span>
+                </div>
+
+                <div class="chart">
+                    <div class="bar-chart bar1" style="height:20%"></div>
+                    <div class="bar-chart bar2" style="height:80%"></div>
+                    <div class="bar-chart bar3" style="height:40%"></div>
+                    <div class="bar-chart bar4" style="height:60%"></div>
+                    <div class="bar-chart bar5" style="height:50%"></div>
+                </div>
+            </div>
+            <!-- ALERT -->
+            <p class="alert">
+                <img src="assets/warning-triangle.png" alt="warning" />
+                Over Capacity Alert !
+            </p>
+
+        </div>
+        <!-- ENVIRONMENT -->
+        <div class="card env-card">
+
+            <!-- HEADER -->
+            <div class="card-header">
+                <img src="assets/environment.png" class="left-icon" alt="Gathering" />
+                <h3>Environmental Monitoring</h3>
+                <img src="assets/dots.png" class="card-menu" alt="Menu" />
+            </div>
+
+            <!-- DATA ROWS -->
+            <div class="env-item">
+                <img src="assets/high-temperature.png" class="item-icon" />
+                <span class="label">Temperature</span>
+                <span class="divider"></span>
+                <span class="value">25.5°C</span>
+                <span class="time">8:45 AM</span>
+            </div>
+
+            <div class="env-item">
+                <img src="assets/humidity.png" class="item-icon" />
+                <span class="label">Humidity</span>
+                <span class="divider"></span>
+                <span class="value">45%</span>
+                <span class="time">8:40 AM</span>
+            </div>
+
+            <div class="env-item">
+                <img src="assets/air.png" class="item-icon" />
+                <span class="label">Air Quality</span>
+                <span class="divider"></span>
+                <span class="green">Good</span>
+                <span class="time">8:42 AM</span>
+            </div>
+
+            <div class="env-item">
+                <img src="assets/noise.png" class="item-icon" />
+                <span class="label">Noise Level</span>
+                <span class="divider"></span>
+                <span class="value">Low</span>
+                <span class="time">8:38 AM</span>
+            </div>
+
+        </div>
+
+        <!-- ALERTS -->
+        <div class="card env-card">
+
+
+
+
+            <!-- HEADER -->
+
+            <div class="card-header">
+
+                <img src="assets/warning-triangle.png" class="left-icon" alt="Gathering" />
+
+                <h3>Alerts & Notifications </h3>
+
+                <img src="assets/dots.png" class="card-menu" alt="Menu" />
+
+            </div>
+
+
+
+
+            <!-- DATA ROWS -->
+
+            <div class="env-items">
+
+                <img src="assets/exclamation-mark.png" class="item-icon" />
+
+                <span class="label">Over Capacity in OT 2</span>
+
+                <span class="divider"></span>
+
+                <span class="time">8:45 AM</span>
+
+            </div>
+
+
+
+
+            <div class="env-items">
+
+                <img src="assets/exclamation-mark.png" class="item-icon" />
+
+                <span class="label">OT 3 Idle for 45 mins</span>
+
+                <span class="divider"></span>
+
+
+
+                <span class="time">8:40 AM</span>
+
+            </div>
+
+
+
+
+            <div class="env-items">
+
+                <img src="assets/exclamation-mark.png" class="item-icon" />
+
+                <span class="label">Equipment E3 not in Use</span>
+
+                <span class="divider"></span>
+
+
+
+                <span class="time">8:42 AM</span>
+
+            </div>
+
+
+
+
+        </div>
+
+        <!-- EQUIPMENT -->
+        <div class="card env-card">
+            <!-- HEADER -->
+            <div class="card-header">
+                <img src="assets/first-aid-kit.png" class="left-icon" alt="Gathering" />
+                <h3>Equipment Status</h3>
+                <img src="assets/dots.png" class="card-menu" alt="Menu" />
+            </div>
+            <!-- DATA ROWS -->
+            <div class="env-items">
+                <img src="assets/exclamation-mark.png" class="item-icon" />
+                <span class="label">Anesthesia Machine Active</span>
+                <span class="divider"></span>
+                <span class="time">8:45 AM</span>
+            </div>
+            <div class="env-items">
+                <img src="assets/exclamation-mark.png" class="item-icon" />
+                <span class="label">Surgical Scope in Use</span>
+                <span class="divider"></span>
+                <span class="time">8:40 AM</span>
+            </div>
+            <div class="env-items">
+                <img src="assets/exclamation-mark.png" class="item-icon" />
+                <span class="label">Defibrillator in Use</span>
+                <span class="divider"></span>
+                <span class="time">8:42 AM</span>
+            </div>
+        </div>
+        <!-- PATIENT FLOW -->
+        <div class="card patient-card">
+
+            <!-- HEADER -->
+            <div class="card-header">
+                <img src="assets/patient.png" class="left-icon" alt="icon" />
+                <h3>Patient Flow</h3>
+                <img src="assets/dots.png" class="right-icon" alt="menu" />
+            </div>
+
+            <!-- FULL WIDTH LINE
+            <div class="card-divider"></div> -->
+
+            <!-- FLOW CONTENT -->
+            <div class="flow">
+
+                <div class="flow-item">
+                    <p class="orange">Pre-OP</p>
+                    <span class="label">Waiting :</span>
+                    <span class="value">15 min</span>
+                </div>
+
+                <div class="flow-item middle">
+                    <p class="red">In Surgery</p>
+                    <span class="label">Surgery :</span>
+                    <span class="value">1hr 20 min</span>
+                </div>
+
+                <div class="flow-item">
+                    <p class="green">Recovery</p>
+                    <span class="label">Recovery :</span>
+                    <span class="value">40 min</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="card env-card" (click)="openoperationList()">
+
+            <!-- HEADER -->
+            <div class="card-header">
+                <img src="assets/warning-triangle.png" class="left-icon" />
+                <h3>Patient Status</h3>
+                <img src="assets/dots.png" class="card-menu" />
+            </div>
+
+            <!-- ROW -->
+            <div class="env-row">
+                <img src="assets/exclamation-mark.png" class="item-icon" />
+
+                <!-- LEFT -->
+                <div class="left">
+                    <div class="name">Astil Mathew</div>
+                    <div class="status red">In Surgery</div>
+                </div>
+
+                <div class="time-left">00:12:33</div>
+
+                <!-- DIVIDER -->
+                <div class="divider"></div>
+
+                <!-- RIGHT -->
+                <div class="right">
+                    <div class="ot">OT 2</div>
+                    <div class="sub">Estimated Time</div>
+                </div>
+
+                <!-- <span class="time-right">|</span> -->
+                <div class="time-right">| 9:15 AM</div>
+            </div>
+
+
+            <!-- ROW 2 -->
+            <div class="env-row">
+                <img src="assets/exclamation-mark.png" class="item-icon" />
+
+                <div class="left">
+                    <div class="name">Ranjith</div>
+                    <div class="status orange">Pre OP</div>
+                </div>
+
+                <div class="time-left">9:00 AM</div>
+
+                <div class="divider"></div>
+
+                <div class="right">
+                    <div class="ot">OT 3</div>
+                    <div class="sub">Estimated Time</div>
+                </div>
+
+                <div class="time-right">| 9:30 AM</div>
+            </div>
+
+
+            <!-- ROW 3 -->
+            <div class="env-row">
+                <img src="assets/exclamation-mark.png" class="item-icon" />
+
+                <div class="left">
+                    <div class="name">Ajith Kumar</div>
+                    <div class="status red">In Surgery</div>
+                </div>
+
+                <div class="time-left">00:38:19</div>
+
+                <div class="divider"></div>
+
+                <div class="right">
+                    <div class="ot">OT 4</div>
+                    <div class="sub">No Movement Detected</div>
+                </div>
+
+                <div class="time-right">| 8:42 AM</div>
+            </div>
+
+
+
+
+            <!-- row 4 -->
+            <div class="env-row">
+                <img src="assets/exclamation-mark.png" class="item-icon" />
+
+                <div class="left">
+                    <div class="name">Sharon</div>
+                    <div class="status red">In Surgery</div>
+                </div>
+
+                <div class="time-left">00:30:00</div>
+
+                <div class="divider"></div>
+
+                <div class="right">
+                    <div class="ot">OT 5</div>
+                    <div class="sub">No Movement Detected</div>
+                </div>
+
+                <div class="time-right">| 8:15 AM</div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="modal-overlay" *ngIf="newDashboard">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h2>Create New Dashboard</h2>
+        </div>
+
+        <div class="modal-body">
+            <div class="input-group">
+                <label for="dashName">Dashboard Name</label>
+                <input type="text" id="dashName" placeholder="Enter dashboard name">
+            </div>
+
+            <div class="input-group">
+                <label>Select Module</label>
+                <div class="radio-container">
+
+                    <div class="module-group">
+
+
+                        <label class="radio-item"><input type="radio" name="module" value="Attendance">
+                            Attendance</label>
+                        <label class="radio-item"><input type="radio" name="module" value="Access Control"> Access
+                            Control</label>
+                        <label class="radio-item"><input type="radio" name="module" value="OT Master">OT
+                            Management</label>
+                        <label class="radio-item"><input type="radio" name="module" value="Manage"> Visitor
+                            Management</label>
+
+                        <label class="radio-item"><input type="radio" name="module" value="Patrol"> Patrol</label>
+                        <label class="radio-item"><input type="radio" name="module" value="Meal Management"> Meal
+                            Management</label>
+                        <label class="radio-item"><input type="radio" name="module" value="Evacuation">
+                            Evacuation</label>
+                        <label class="radio-item"><input type="radio" name="module" value="License"> License</label>
+                        <label class="radio-item"><input type="radio" name="module" value="User Management"> User
+                            Management</label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-cancel" (click)="cancel()">Cancel</button>
+            <button class="btn-create">Create</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="glass-overlay" *ngIf="doctorList">
+    <div class="list-modal">
+        <div class="modal-header">
+            <h2 class="title">Medical Staff & Patient Directory</h2>
+
+        </div>
+
+        <div class="modal-content">
+            <section class="list-section">
+                <h3><img src="assets/doctor-icon.png" class="sec-icon"> Doctors (capacity:4)</h3>
+                <div class="list-item" *ngFor="let doc of doctors">
+                    <div class="user-info">
+                        <span class="name">{{ doc.name }}</span>
+                        <span class="sub">{{ doc.spec }}</span>
+                    </div>
+                    <span class="status-dot" [class.online]="doc.available"></span>
+                </div>
+            </section>
+
+            <section class="list-section">
+                <h3><img src="assets/patient-icon.png" class="sec-icon"> Patients (capacity:3)</h3>
+                <div class="list-item" *ngFor="let pat of patients">
+                    <div class="user-info">
+                        <span class="name">{{ pat.name }}</span>
+                        <span class="sub">ID: {{ pat.id }} | Room: {{ pat.room }}</span>
+                    </div>
+                    <span class="priority-label" [ngClass]="pat.priority.toLowerCase()">{{ pat.priority }}</span>
+                </div>
+            </section>
+
+            <section class="list-section">
+                <h3><img src="assets/nurse-icon.png" class="sec-icon"> Nurses (capacity:2)</h3>
+                <div class="list-item" *ngFor="let nurse of nurses">
+                    <div class="user-info">
+                        <span class="name">{{ nurse.name }}</span>
+                        <span class="sub">{{ nurse.shift }} Shift</span>
+                    </div>
+                    <!-- <button class="assign-btn">Assign</button> -->
+                </div>
+            </section>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-primary" (click)="cancelDoctorList()">Close</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="ot-status-popup-wrapper" *ngIf="operationList">
+    <div class="ot-details-modal-overlay">
+        <div class="ot-details-card-wide">
+            <div class="ot-details-header">
+                <h2 class="ot-details-title">OT Live Status - Surgery Details</h2>
+            </div>
+
+            <div class="ot-details-body-scroll">
+                <div class="ot-details-patient-grid">
+
+                    <div class="ot-details-surgery-item" *ngFor="let p of patientCases">
+                        <div class="ot-details-item-header">
+                            <span class="ot-details-badge">{{ p.OT }}</span>
+                            <span class="ot-details-status-pill" [attr.data-status]="p.Status">{{ p.Status }}</span>
+                        </div>
+
+                        <div class="ot-details-item-main">
+                            <h3 class="ot-details-p-name">{{ p.Name }}</h3>
+                            <div class="ot-details-disease">{{ p.Disease }}</div>
+                            <div class="ot-details-surgeon">Dr. {{ p.Doctor }}</div>
+                        </div>
+
+                        <div class="ot-details-time-tracker">
+                            <div class="ot-details-time-point">
+                                <label>Start</label>
+                                <span>{{ p.StartTime }}</span>
+                            </div>
+                            <div class="ot-details-progress-line">
+                                <div class="ot-details-progress-fill" [style.width.%]="p.Progress"></div>
+                                <span class="ot-details-elapsed-text">{{ p.ElapsedTime }}</span>
+                            </div>
+                            <div class="ot-details-time-point">
+                                <label>Est. End</label>
+                                <span>{{ p.EndTime }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="ot-details-footer">
+                <button class="ot-details-btn-secondary" (click)="cancelOperationList()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="widget-popup-wrapper" *ngIf="showWidgetPopup">
+    <div class="widget-modal-overlay">
+        <div class="widget-modal-card">
+            <div class="widget-modal-header">
+                <h2 class="widget-title">Select Dashboard Widget</h2>
+            </div>
+
+            <div class="widget-modal-body">
+                <p class="widget-instruction">Choose a widget to add to your workspace:</p>
+
+                <div class="widget-radio-list">
+
+                    <label class="widget-radio-option">
+                        <input type="radio" name="dashboardWidget" value="Occupancy Overview">
+                        <div class="widget-radio-content">
+                            <span class="widget-label">Occupancy Overview</span>
+                            <small>Real-time room and bed availability</small>
+                        </div>
+                    </label>
+
+                    <label class="widget-radio-option">
+                        <input type="radio" name="dashboardWidget" value="OT Utilization">
+                        <div class="widget-radio-content">
+                            <span class="widget-label">OT Utilization</span>
+                            <small>Efficiency and theatre usage analytics</small>
+                        </div>
+                    </label>
+
+                    <label class="widget-radio-option">
+                        <input type="radio" name="dashboardWidget" value="Environmental Monitoring">
+                        <div class="widget-radio-content">
+                            <span class="widget-label">Environmental Monitoring</span>
+                            <small>Temperature, humidity, and air quality</small>
+                        </div>
+                    </label>
+
+                    <label class="widget-radio-option">
+                        <input type="radio" name="dashboardWidget" value="Alerts & Notifications">
+                        <div class="widget-radio-content">
+                            <span class="widget-label">Alerts & Notifications</span>
+                            <small>Critical system and patient alerts</small>
+                        </div>
+                    </label>
+
+                    <label class="widget-radio-option">
+                        <input type="radio" name="dashboardWidget" value="Equipment Status">
+                        <div class="widget-radio-content">
+                            <span class="widget-label">Equipment Status</span>
+                            <small>Maintenance and usage tracking</small>
+                        </div>
+                    </label>
+
+                    <label class="widget-radio-option">
+                        <input type="radio" name="dashboardWidget" value="Patient Flow">
+                        <div class="widget-radio-content">
+                            <span class="widget-label">Patient Flow</span>
+                            <small>Movement and bottleneck analysis</small>
+                        </div>
+                    </label>
+
+                    <label class="widget-radio-option">
+                        <input type="radio" name="dashboardWidget" value="Patient Status">
+                        <div class="widget-radio-content">
+                            <span class="widget-label">Patient Status</span>
+                            <small>Live surgery and recovery tracking</small>
+                        </div>
+                    </label>
+
+                </div>
+            </div>
+
+            <div class="widget-modal-footer">
+                <button class="widget-btn-cancel" (click)="closeWidgetPopup()">Cancel</button>
+                <button class="widget-btn-confirm">Add Widget</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="report"><span class="direction" routerLink="/report">Report >></span> <span>Customer Report</span></div>
+
+
+<div class="report-container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="report-table-container">
+
+  <h2 class="report-title">Customer Visited Report</h2>
+
+  <table class="report-table">
+    <thead>
+      <tr>
+        <th>Zone</th>
+        <th>New Visitors</th>
+        <th>Repeat Visitors</th>
+        <th>Total Visitors</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let zone of zones">
+        <td>{{ zone.name }}</td>
+        <td>{{ zone.newVisitors }}</td>
+        <td>{{ zone.repeatVisitors }}</td>
+        <td>{{ zone.newVisitors + zone.repeatVisitors }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+
+
+
+
+</div>

@@ -1,0 +1,65 @@
+<div class="main-content">
+  <div class="events-card">
+    
+    <div class="table-header">
+      <h2 class="header">Staff-Master</h2>
+      
+      <div class="search-container">
+        <div class="search-box">
+          <img src="assets/search.png" alt="search" class="search-icon">
+          <input type="text" placeholder="Search">
+        </div>
+      </div>
+
+      <div class="action-icons">
+        <button class="icon-btn"><img src="assets/add.png"></button>
+        <button class="icon-btn needs-circle"><img src="assets/download.png"></button>
+        <button class="icon-btn"><img src="assets/reloading.png"></button>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+     <table>
+    <thead>
+      <tr>
+        <th>Staff ID</th>
+        <th>Staff Name</th>
+        <th>Role</th>
+        <th>Department</th>
+        <th>Tag ID (RFID/BLE)</th>
+        <th>Contact Number</th>
+        <th>Shift</th>
+        <th>Status</th>
+        <th class="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let staff of staffData">
+        <td>{{ staff.Staff_ID }}</td>
+        <td class="name-column">{{ staff.Staff_Name }}</td>
+        <td>
+          <span class="role-badge" [ngClass]="staff.Role.toLowerCase()">
+            {{ staff.Role }}
+          </span>
+        </td>
+        <td>{{ staff.Department }}</td>
+        <td><code>{{ staff.Tag_ID }}</code></td>
+        <td>{{ staff.Contact_Number }}</td>
+        <td>{{ staff.Shift_Type }}</td>
+        <td>
+          <span class="status-pill" [class.active]="staff.Status === 'Active'">
+            {{ staff.Status }}
+          </span>
+        </td>
+        <td class="action-cell">
+        <div class="action-wrapper">
+          <img src="assets/edit.png" class="table-icon" title="Edit">
+          <img src="assets/del.png" class="table-icon" title="Delete">
+        </div>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+    </div>
+  </div>
+</div>
