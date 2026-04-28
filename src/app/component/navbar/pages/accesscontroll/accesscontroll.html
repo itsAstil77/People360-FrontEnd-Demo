@@ -1,0 +1,619 @@
+<div class="report-container">
+
+
+
+
+
+
+
+
+
+    <div class="access-control-container">
+
+        <!-- TABS -->
+        <div class="tabs">
+            <span class="tab" [class.active]="activeTab === 'groups'" (click)="activeTab = 'groups'">Groups</span>
+            <span class="tab" [class.active]="activeTab === 'access'" (click)="activeTab = 'access'">Access</span>
+        </div>
+
+        <!-- GROUPS TAB -->
+        <div *ngIf="activeTab === 'groups'">
+            <div class="tab-header">
+                <span class="tab-title">Groups</span>
+
+                <input type="text" class="search-input" placeholder="Search Groups" [(ngModel)]="groupSearch" />
+
+                <div class="tab-actions">
+                    <img src="assets/reloading.png" class="action-icon" title="Reload" (click)="onCreateGroup()" />
+                    <img src="assets/add.png" class="action-icon" title="Add" (click)="onCreateGroup()" />
+                    <img src="assets/download.png" class="action-icon" title="Download" (click)="onEditGroup()" />
+                    <img src="assets/columns.png" class="action-icon" title="Columns" (click)="onDeleteGroup()" />
+                </div>
+            </div>
+
+
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>Group Name</th>
+                        <th>Employee Name</th>
+                        <th>Group Type</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let group of filteredGroups">
+                        <td>{{ group.name }}</td>
+                        <td>
+                            <div *ngFor="let emp of group.employees" class="emp-item">{{ emp }}</div>
+                        </td>
+                        <td>{{ group.type }}</td>
+                        <td class="action-cell">
+                            <div class="action-cell-inner">
+                                <img src="assets/editpurple.png" class="table-icon" title="Edit"   (click)="openEditGroup(group)"  />
+                                <img src="assets/delete.png" class="table-icon" title="Delete" />
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ACCESS TAB -->
+        <div *ngIf="activeTab === 'access'">
+            <div class="tab-header">
+                <span class="tab-title">Access</span>
+
+                <input type="text" class="search-input" placeholder="Search Access" [(ngModel)]="accessSearch" />
+
+                <div class="tab-actions">
+                    <img src="assets/reloading.png" class="action-icon" title="Reload" (click)="onCreateAccess()" />
+                    <img src="assets/add.png" class="action-icon" title="Add" (click)="onCreateAccess()" />
+                    <img src="assets/download.png" class="action-icon" title="Download" (click)="onEditAccess()" />
+                    <img src="assets/columns.png" class="action-icon" title="Columns" (click)="onDeleteAccess()" />
+                </div>
+            </div>
+
+
+
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>Group Name</th>
+                        <th>Group Type</th>
+                        <th>Reader Name</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let access of filteredAccess">
+                        <td>{{ access.groupName }}</td>
+                        <td>{{ access.groupType }}</td>
+                        <td>
+                            <div *ngFor="let reader of access.readers" class="emp-item">{{ reader }}</div>
+                        </td>
+                        <td>{{ access.location }}</td>
+                        <td>
+                            <!-- TOGGLE -->
+                            <div class="toggle-switch" [class.on]="access.status" (click)="toggleStatus(access)">
+                                <div class="toggle-thumb"></div>
+                            </div>
+                        </td>
+                        <td class="action-cell">
+                            <div class="action-cell-inner">
+                                <img src="assets/editpurple.png" class="table-icon" title="Edit" (click)="openEditAccess(access)" />
+                                <img src="assets/delete.png" class="table-icon" title="Delete" />
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- popup -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- popup -->
+
+
+
+
+
+    <!-- ADD ACCESS POPUP -->
+    <div class="popup-overlay" *ngIf="showAddAccessPopup" (click)="closeAddAccessPopup($event)">
+        <div class="popup-container">
+
+            <!-- HEADER -->
+            <!-- HEADER -->
+            <div class="popup-header">
+                <span>Add Access</span>
+                <span class="close-btn" (click)="showAddAccessPopup = false">×</span>
+            </div>
+
+
+
+            <div class="popup-body">
+
+                <!-- RADIO BUTTONS -->
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" [(ngModel)]="newAccess.type" value="Employee" /> Employee
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" [(ngModel)]="newAccess.type" value="Contractor" /> Contractor
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" [(ngModel)]="newAccess.type" value="Visitor" /> Visitor
+                    </label>
+                </div>
+
+                <!-- GROUP NAME -->
+                <div class="form-group">
+                    <label class="form-label">Group Name</label>
+                    <div class="select-box">
+                        <select [(ngModel)]="newAccess.groupName" class="form-select">
+                            <option value="" disabled selected></option>
+                            <option value="Group A">Group A</option>
+                            <option value="Group B">Group B</option>
+                            <option value="Group C">Group C</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- GROUP MEMBERS -->
+                <div class="form-group">
+                    <label class="form-label">Group Members</label>
+                    <div class="select-box">
+                        <select [(ngModel)]="newAccess.members" class="form-select">
+                            <option value="" disabled selected>Select Members</option>
+                            <option value="Member 1">Member 1</option>
+                            <option value="Member 2">Member 2</option>
+                            <option value="Member 3">Member 3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- READERS -->
+                <div class="form-group">
+                    <label class="form-label">Readers</label>
+                    <div class="select-box">
+                        <select [(ngModel)]="newAccess.readers" class="form-select">
+                            <option value="" disabled selected>Select readers</option>
+                            <option value="Gate 1">Gate 1</option>
+                            <option value="Gate 2">Gate 2</option>
+                            <option value="Gate 3">Gate 3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- STATUS -->
+                <div class="form-group status-row">
+                    <label class="form-label">Status</label>
+                    <div class="toggle-switch" [class.on]="newAccess.status"
+                        (click)="newAccess.status = !newAccess.status">
+                        <div class="toggle-thumb"></div>
+                    </div>
+                </div>
+
+                <!-- TIME SCHEDULE -->
+                <div class="time-schedule-section">
+                    <span class="time-schedule-title">Time Schedule</span>
+                    <span class="time-hrs">(24 hrs)</span>
+                    <span class="add-schedule-icon" (click)="addSchedule()">⊕</span>
+                </div>
+
+                <!-- <div *ngFor="let schedule of newAccess.schedules; let si = index" class="schedule-block"> -->
+                <div *ngFor="let schedule of newAccess.schedules; let si = index" class="schedule-block">
+
+                    <!-- ✅ remove button — only show if more than 1 schedule -->
+                    <div class="schedule-block-header">
+                        <span class="schedule-block-title">Schedule {{ si + 1 }}</span>
+                        <span *ngIf="si > 0" class="remove-schedule" (click)="removeSchedule(si)">−</span>
+                    </div>
+                    <!-- FROM DATE / FROM TIME -->
+                    <div class="schedule-row">
+                        <div class="schedule-col">
+                            <label class="schedule-label">From Date</label>
+                            <input type="date" [(ngModel)]="schedule.fromDate" class="schedule-input" />
+                        </div>
+                        <div class="schedule-col">
+                            <label class="schedule-label">From Time</label>
+                            <div class="time-box-row">
+                                <input type="text" placeholder="HH" [(ngModel)]="schedule.fromHH" maxlength="2"
+                                    class="time-input" />
+                                <span class="time-sep">:</span>
+                                <input type="text" placeholder="MM" [(ngModel)]="schedule.fromMM" maxlength="2"
+                                    class="time-input" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TO DATE / TO TIME -->
+                    <div class="schedule-row">
+                        <div class="schedule-col">
+                            <label class="schedule-label">To Date</label>
+                            <input type="date" [(ngModel)]="schedule.toDate" class="schedule-input" />
+                        </div>
+                        <div class="schedule-col">
+                            <label class="schedule-label">To Time</label>
+                            <div class="time-box-row">
+                                <input type="text" placeholder="HH" [(ngModel)]="schedule.toHH" maxlength="2"
+                                    class="time-input" />
+                                <span class="time-sep">:</span>
+                                <input type="text" placeholder="MM" [(ngModel)]="schedule.toMM" maxlength="2"
+                                    class="time-input" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BUTTONS -->
+                <div class="popup-footer">
+                    <button class="save-btn" (click)="saveAccess()">Save</button>
+                    <button class="clear-btn" (click)="clearAccess()">Clear</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="popup-overlay" *ngIf="showAddGroupPopup" (click)="closeAddGroupPopup($event)">
+  <div class="popup-container">
+
+    <!-- HEADER -->
+    <div class="popup-header">
+      <span>Add Groups</span>
+      <span class="close-btn" (click)="showAddGroupPopup = false">×</span>
+    </div>
+
+    <div class="popup-body">
+
+      <!-- GROUPS TITLE -->
+      <div class="section-title" style="margin-bottom: 12px;">Groups</div>
+
+      <!-- RADIO BUTTONS -->
+      <div class="radio-group">
+        <label class="radio-label">
+          <input type="radio" [(ngModel)]="newGroup.type" value="Employee" /> Employee
+        </label>
+        <label class="radio-label">
+          <input type="radio" [(ngModel)]="newGroup.type" value="Contractor" /> Contractor
+        </label>
+        <label class="radio-label">
+          <input type="radio" [(ngModel)]="newGroup.type" value="Visitor" /> Visitor
+        </label>
+      </div>
+
+      <!-- GROUP NAME -->
+      <div class="form-group">
+        <label class="form-label">Group Name</label>
+        <div class="group-name-box">
+          <input type="text" [(ngModel)]="newGroup.name" 
+                 placeholder="Search Group" class="group-name-input" />
+        </div>
+      </div>
+
+      <!-- GROUP MEMBERS -->
+      <div class="form-group">
+        <label class="form-label">Group Members</label>
+        <div class="select-box">
+          <select [(ngModel)]="newGroup.members" class="form-select">
+            <option value="" disabled selected>Select</option>
+            <option value="Member 1">Member 1</option>
+            <option value="Member 2">Member 2</option>
+            <option value="Member 3">Member 3</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- BUTTONS -->
+      <div class="popup-footer">
+        <button class="save-btn" (click)="saveGroup()">Save</button>
+        <button class="clear-btn" (click)="clearGroup()">Clear</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- edit -->
+
+
+
+
+
+
+<div class="popup-overlay" *ngIf="showEditGroupPopup" (click)="closeEditGroupPopup($event)">
+  <div class="popup-container">
+
+    <!-- HEADER -->
+    <div class="popup-header">
+      <span>Edit Groups</span>
+      <span class="close-btn" (click)="showEditGroupPopup = false">×</span>
+    </div>
+
+    <div class="popup-body">
+
+      <!-- GROUPS TITLE -->
+      <div class="section-title" style="margin-bottom: 12px;">Groups</div>
+
+      <!-- RADIO BUTTONS -->
+      <div class="radio-group">
+        <label class="radio-label">
+          <input type="radio" [(ngModel)]="editGroup.type" value="Employee" /> Employee
+        </label>
+        <label class="radio-label">
+          <input type="radio" [(ngModel)]="editGroup.type" value="Contractor" /> Contractor
+        </label>
+        <label class="radio-label">
+          <input type="radio" [(ngModel)]="editGroup.type" value="Visitor" /> Visitor
+        </label>
+      </div>
+
+      <!-- GROUP NAME -->
+      <div class="form-group">
+        <label class="form-label">Group Name</label>
+        <div class="group-name-box">
+          <input type="text" [(ngModel)]="editGroup.name"
+                 placeholder="Search Group" class="group-name-input" />
+        </div>
+      </div>
+
+      <!-- GROUP MEMBERS -->
+      <div class="form-group">
+        <label class="form-label">Group Members</label>
+        <div *ngFor="let emp of editGroup.employees; let ei = index" class="member-row">
+          <input type="text" [(ngModel)]="editGroup.employees[ei]" class="group-name-input member-input" />
+          <span class="remove-member" (click)="removeMember(ei)">−</span>
+        </div>
+        <button class="add-member-btn" (click)="addMember()">+ Add Member</button>
+      </div>
+
+      <!-- BUTTONS -->
+      <div class="popup-footer">
+        <button class="save-btn" (click)="updateGroup()">Update</button>
+        <button class="clear-btn" (click)="showEditGroupPopup = false">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="popup-overlay" *ngIf="showEditAccessPopup" (click)="closeEditAccessPopup($event)">
+  <div class="popup-container">
+
+    <!-- HEADER -->
+    <div class="popup-header">
+      <span>Edit Access</span>
+      <span class="close-btn" (click)="showEditAccessPopup = false">×</span>
+    </div>
+
+    <div class="popup-body">
+
+      <!-- RADIO BUTTONS -->
+      <div class="radio-group">
+        <label class="radio-label">
+          <input type="radio" [(ngModel)]="editAccess.groupType" value="Employee" /> Employee
+        </label>
+        <label class="radio-label">
+          <input type="radio" [(ngModel)]="editAccess.groupType" value="Contractor" /> Contractor
+        </label>
+        <label class="radio-label">
+          <input type="radio" [(ngModel)]="editAccess.groupType" value="Visitor" /> Visitor
+        </label>
+      </div>
+
+      <!-- GROUP NAME -->
+      <div class="form-group">
+        <label class="form-label">Group Name</label>
+        <div class="group-name-box">
+          <input type="text" [(ngModel)]="editAccess.groupName"
+                 placeholder="Group Name" class="group-name-input" />
+        </div>
+      </div>
+
+      <!-- READERS -->
+      <div class="form-group">
+        <label class="form-label">Readers</label>
+        <div *ngFor="let reader of editAccess.readers; let ri = index" class="member-row">
+          <input type="text" [(ngModel)]="editAccess.readers[ri]" 
+                 class="group-name-input member-input" />
+          <span class="remove-member" (click)="removeReader(ri)">−</span>
+        </div>
+        <button class="add-member-btn" (click)="addReader()">+ Add Reader</button>
+      </div>
+
+      <!-- LOCATION -->
+      <div class="form-group">
+        <label class="form-label">Location</label>
+        <div class="group-name-box">
+          <input type="text" [(ngModel)]="editAccess.location"
+                 placeholder="Location" class="group-name-input" />
+        </div>
+      </div>
+
+      <!-- STATUS -->
+      <div class="form-group status-row">
+        <label class="form-label">Status</label>
+        <div class="toggle-switch" [class.on]="editAccess.status"
+             (click)="editAccess.status = !editAccess.status">
+          <div class="toggle-thumb"></div>
+        </div>
+      </div>
+
+
+
+      <!-- TIME SCHEDULE -->
+<div class="time-schedule-section">
+  <span class="time-schedule-title">Time Schedule</span>
+  <span class="time-hrs">(24 hrs)</span>
+  <span class="add-schedule-icon" (click)="addEditSchedule()">⊕</span>
+</div>
+
+<div *ngFor="let schedule of editAccess.schedules; let si = index" class="schedule-block">
+
+  <div class="schedule-block-header">
+    <span class="schedule-block-title">Schedule {{ si + 1 }}</span>
+    <span *ngIf="si > 0" class="remove-schedule" (click)="removeEditSchedule(si)">−</span>
+  </div>
+
+  <!-- FROM DATE / FROM TIME -->
+  <div class="schedule-row">
+    <div class="schedule-col">
+      <label class="schedule-label">From Date</label>
+      <input type="date" [(ngModel)]="schedule.fromDate" class="schedule-input" />
+    </div>
+    <div class="schedule-col">
+      <label class="schedule-label">From Time</label>
+      <div class="time-box-row">
+        <input type="text" placeholder="HH" [(ngModel)]="schedule.fromHH"
+               maxlength="2" class="time-input" />
+        <span class="time-sep">:</span>
+        <input type="text" placeholder="MM" [(ngModel)]="schedule.fromMM"
+               maxlength="2" class="time-input" />
+      </div>
+    </div>
+  </div>
+
+  <!-- TO DATE / TO TIME -->
+  <div class="schedule-row">
+    <div class="schedule-col">
+      <label class="schedule-label">To Date</label>
+      <input type="date" [(ngModel)]="schedule.toDate" class="schedule-input" />
+    </div>
+    <div class="schedule-col">
+      <label class="schedule-label">To Time</label>
+      <div class="time-box-row">
+        <input type="text" placeholder="HH" [(ngModel)]="schedule.toHH"
+               maxlength="2" class="time-input" />
+        <span class="time-sep">:</span>
+        <input type="text" placeholder="MM" [(ngModel)]="schedule.toMM"
+               maxlength="2" class="time-input" />
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+      <!-- BUTTONS -->
+      <div class="popup-footer">
+        <button class="save-btn" (click)="updateAccess()">Update</button>
+        <button class="clear-btn" (click)="showEditAccessPopup = false">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

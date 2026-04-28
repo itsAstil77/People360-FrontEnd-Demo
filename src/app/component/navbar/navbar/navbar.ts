@@ -50,7 +50,7 @@ export class Navbar implements OnInit {
         { name: 'Devices', path: '/device' },
         { name: 'People', path: '/people' },
         { name: 'Attendance', path: '/attendance' },
-        { name: 'Access Control' },
+        { name: 'Access Control', path:'/accesscontroll' },
         {
           name: 'OT Management',
           hasArrow: true,
