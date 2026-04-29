@@ -1,0 +1,535 @@
+<div class="report-container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="page-container">
+
+        <!-- TOP RIGHT TABS -->
+        <div class="top-tabs">
+            <div class="tabs">
+                <span class="tab" [class.active]="activePageTab === 'visitor-panel'"
+                    (click)="activePageTab = 'visitor-panel'">Visitor Panel</span>
+                <span class="tab" [class.active]="activePageTab === 'approval'"
+                    (click)="activePageTab = 'approval'">Approval</span>
+                <span class="tab" [class.active]="activePageTab === 'entry-exit'"
+                    (click)="activePageTab = 'entry-exit'">Entry/Exit</span>
+                <span class="tab" [class.active]="activePageTab === 'identification'"
+                    (click)="activePageTab = 'identification'">Identification</span>
+                <span class="tab" [class.active]="activePageTab === 'reconcile'"
+                    (click)="activePageTab = 'reconcile'">Reconcile Pass</span>
+                <span class="tab" [class.active]="activePageTab === 'permit'"
+                    (click)="activePageTab = 'permit'">Permit</span>
+                <span class="tab" [class.active]="activePageTab === 'registration'"
+                    (click)="activePageTab = 'registration'">Registration Details</span>
+
+            </div>
+        </div>
+
+        <!-- TAB CONTENT -->
+        <div class="tab-content">
+            <div *ngIf="activePageTab === 'visitor-panel'">
+
+                <div *ngIf="activePageTab === 'visitor-panel'">
+                    <div class="visitor-panel-card">
+
+                        <!-- CARD HEADER -->
+                        <div class="vp-card-header">
+                            <span>Visitor Panel</span>
+                        </div>
+
+                        <div class="vp-card-body">
+
+                            <!-- UPLOAD BACKGROUND IMAGE -->
+                            <div class="vp-section">
+                                <label class="vp-label">Upload Background Image</label>
+                                <div class="vp-bg-upload-box">
+
+                                    <div class="vp-upload-center">
+                                        <input type="file" accept=".jpg,.png,.jpeg" #bgInput style="display:none"
+                                            (change)="onBgImageUpload($event)" />
+                                        <button class="vp-upload-btn" (click)="bgInput.click()">
+                                            UPLOAD BACKGROUND IMAGE
+                                        </button>
+                                        <span class="vp-upload-hint">
+                                            (Only JPG, PNG and JPEG files and maximum file size 500kb are allowed)
+                                        </span>
+                                    </div>
+
+                                    <!-- PREVIEW -->
+                                    <div class="vp-bg-preview" *ngIf="bgImagePreview">
+                                        <img [src]="bgImagePreview" class="vp-preview-img" />
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="vp-divider"></div>
+
+                            <!-- BOTTOM FORM -->
+                            <div class="vp-form-grid">
+
+                                <!-- LEFT COLUMN -->
+                                <div class="vp-col">
+
+                                    <!-- UPLOAD LOGO -->
+                                    <div class="vp-form-group">
+                                        <label class="vp-label">Upload Logo</label>
+                                        <span class="vp-upload-hint">
+                                            (Only JPG, PNG and JPEG files and maximum file size 500kb are allowed)
+                                        </span>
+                                        <input type="file" accept=".jpg,.png,.jpeg" class="vp-file-input"
+                                            (change)="onLogoUpload($event)" />
+                                    </div>
+
+                                    <!-- VISITOR PANEL NAME -->
+                                    <div class="vp-form-group">
+                                        <label class="vp-label">Visitor Panel Name</label>
+                                        <input type="text" [(ngModel)]="visitorPanel.panelName" class="vp-input" />
+                                    </div>
+
+                                </div>
+
+                                <!-- RIGHT COLUMN -->
+                                <div class="vp-col">
+
+                                    <!-- COMPANY NAME -->
+                                    <div class="vp-form-group">
+                                        <label class="vp-label">Company Name</label>
+                                        <input type="text" [(ngModel)]="visitorPanel.companyName" class="vp-input" />
+                                    </div>
+
+                                    <!-- CHECKBOXES -->
+                                    <div class="vp-checkbox-group">
+                                        <label class="vp-checkbox-label">
+                                            <input type="checkbox" [(ngModel)]="visitorPanel.approval" />
+                                            Approval
+                                        </label>
+                                        <label class="vp-checkbox-label">
+                                            <input type="checkbox" [(ngModel)]="visitorPanel.authCode" />
+                                            Auth Code
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- BUTTONS -->
+                            <div class="vp-footer">
+                                <button class="vp-cancel-btn" (click)="cancelVisitorPanel()">Cancel</button>
+                                <button class="vp-save-btn" (click)="saveVisitorPanel()">Save</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div *ngIf="activePageTab === 'approval'">
+
+
+
+
+
+
+
+
+
+
+
+                <!-- HEADER -->
+                <!-- <div class="tab-header">
+  <span class="tab-title">Approvals</span>
+  <div class="tab-actions">
+    <input type="text" class="search-input" placeholder="Search"
+           [(ngModel)]="approvalSearch" />
+    <img src="assets/add.png" class="action-icon" title="Add" />
+  </div>
+</div> -->
+
+                <div class="tab-header">
+                    <span class="tab-title">Approvals</span>
+
+                    <!-- ✅ search in center -->
+                    <input type="text" class="search-input" placeholder="Search" [(ngModel)]="approvalSearch" />
+
+                    <!-- ✅ add icon on right -->
+                    <div class="tab-actions">
+                        <img src="assets/add.png" class="action-icon" title="Add" />
+                    </div>
+                </div>
+
+                <!-- TABLE -->
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Precedence No</th>
+                            <th>Permit Type</th>
+                            <th>Employee Email Id</th>
+                            <th>Created At</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let approval of filteredApprovals">
+                            <td>{{ approval.precedenceNo }}</td>
+                            <td>{{ approval.permitType }}</td>
+                            <td>{{ approval.emailId }}</td>
+                            <td style="white-space:nowrap">{{ approval.createdAt }}</td>
+                            <td class="action-cell">
+                                <div class="action-cell-inner">
+                                    <img src="assets/editpurple.png" class="table-icon" title="Edit" />
+                                    <img src="assets/del.png" class="table-icon" title="Delete" />
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <div *ngIf="activePageTab === 'entry-exit'">
+
+
+
+
+                <div class="tab-header">
+                    <span class="tab-title">Entry/Exit Content</span>
+
+                    <!-- ✅ search in center -->
+                    <input type="text" class="search-input" placeholder="Search" [(ngModel)]="approvalSearch" />
+
+                    <!-- ✅ add icon on right -->
+                    <div class="tab-actions">
+                        <img src="assets/add.png" class="action-icon" title="Add" />
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Entry Exit Name</th>
+                            <th>Entry Exit Description</th>
+                            <th>Entry Exit Type</th>
+                            <th>Created At</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+            <div *ngIf="activePageTab === 'identification'">
+
+
+
+
+
+
+
+
+
+
+                 <!-- HEADER -->
+  <div class="tab-header">
+    <span class="tab-title">Identification</span>
+    <div class="tab-actions">
+      <input type="text" class="search-input" placeholder="Search"
+             [(ngModel)]="identificationSearch" />
+      <img src="assets/add.png" class="action-icon" title="Add" />
+    </div>
+  </div>
+
+  <!-- radioBOXES -->
+<div class="identification-types">
+  <label class="radio-label">
+    <input type="radio" [(ngModel)]="idTypeSelected" value="manual" name="idType" />
+    Manually
+  </label>
+  <label class="radio-label">
+    <input type="radio" [(ngModel)]="idTypeSelected" value="automatic" name="idType" />
+    Automatic
+  </label>
+  <label class="radio-label">
+    <input type="radio" [(ngModel)]="idTypeSelected" value="hybrid" name="idType" />
+    Hybrid
+  </label>
+</div>
+  <!-- TABLE — show only if automatic or hybrid checked -->
+ 
+    <table class="custom-table" *ngIf="idTypeSelected === 'automatic' || idTypeSelected === 'hybrid'">
+    <thead>
+      <tr>
+        <th>Identification Name</th>
+        <th>Reader Id</th>
+        <th>Entry/Exit</th>
+        <th>Reader Name</th>
+        <th>Identification Type</th>
+        <th>Created At</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of filteredIdentifications">
+        <td>{{ item.name }}</td>
+        <td>{{ item.readerId }}</td>
+        <td>{{ item.entryExit }}</td>
+        <td>{{ item.readerName }}</td>
+        <td>{{ item.type }}</td>
+        <td style="white-space:nowrap">{{ item.createdAt }}</td>
+        <td class="action-cell">
+          <div class="action-cell-inner">
+            <img src="assets/editpurple.png" class="table-icon" title="Edit" />
+            <img src="assets/del.png" class="table-icon" title="Delete" />
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <div *ngIf="activePageTab === 'reconcile'">
+
+
+
+
+
+
+
+  <div class="tab-header">
+    <span class="tab-title">Reconcile Pass</span>
+    <div class="tab-actions">
+      <input type="text" class="search-input" placeholder="Search"
+             [(ngModel)]="identificationSearch" />
+      <img src="assets/add.png" class="action-icon" title="Add" />
+    </div>
+  </div>
+
+
+
+
+
+
+<table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Number Of Visitors</th>
+                            <th>Number Of Pepole Exited</th>
+                            <th>Number Of Physically Pass</th>
+                            <th>Verified Security EmpNo</th>
+                            <th>Created At</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let Reconcile of Reconcile ">
+                            <td>{{ Reconcile.visitors }}</td>
+                            <td>{{ Reconcile.peopleExited }}</td>
+                            <td>{{ Reconcile.physicallyPass }}</td>
+                            <td>{{ Reconcile.empno }}</td>
+                            <td style="white-space:nowrap">{{ Reconcile.createdAt }}</td>
+                            <td class="action-cell">
+                                <div class="action-cell-inner">
+                                    <img src="assets/editpurple.png" class="table-icon" title="Edit" />
+                                    <!-- <img src="assets/del.png" class="table-icon" title="Delete" /> -->
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+
+
+
+
+
+            </div>
+            <div *ngIf="activePageTab === 'permit'">
+
+
+
+
+
+
+
+
+                <div *ngIf="activePageTab === 'permit'">
+
+  <div class="visitor-panel-card">
+
+    <!-- CARD HEADER -->
+    <!-- <div class="vp-card-header">
+      <span>Client Info</span>
+    </div> -->
+
+<div class="vp-card-header">
+  <span>Client Info</span>
+  <img src="assets/add.png" class="action-icon" title="Add" />
+</div>
+
+
+
+    <div class="vp-card-body">
+
+      <!-- ROW 1 — 3 columns -->
+      <div class="permit-row">
+
+        <div class="permit-field">
+          <label class="vp-label">Client Name</label>
+          <input type="text" [(ngModel)]="clientInfo.clientName" 
+                 class="vp-input" placeholder="Client Name" />
+        </div>
+
+        <div class="permit-field">
+          <label class="vp-label">Client Support Contact Number</label>
+          <input type="text" [(ngModel)]="clientInfo.supportContact" 
+                 class="vp-input" placeholder="Support Contact" />
+        </div>
+
+        <div class="permit-field">
+          <label class="vp-label">Security Contact Number</label>
+          <input type="text" [(ngModel)]="clientInfo.securityContact" 
+                 class="vp-input" placeholder="Security Contact" />
+        </div>
+
+      </div>
+
+      <!-- ROW 2 — 2 columns -->
+      <div class="permit-row">
+
+        <div class="permit-field">
+          <label class="vp-label">Fire Contact Number</label>
+          <input type="text" [(ngModel)]="clientInfo.fireContact" 
+                 class="vp-input" placeholder="Fire Contact" />
+        </div>
+
+        <div class="permit-field">
+          <label class="vp-label">Email Id</label>
+          <input type="text" [(ngModel)]="clientInfo.emailId" 
+                 class="vp-input" placeholder="Email Id" />
+        </div>
+
+        <!-- ✅ empty div to keep layout balanced -->
+        <div class="permit-field"></div>
+
+      </div>
+
+      <!-- BUTTONS -->
+      <div class="vp-footer">
+        <button class="vp-cancel-btn" (click)="cancelClientInfo()">Cancel</button>
+        <button class="vp-save-btn" (click)="saveClientInfo()">Save</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+            <div *ngIf="activePageTab === 'registration'">Registration Details Content</div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- last end -->
+</div>

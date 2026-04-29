@@ -29,6 +29,7 @@ import { User } from './component/navbar/pages/user/user';
 import { Role } from './component/navbar/pages/role/role';
 import { Createrole } from './component/navbar/pages/createrole/createrole';
 import { Accesscontroll } from './component/navbar/pages/accesscontroll/accesscontroll';
+import { Setting } from './component/navbar/pages/setting/setting';
 
 export const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -61,6 +62,7 @@ export const routes: Routes = [
 {path:'user' , component:User},
 {path:'role' , component:Role},
 {path: 'createrole' , component:Createrole},
-{path:'accesscontroll', component:Accesscontroll}
+{path:'accesscontroll', component:Accesscontroll},
+{path: 'setting' , component:Setting}
 
 ];

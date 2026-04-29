@@ -1,0 +1,592 @@
+.report-container {
+  background: #ffff;
+  padding: 20px;
+  border-radius: 20px;
+  font-family: 'Red Hat Display', sans-serif;
+  min-height: calc(100vh - 80px);
+  width: 100%;              /* ✅ full available space */
+  max-width: 100%;          /* ✅ prevent overflow */
+  box-sizing: border-box;   /* ✅ include padding */
+   border: 1px solid #d4d6da;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.top-tabs {
+  display: flex;
+  justify-content: flex-end;  /* ✅ pushes tabs to right */
+  margin-bottom: 16px;
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #f5f5f5;
+  border-radius: 30px;
+  padding: 4px;
+  width: fit-content;
+  flex-wrap: wrap;             /* ✅ wraps if too many tabs */
+}
+
+.tab {
+  padding: 8px 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #666;
+  background: transparent;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  background-color: #e0d4f5;
+  color: #7030A0;
+}
+
+.tab.active {
+  background: #7030A0;
+  color: #fff;
+  font-weight: 600;
+}
+
+.tab-content {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.visitor-panel-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+}
+
+/* .vp-card-header {
+  background: #f0f0f0;
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid #e0e0e0;
+} */
+
+.vp-card-body {
+  padding: 20px;
+}
+
+.vp-section {
+  margin-bottom: 16px;
+}
+
+.vp-label {
+  font-size: 13px;
+  color: #444;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.vp-bg-upload-box {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 30px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  min-height: 120px;
+}
+
+.vp-upload-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.vp-upload-btn {
+  background: #7030A0;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.vp-upload-btn:hover {
+  background: #5a2580;
+}
+
+.vp-upload-hint {
+  font-size: 11px;
+  color: #e74c3c;
+  text-align: center;
+}
+
+.vp-bg-preview img {
+  width: 90px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.vp-divider {
+  border-top: 1px solid #f0f0f0;
+  margin: 16px 0;
+}
+
+.vp-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.vp-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.vp-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.vp-input {
+  width: 97%;
+  padding: 10px 12px;
+  border: 1px solid #d4d6da;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #555;
+  outline: none;
+  transition: 0.2s;
+}
+
+.vp-input:focus {
+  border-color: #7030A0;
+  box-shadow: 0 0 0 2px rgba(112, 48, 160, 0.15);
+}
+
+.vp-file-input {
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+      border: 1px solid #d4d6da;
+      padding: 8px 12px;
+      border-radius: 8px;
+}
+
+.vp-checkbox-group {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.vp-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+}
+
+.vp-checkbox-label input[type="checkbox"] {
+  accent-color: #7030A0;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.vp-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.vp-cancel-btn {
+  padding: 12px;
+  background: #888;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.vp-cancel-btn:hover {
+  background: #666;
+}
+
+.vp-save-btn {
+  padding: 12px;
+  background: #7030A0;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.vp-save-btn:hover {
+  background: #5a2580;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .search-input {
+  padding: 8px 14px;
+  border: 1px solid #d4d6da;
+  border-radius: 10px;
+  font-size: 13px;
+  outline: none;
+  transition: 0.2s;
+  width: 200px;
+} */
+
+/* .search-input:focus {
+  border-color: #7030A0;
+  box-shadow: 0 0 0 2px rgba(112, 48, 160, 0.15);
+} */
+
+
+
+
+
+
+
+
+
+
+
+.action-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  object-fit: contain;
+  /* opacity: 0.8; */
+  transition: 0.2s;
+}
+
+.action-icon:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.table-icon {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  object-fit: contain;
+  /* opacity: 0.7; */
+  transition: 0.2s;
+  padding: 5px;
+}
+
+.table-icon:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .tab-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  width: 100%;
+} */
+
+/* .tab-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #7030A0;
+  white-space: nowrap;
+} */
+
+/* .tab-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;  
+} */
+
+/* .search-input {
+  padding: 8px 14px;
+  border: 1px solid #d4d6da;
+  border-radius: 10px;
+  font-size: 13px;
+  outline: none;
+  transition: 0.2s;
+  width: 200px;
+} */
+
+/* .search-input:focus {
+  border-color: #7030A0;
+  box-shadow: 0 0 0 2px rgba(112, 48, 160, 0.15);
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tab-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  width: 100%;
+  position: relative;  /* ✅ needed for center positioning */
+}
+
+.tab-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #7030A0;
+  white-space: nowrap;
+}
+
+/* ✅ search centered absolutely */
+.search-input {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 14px;
+  border: 1px solid #d4d6da;
+  border-radius: 10px;
+  font-size: 13px;
+  outline: none;
+  transition: 0.2s;
+  width: 250px;
+}
+
+.search-input:focus {
+  border-color: #7030A0;
+  box-shadow: 0 0 0 2px rgba(112, 48, 160, 0.15);
+}
+
+/* ✅ add icon stays right */
+.tab-actions {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+/* ✅ table full width */
+.custom-table {
+  width: 100%;
+  table-layout: fixed;  /* ✅ forces equal column widths */
+  border-collapse: separate;
+  border-spacing: 15px;
+  font-size: 13px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); */
+}
+
+.custom-table th,
+.custom-table td {
+    text-align: left;
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.identification-types {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  background: #f8f4ff;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+
+
+
+
+
+
+
+
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+  accent-color: #7030A0;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.permit-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;  /* ✅ 3 equal columns */
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.permit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.vp-card-header {
+  background: #f0f0f0;
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;                    /* ✅ add this */
+  align-items: center;              /* ✅ add this */
+  justify-content: space-between;   /* ✅ pushes icon to right */
+}

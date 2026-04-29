@@ -70,18 +70,18 @@ export class Navbar implements OnInit {
           children: [
             { name: 'Manage', path:'/visitorpermit' },
             {
-              name: 'Masters',
-              hasArrow: true,
-              expanded: false,
-              children: [
-                { name: 'Visitor Panel' },
-                { name: 'Approval' },
-                { name: 'Entry/Exit' },
-                { name: 'Identification' },
-                { name: 'Permit' },
-                { name: 'Registration Details' },
-                { name: 'Reconsile Pass' }
-              ]
+              name: 'Setting', path:'/setting' 
+              // hasArrow: true,
+              // expanded: false,
+              // children: [
+              //   { name: 'Visitor Panel' },
+              //   { name: 'Approval' },
+              //   { name: 'Entry/Exit' },
+              //   { name: 'Identification' },
+              //   { name: 'Permit' },
+              //   { name: 'Registration Details' },
+              //   { name: 'Reconsile Pass' }
+              // ]
             },
             { name: 'Safety Permit' }
           ]
@@ -276,7 +276,8 @@ isAdministrationActive(): boolean {
   this.activeRoute.includes('/user')||
   this.activeRoute.includes('/role') ||
   this.activeRoute.includes('/license')||
-  this.activeRoute.includes('/createrole');
+  this.activeRoute.includes('/createrole')||
+  this.activeRoute.includes('/accesscontroll');
 }
 
 onAdminClick(event: Event) {
