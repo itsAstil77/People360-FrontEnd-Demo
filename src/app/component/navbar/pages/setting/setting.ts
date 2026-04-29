@@ -193,7 +193,7 @@ get filteredIdentifications() {
 
 
 
-ReconcileSearch = '';
+// ReconcileSearch = '';
 
 Reconcile = [
   {
@@ -258,6 +258,41 @@ cancelClientInfo() {
 
 
 
+
+
+activeRegTab = 'individual';
+
+
+
+
+
+
+
+
+
+
+
+
+Individual = [
+  {
+    firstName: 'bala',
+    lastName: 'max',
+    mobileNO: '13456541',
+    email:'balamax@gmail.com',
+    idType: 'Passport(EID)',
+    idNo:'679',
+    status:'Approved'
+  },
+  {
+    firstName: 'ajithbala',
+    lastName: 'rock',
+    mobileNO: '565434534',
+    email:'ajithbala@gmail.com',
+    idType: 'Passport(EID)',
+    idNo:'690',
+    status:'Approved'
+  }
+];
 
 
 

@@ -277,7 +277,8 @@ isAdministrationActive(): boolean {
   this.activeRoute.includes('/role') ||
   this.activeRoute.includes('/license')||
   this.activeRoute.includes('/createrole')||
-  this.activeRoute.includes('/accesscontroll');
+  this.activeRoute.includes('/accesscontroll')||
+  this.activeRoute.includes('/setting');
 }
 
 onAdminClick(event: Event) {
