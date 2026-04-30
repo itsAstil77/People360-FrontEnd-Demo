@@ -640,21 +640,38 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <!-- <tr *ngFor="let Reconcile of Reconcile ">
-                                <td>{{ Reconcile.visitors }}</td>
-                                <td>{{ Reconcile.peopleExited }}</td>
-                                <td>{{ Reconcile.physicallyPass }}</td>
-                                <td>{{ Reconcile.empno }}</td>
-                                <td style="white-space:nowrap">{{ Reconcile.createdAt }}</td>
-                                <td class="action-cell">
-                                    <div class="action-cell-inner">
-                                        <img src="assets/editpurple.png" class="table-icon" title="Edit" />
-                                     
-                                    </div>
-                                </td>
-                            </tr> -->
-                        </tbody>
+                     <tbody>
+  <tr *ngFor="let company of filteredCompanies">
+    <td>{{ company.firstName }}</td>
+    <td>{{ company.lastName }}</td>
+    <td>{{ company.mobileNo }}</td>
+    <td>{{ company.emailId }}</td>
+    <td>{{ company.companyName }}</td>
+    <td>{{ company.contactName }}</td>
+    <td>{{ company.contactNumber }}</td>
+    <td>{{ company.companyEmail }}</td>
+    <td>{{ company.tradeLicenseNo }}</td>
+    <td style="white-space:nowrap">{{ company.tradeLicenseExpiry }}</td>
+    <td>{{ company.idType }}</td>
+    <td>{{ company.idNo }}</td>
+    <td>{{ company.documentType }}</td>
+    <td>{{ company.documentNumber }}</td>
+    <td style="white-space:nowrap">{{ company.expiresOn }}</td>
+    <td>
+      <span class="status-badge"
+        [class.approved]="company.status === 'Approved'"
+        [class.pending]="company.status === 'Pending'">
+        {{ company.status }}
+      </span>
+    </td>
+    <td class="action-cell">
+      <div class="action-cell-inner">
+        <img src="assets/editpurple.png" class="table-icon" title="Edit" />
+        <img src="assets/del.png" class="table-icon" title="Delete" />
+      </div>
+    </td>
+  </tr>
+</tbody>
                     </table>
 
 

@@ -661,7 +661,7 @@
 
 .custom-table th {
   text-align: left;
-  padding: 12px 14px;
+  padding: 12px 0px;
   font-weight: 600;
   color: #7030A0;
   /* border-bottom: 1px solid #ede8f5; */

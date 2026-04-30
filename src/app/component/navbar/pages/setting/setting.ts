@@ -296,4 +296,73 @@ Individual = [
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+companySearch = '';
+
+companies = [
+  {
+    firstName: 'John',
+    lastName: 'Doe',
+    mobileNo: '9876543210',
+    emailId: 'john.doe@email.com',
+    companyName: 'Acme Corp',
+    contactName: 'Jane Smith',
+    contactNumber: '9876501234',
+    companyEmail: 'contact@acmecorp.com',
+    tradeLicenseNo: 'TL-2024-001',
+    tradeLicenseExpiry: '2026-12-31',
+    idType: 'Passport',
+    idNo: 'P1234567',
+    documentType: 'Passport(EID)',
+    documentNumber: 'DOC-001',
+    expiresOn: '2027-01-01',
+    status: 'Approved'
+  },
+  {
+    firstName: 'Sarah',
+    lastName: 'Connor',
+    mobileNo: '8765432109',
+    emailId: 'sarah.connor@email.com',
+    companyName: 'TechStar Ltd',
+    contactName: 'Mike Brown',
+    contactNumber: '8765401234',
+    companyEmail: 'info@techstar.com',
+    tradeLicenseNo: 'TL-2024-002',
+    tradeLicenseExpiry: '2025-06-30',
+    idType: 'National ID',
+    idNo: 'N9876543',
+    documentType: 'National ID',
+    documentNumber: 'DOC-002',
+    expiresOn: '2026-05-15',
+    status: 'Pending'
+  }
+];
+
+get filteredCompanies() {
+  return this.companies.filter(c =>
+    c.companyName.toLowerCase().includes(this.companySearch.toLowerCase()) ||
+    c.firstName.toLowerCase().includes(this.companySearch.toLowerCase())
+  );
+}
 }
